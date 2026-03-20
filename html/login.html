@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SECURE_ACCESS // TERMINAL</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&family=Manrope:wght@400;700&family=Be+Vietnam+Pro:wght@400;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-background">
+
+<main class="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none scanline"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(129,236,255,0.1),transparent_70%)]"></div>
+
+    <div class="w-full max-w-md z-10">
+        <header class="mb-8">
+            <div class="inline-block bg-secondary/20 border border-secondary/40 px-2 py-0.5 mb-2">
+                <span class="font-label text-[10px] font-black text-secondary tracking-widest uppercase italic">Acceso Restringido</span>
+            </div>
+            <h1 class="font-headline text-5xl font-black tracking-tighter text-primary uppercase leading-none">SECURE_ACCESS</h1>
+            <p class="font-label text-xs text-outline mt-2 tracking-widest uppercase opacity-70">Protocolo_v4.2 // Node_09</p>
+        </header>
+
+        <div class="bg-surface-container-low p-8 relative clipped-corner border-l-2 border-primary shadow-[20px_20px_0px_rgba(129,236,255,0.03)]">
+            <form class="space-y-8">
+                <div class="space-y-1">
+                    <label class="block font-label text-[10px] font-bold text-primary tracking-[0.2em] uppercase">Identificador</label>
+                    <div class="relative group">
+                        <input class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-3 focus:ring-0 focus:border-primary placeholder:text-outline/30 font-headline text-lg transition-colors" placeholder="USER_NODE_ID" type="text" required/>
+                        <div class="absolute bottom-0 right-0 w-1 h-2 bg-primary opacity-0 group-focus-within:opacity-100"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block font-label text-[10px] font-bold text-primary tracking-[0.2em] uppercase">Código de Acceso</label>
+                    <div class="relative group">
+                        <input class="w-full bg-transparent border-0 border-b-2 border-outline-variant py-3 focus:ring-0 focus:border-primary placeholder:text-outline/30 font-headline text-lg tracking-widest transition-colors" placeholder="••••••••" type="password" required/>
+                        <div class="absolute bottom-0 right-0 w-1 h-2 bg-primary opacity-0 group-focus-within:opacity-100"></div>
+                    </div>
+                </div>
+
+                <button class="w-full group relative bg-primary text-background py-4 font-headline font-black uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all active:scale-95 glow-primary" type="submit">
+                    <span class="relative z-10 flex items-center justify-center gap-2">
+                        Inicializar Login
+                        <span class="material-symbols-outlined text-xl">login</span>
+                    </span>
+                </button>
+            </form>
+
+            <div class="mt-10 flex items-center gap-4">
+                <div class="flex-1 h-1 bg-outline-variant/20">
+                    <div class="h-full bg-secondary w-[65%] sync-glow"></div>
+                </div>
+                <span class="font-label text-[10px] text-secondary tracking-tighter uppercase font-bold">Syncing... 65%</span>
+            </div>
+        </div>
+
+        <div class="mt-8 flex justify-between items-center px-2">
+            <a class="font-label text-[10px] text-outline hover:text-primary transition-colors uppercase tracking-widest" href="#">¿Credenciales Olvidadas?</a>
+            <div class="flex gap-4">
+                <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                <span class="w-2 h-2 bg-secondary rounded-full"></span>
+                <span class="w-2 h-2 bg-tertiary rounded-full"></span>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
