@@ -1,0 +1,47 @@
+/* Configuración Global de Iconos */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* --- Efectos de SECURE_ACCESS --- */
+.clipped-corner {
+    clip-path: polygon(0 0, 92% 0, 100% 15%, 100% 100%, 0 100%);
+}
+
+.scanline {
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 251, 251, 0.05) 50%);
+    background-size: 100% 4px;
+}
+
+/* --- Efectos de AniVibe --- */
+.glow-primary:hover {
+    box-shadow: 0 0 15px rgba(129, 236, 255, 0.4);
+}
+
+.text-glow-secondary {
+    text-shadow: 0 0 10px rgba(255, 117, 32, 0.5);
+}
+
+/* --- Animaciones Comunes --- */
+.sync-glow, .animate-pulse-custom {
+    animation: pulse-custom 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-custom {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Scrollbar Estilo Cyberpunk */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #060e20;
+}
+::-webkit-scrollbar-thumb {
+    background: #40485d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #81ecff;
+}
