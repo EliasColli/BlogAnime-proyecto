@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>CURATOR | Sign In</title>
+    <title>CURATOR | Sign Up</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
@@ -145,12 +145,17 @@
                     <h1 class="font-headline text-3xl font-black tracking-tighter text-white">CURATOR</h1>
                 </div>
                 <div class="space-y-2">
-                    <h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface">Sign In</h2>
-                    <p class="text-on-surface-variant font-light">Access your curated collection and reviews.</p>
+                    <h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface">Sign Up</h2>
+                    <p class="text-on-surface-variant font-light">Join the digital network of anime curators.</p>
                 </div>
                 <!-- Form -->
-                <form id="loginForm" class="space-y-8">
+                <form id="registerForm" class="space-y-8">
                     <div class="space-y-6">
+                        <!-- Name Field -->
+                        <div class="space-y-2 group">
+                            <label class="font-label text-[0.65rem] tracking-widest uppercase text-on-surface-variant group-focus-within:text-secondary transition-colors" for="fullname">Full Name</label>
+                            <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 text-on-surface placeholder:text-outline-variant/50 transition-all py-3 px-0" id="fullname" placeholder="John Doe" type="text" required />
+                        </div>
                         <!-- Email Field -->
                         <div class="space-y-2 group">
                             <label
@@ -158,41 +163,37 @@
                                 for="email">Digital Identity</label>
                             <input
                                 class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 text-on-surface placeholder:text-outline-variant/50 transition-all py-3 px-0"
-                                id="email" placeholder="email@example.com" type="email" />
+                                id="email" placeholder="email@example.com" type="email" required />
                         </div>
                         <!-- Password Field -->
                         <div class="space-y-2 group">
-                            <div class="flex justify-between items-end">
-                                <label
-                                    class="font-label text-[0.65rem] tracking-widest uppercase text-on-surface-variant group-focus-within:text-secondary transition-colors"
-                                    for="password">Secure Key</label>
-                                <a class="font-label text-[0.6rem] text-outline-variant hover:text-secondary transition-colors uppercase tracking-wider"
-                                    href="forgot-password.html">Forgot?</a>
-                            </div>
-                            <input
-                                class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 text-on-surface placeholder:text-outline-variant/50 transition-all py-3 px-0"
-                                id="password" placeholder="••••••••" type="password" />
+                            <label class="font-label text-[0.65rem] tracking-widest uppercase text-on-surface-variant group-focus-within:text-secondary transition-colors" for="password">Secure Key</label>
+                            <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 text-on-surface placeholder:text-outline-variant/50 transition-all py-3 px-0" id="password" placeholder="••••••••" type="password" required />
+                        </div>
+                        <!-- Confirm Password Field -->
+                        <div class="space-y-2 group">
+                            <label class="font-label text-[0.65rem] tracking-widest uppercase text-on-surface-variant group-focus-within:text-secondary transition-colors" for="confirmPassword">Confirm Key</label>
+                            <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 text-on-surface placeholder:text-outline-variant/50 transition-all py-3 px-0" id="confirmPassword" placeholder="••••••••" type="password" required />
                         </div>
                     </div>
                     <!-- Primary Action -->
                     <button
                         class="w-full editorial-gradient py-4 rounded-lg font-headline font-bold uppercase tracking-widest text-on-primary text-sm shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-95 transition-all duration-300"
                         type="submit">
-                        <span>Sign In</span>
+                        <span>Sign Up</span>
                     </button>
                 </form>
 
                 <!-- Footer Text -->
                 <div class="pt-8 text-center">
                     <p class="font-label text-[0.65rem] text-outline-variant tracking-widest uppercase">
-                        New Reader? <a class="text-secondary hover:underline underline-offset-4 ml-2" href="register.html">Request
-                            Invite</a>
+                        Already Registered? <a class="text-secondary hover:underline underline-offset-4 ml-2" href="login.html">Sign In</a>
                     </p>
                 </div>
             </div>
             <!-- Bottom Floating Decor -->
             <div class="absolute bottom-8 left-0 right-0 flex justify-center opacity-10 pointer-events-none">
-                <span class="font-headline text-[10rem] font-black tracking-tighter leading-none">SIGN IN</span>
+                <span class="font-headline text-[10rem] font-black tracking-tighter leading-none">SIGN UP</span>
             </div>
         </section>
     </main>

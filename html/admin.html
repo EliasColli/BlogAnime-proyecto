@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <script>const currentUserStr = localStorage.getItem("currentUser"); if (!currentUserStr) { window.location.replace("login.html"); } else { const u = JSON.parse(currentUserStr); if (u.role !== "ADMIN") { window.location.replace("index.html"); } }</script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Digital Curator | Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#ffd9dc",
+                        "outline-variant": "#594043",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#31353e",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface": "#0f131c",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-background": "#dfe2ee",
+                        "on-primary-container": "#62001e",
+                        "on-tertiary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "inverse-on-surface": "#2c3039",
+                        "inverse-surface": "#dfe2ee",
+                        "secondary-container": "#00e3fd",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-container": "#949595",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#910030",
+                        "on-surface": "#dfe2ee",
+                        "surface-container-highest": "#31353e",
+                        "outline": "#a8898b",
+                        "on-secondary-fixed": "#001f24",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#e1bec1",
+                        "primary-container": "#ff5b79",
+                        "background": "#0f131c",
+                        "on-secondary": "#00363d",
+                        "surface-tint": "#ffb2ba",
+                        "primary": "#ffb2ba",
+                        "on-primary": "#670020",
+                        "secondary-fixed": "#9cf0ff",
+                        "inverse-primary": "#b42145",
+                        "surface-bright": "#353942",
+                        "on-tertiary-container": "#2c2e2e",
+                        "surface-container-high": "#262a33",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-low": "#181c24",
+                        "surface-container-lowest": "#0a0e16",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-secondary-container": "#00616d",
+                        "on-primary-fixed": "#400010",
+                        "surface-container": "#1c2028",
+                        "secondary": "#bdf4ff",
+                        "surface-dim": "#0f131c",
+                        "tertiary": "#c6c6c7",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#ffb2ba"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #0f131c;
+            color: #dfe2ee;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .editorial-gradient {
+            background: linear-gradient(135deg, #181c24 0%, #0f131c 100%);
+        }
+
+        .neon-glow-pink {
+            filter: drop-shadow(0 0 10px rgba(255, 178, 186, 0.3));
+        }
+
+        .neon-glow-cyan {
+            filter: drop-shadow(0 0 10px rgba(189, 244, 255, 0.3));
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+
+    <!-- Requisitos Académicos: Bootstrap & jQuery -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-background text-on-background">
+    <!-- SideNavBar -->
+    <aside class="w-64 h-screen fixed left-0 top-0 border-0 bg-[#0f131c] flex flex-col h-full py-8 z-50">
+        <div class="px-8 mb-12">
+            <h1 class="text-2xl font-bold text-[#ffb2ba] font-['Space_Grotesk'] tracking-tighter uppercase">CURATOR</h1>
+            <p class="text-[10px] font-['Space_Grotesk'] tracking-widest text-[#c6c6c7] opacity-60">ADMIN_V1.0</p>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center px-8 py-4 text-[#bdf4ff] border-l-4 border-[#bdf4ff] bg-transparent font-['Space_Grotesk'] tracking-tighter uppercase transition-none"
+                href="#">
+                <span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a class="flex items-center px-8 py-4 text-[#c6c6c7] opacity-60 hover:bg-[#262a33] transition-none font-['Space_Grotesk'] tracking-tighter uppercase"
+                href="#">
+                <span class="material-symbols-outlined mr-4">article</span>
+                <span>Articles</span>
+            </a>
+            <a class="flex items-center px-8 py-4 text-[#c6c6c7] opacity-60 hover:bg-[#262a33] transition-none font-['Space_Grotesk'] tracking-tighter uppercase"
+                href="#">
+                <span class="material-symbols-outlined mr-4">collections</span>
+                <span>Gallery</span>
+            </a>
+            <a class="flex items-center px-8 py-4 text-[#c6c6c7] opacity-60 hover:bg-[#262a33] transition-none font-['Space_Grotesk'] tracking-tighter uppercase"
+                href="#">
+                <span class="material-symbols-outlined mr-4">group</span>
+                <span>User Management</span>
+            </a>
+            <a class="flex items-center px-8 py-4 text-[#c6c6c7] opacity-60 hover:bg-[#262a33] transition-none font-['Space_Grotesk'] tracking-tighter uppercase"
+                href="#">
+                <span class="material-symbols-outlined mr-4">monitoring</span>
+                <span>Analytics</span>
+            </a>
+            <a class="flex items-center px-8 py-4 text-[#c6c6c7] opacity-60 hover:bg-[#262a33] transition-none font-['Space_Grotesk'] tracking-tighter uppercase"
+                href="#">
+                <span class="material-symbols-outlined mr-4">settings</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+        <div class="px-8 mt-auto">
+            <div class="p-4 bg-surface-container-low border-l-2 border-primary">
+                <p class="text-[10px] font-headline uppercase tracking-widest text-primary mb-1">System Status</p>
+                <p class="text-xs text-on-surface opacity-80">All Nodes Operational</p>
+            </div>
+        </div>
+    </aside>
+    <!-- TopNavBar -->
+    <header
+        class="fixed top-0 right-0 left-64 h-16 border-0 bg-[#0f131c]/80 backdrop-blur-xl flex justify-between items-center px-8 w-auto z-40">
+        <div class="flex items-center flex-1">
+            <div class="relative w-full max-w-md">
+                <span
+                    class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-[#c6c6c7]">search</span>
+                <input
+                    class="bg-transparent border-0 border-b border-[#262a33] focus:border-[#bdf4ff] focus:ring-0 text-xs font-['Space_Grotesk'] tracking-widest text-on-surface w-full pl-8 py-2"
+                    placeholder="SEARCH ASSETS..." type="text" />
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <button class="relative text-[#c6c6c7] hover:text-[#ffb2ba] active:scale-95 transition-all">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-0 right-0 w-2 h-2 bg-primary-container"></span>
+            </button>
+            <div class="flex items-center gap-3 pl-6 border-l border-[#262a33]">
+                <div class="text-right">
+                    <p class="text-[10px] font-['Space_Grotesk'] font-black text-[#ffb2ba] leading-none">ADMIN_USER</p>
+                    <p class="text-[8px] font-['Space_Grotesk'] text-[#c6c6c7] tracking-widest">SUPER_ADMIN</p>
+                </div>
+                <div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center overflow-hidden">
+                    <img alt="Admin User Profile" class="w-full h-full object-cover grayscale contrast-125"
+                        data-alt="Close up portrait of a digital artist"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY17Xtap_eWeAwHItOjKO4fLydglwF-WkKm-LXpedxwQCxyCcF9eJEyl4GkGLRzkwaPRnlM9FVeTZK-DGVZCiMlj-dOBCAwby9yk2DVJHaqSmQUcgRXdKkPwcJBsZDK_8Qd6-1ZPhg2_7GkSjKF3H2UE-8n4P28sjtfbLOBoJEeCfhDVIuhay8P-ML9FXYzuqmhUjV3RPsVkZP1wH-uukYlMJ0ZSuvdZbH6zZpCpKRuqRpGrW2CF8ACpTOSCBAXIzTy_nS3atKGb49" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-64 pt-24 px-8 pb-12">
+        <!-- Hero Stats Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div
+                class="bg-surface-container-low p-8 relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="material-symbols-outlined text-6xl">visibility</span>
+                </div>
+                <p class="text-[10px] font-headline uppercase tracking-[0.2em] text-tertiary mb-8">Total Views</p>
+                <div class="flex items-baseline gap-2">
+                    <h2 class="text-5xl font-headline font-bold text-primary neon-glow-pink">1.2M</h2>
+                    <span class="text-[10px] font-label text-secondary">+12%</span>
+                </div>
+            </div>
+            <div
+                class="bg-surface-container-low p-8 relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                </div>
+                <p class="text-[10px] font-headline uppercase tracking-[0.2em] text-tertiary mb-8">New Subscribers</p>
+                <div class="flex items-baseline gap-2">
+                    <h2 class="text-5xl font-headline font-bold text-secondary neon-glow-cyan">45.2K</h2>
+                    <span class="text-[10px] font-label text-primary">+8.4%</span>
+                </div>
+            </div>
+            <div
+                class="bg-surface-container-low p-8 relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="material-symbols-outlined text-6xl">dynamic_feed</span>
+                </div>
+                <p class="text-[10px] font-headline uppercase tracking-[0.2em] text-tertiary mb-8">Active Articles</p>
+                <div class="flex items-baseline gap-2">
+                    <h2 class="text-5xl font-headline font-bold text-on-surface">842</h2>
+                    <span class="text-[10px] font-label text-secondary">LIVE</span>
+                </div>
+            </div>
+            <div
+                class="bg-surface-container-low p-8 relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="material-symbols-outlined text-6xl">payments</span>
+                </div>
+                <p class="text-[10px] font-headline uppercase tracking-[0.2em] text-tertiary mb-8">Revenue</p>
+                <div class="flex items-baseline gap-2">
+                    <h2 class="text-5xl font-headline font-bold text-primary-container">$12.8K</h2>
+                    <span class="text-[10px] font-label text-secondary">+22%</span>
+                </div>
+            </div>
+        </section>
+        <!-- Main Insights Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12 items-start">
+            <!-- Weekly Engagement Chart Placeholder -->
+            <div class="lg:col-span-2 bg-surface-container-low p-8">
+                <div class="flex justify-between items-center mb-12">
+                    <div>
+                        <h3 class="text-xl font-headline font-bold uppercase tracking-tighter text-on-surface">Weekly
+                            Engagement</h3>
+                        <p class="text-[10px] font-label uppercase tracking-widest text-tertiary opacity-60">Traffic
+                            Distribution (7D)</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-primary"></span>
+                            <span class="text-[10px] font-headline uppercase">Direct</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-secondary"></span>
+                            <span class="text-[10px] font-headline uppercase">Organic</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stylized Mock Chart -->
+                <div class="h-64 flex items-end justify-between gap-1 px-4 relative">
+                    <!-- Grid Lines -->
+                    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-5">
+                        <div class="border-t border-on-surface w-full"></div>
+                        <div class="border-t border-on-surface w-full"></div>
+                        <div class="border-t border-on-surface w-full"></div>
+                        <div class="border-t border-on-surface w-full"></div>
+                    </div>
+                    <div class="w-full bg-primary/20 h-32 relative group">
+                        <div class="absolute bottom-0 w-full bg-primary h-12 group-hover:h-14 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">MON</p>
+                    </div>
+                    <div class="w-full bg-secondary/20 h-48 relative group">
+                        <div class="absolute bottom-0 w-full bg-secondary h-24 group-hover:h-26 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">TUE</p>
+                    </div>
+                    <div class="w-full bg-primary/20 h-40 relative group">
+                        <div class="absolute bottom-0 w-full bg-primary h-20 group-hover:h-22 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">WED</p>
+                    </div>
+                    <div class="w-full bg-secondary/20 h-56 relative group">
+                        <div class="absolute bottom-0 w-full bg-secondary h-44 group-hover:h-46 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">THU</p>
+                    </div>
+                    <div class="w-full bg-primary/20 h-24 relative group">
+                        <div class="absolute bottom-0 w-full bg-primary h-8 group-hover:h-10 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">FRI</p>
+                    </div>
+                    <div class="w-full bg-secondary/20 h-64 relative group">
+                        <div class="absolute bottom-0 w-full bg-secondary h-56 group-hover:h-58 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">SAT</p>
+                    </div>
+                    <div class="w-full bg-primary/20 h-44 relative group">
+                        <div class="absolute bottom-0 w-full bg-primary h-32 group-hover:h-34 transition-all"></div>
+                        <p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-headline">SUN</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Curators List -->
+            <div class="bg-surface-container-low p-8">
+                <h3 class="text-xl font-headline font-bold uppercase tracking-tighter text-on-surface mb-8">Top Curators
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-surface-container-highest overflow-hidden">
+                                <img alt="Curator 1" class="w-full h-full object-cover grayscale"
+                                    data-alt="Portrait of a modern male curator"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuANg06qiL67vFjo6nYpfiGN2c-TX3ur_CqqsqAPP_UILy3rYYHC8VOOZ_C9pGhxrXoU9Mkxts_SW_G7WAu_wI9i_NLFPzRmqZY8Xti7lIDX-lmTE1FlAAX_FsC8xAfzyO5Jqr5XNycAaidcFaMFEPd7qvhhr2M2spEkPb5-eRv13qm4iZ_dagT-2nluORHOChjriHcIWLEpRpPRmpQAfbDOG7gl33lvOtp3lulPRJVfDEbKcZC_6dXy9G2SJUgXDa6qKS0veCDdP8VO" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-headline font-bold text-on-surface">JULIAN_V</p>
+                                <p class="text-[10px] text-tertiary">142 Articles</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs font-headline text-secondary">98.2K</p>
+                            <p class="text-[8px] text-tertiary uppercase">IMPACT</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-surface-container-highest overflow-hidden">
+                                <img alt="Curator 2" class="w-full h-full object-cover grayscale"
+                                    data-alt="Portrait of a creative female professional"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYD9WD5613PZVY0TsqcK2lODYI7XnyKLEsE5hKADHhC2DA0SHGqHnEzcdAG78R9XMMgQzLBr-LUUpBy92gygYNqSqbYzOxDNKMa38jorng67a2OAwPA0_oTHQWaytYTkuOE5RXyua9ZgQ4xaxrE4cwlt05YNUUVbsW2whEMqK3tyYd_oI3CzS8JRPB7yH_heqQHX-USChNkV3Y2BFbVjAcevf1MTfBvrr9zjr31QYt33K5D-AJEUQMWHJe4HLVlUEPqqd7CSsRYCb" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-headline font-bold text-on-surface">ELARA_K</p>
+                                <p class="text-[10px] text-tertiary">98 Articles</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs font-headline text-secondary">74.5K</p>
+                            <p class="text-[8px] text-tertiary uppercase">IMPACT</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-surface-container-highest overflow-hidden">
+                                <img alt="Curator 3" class="w-full h-full object-cover grayscale"
+                                    data-alt="Professional profile of an editor"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgg3PPjDraS40harSgfYRJoLDOYkxTuAc256KLIJy7bFQrVk5OaT0R2MmoKUJzn6j8GXZd9WlSPVmT2TMx-YcY9T_WLBxHNga03aNSDx48NFoOwTq0kT1l5dMboTCJEQhrIcS3bZzFqy4RYcj_gz3Fy-xshs0JwU9iHz5aYWQANBi-4JKMZLQLVfa3gaQrwkLMhy1T0IGxf6g8du_C_FTFs5fup01WuY9bos99vOSXp_VhUyOTRjCW8NrjBlZfcDftjefvDgif74QN" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-headline font-bold text-on-surface">MARCUS_D</p>
+                                <p class="text-[10px] text-tertiary">76 Articles</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs font-headline text-secondary">52.1K</p>
+                            <p class="text-[8px] text-tertiary uppercase">IMPACT</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-surface-container-highest overflow-hidden">
+                                <img alt="Curator 4" class="w-full h-full object-cover grayscale"
+                                    data-alt="Professional headshot of a female administrator"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAngNcm1lmUdmmFuawMJanGXUVYR7kqbQbE64DLLeI4bnG-cG2bcbwrYlibrB4EkjGK6soCG4lhrUktl3rgV3PxODSqpOUpBsxtIMdxkz90j0VusjDy9ns-zqcnylJi2CmtmFqRXCcCXbp2InDt4rZWXw9VVDEvYZKeD1XouoH7ptHc4ak7bKKrMv3-HObAiPq4ma76i1VDRa9YOI0AtVSzEPIbcJVhJPY5klnF3CzdR4c_8Q6Pv8IT98O_Gf8a8RNze8wh_GRhHeQF" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-headline font-bold text-on-surface">SARAH_L</p>
+                                <p class="text-[10px] text-tertiary">64 Articles</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs font-headline text-secondary">38.9K</p>
+                            <p class="text-[8px] text-tertiary uppercase">IMPACT</p>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="w-full mt-8 py-3 bg-surface-container-high hover:bg-surface-container-highest text-[10px] font-headline uppercase tracking-widest text-on-surface transition-all">View
+                    All Talent</button>
+            </div>
+        </div>
+        <!-- Recent Articles Table Section -->
+        <section class="bg-surface-container-low overflow-hidden">
+            <div class="p-8 flex justify-between items-center border-b border-[#262a33]">
+                <h3 class="text-xl font-headline font-bold uppercase tracking-tighter text-on-surface">Recent Articles
+                </h3>
+                <div class="flex gap-4">
+                    <button class="p-2 hover:bg-surface-container-high text-[#c6c6c7]">
+                        <span class="material-symbols-outlined">filter_list</span>
+                    </button>
+                    <button
+                        class="px-6 py-2 bg-primary text-on-primary text-[10px] font-headline font-bold uppercase tracking-widest hover:bg-primary-container transition-all">New
+                        Entry</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-surface-container-lowest border-b border-[#262a33]">
+                            <th
+                                class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">
+                                Title</th>
+                            <th
+                                class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">
+                                Author</th>
+                            <th
+                                class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">
+                                Status</th>
+                            <th
+                                class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">
+                                Views</th>
+                            <th
+                                class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">
+                                Likes</th>
+                            <th
+                                class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#181c24]">
+                        <tr class="hover:bg-surface-container-high transition-colors">
+                            <td class="px-8 py-6">
+                                <p class="text-sm font-headline font-bold text-on-surface">The Neo-Modernist Shift in
+                                    Digital Art</p>
+                                <p class="text-[10px] text-tertiary">PUBLISHED: 2H AGO</p>
+                            </td>
+                            <td class="px-8 py-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 bg-surface-container-highest">
+                                        <img alt="Author" class="w-full h-full object-cover grayscale"
+                                            data-alt="Small thumbnail of julian"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVNDh2HpSgo0gY5JHH45wt3mKcDNOxhu2Eu3QMhFWDOJOX1eN-YpsUl4-WazVYPSs0K3yxK-ImjkJ0xsHKHH2QTFAtnHk-txU9d_b-fWzsBBIWJ42fR-VLci6VI1joNRdHLQurNckya2-4SrxdF9TyBrduyRpYb8Ak3X2bXc3vHqKqMVYNXCAjw-FRkAWML2OYT17mx45Ab9BtxNZmKcY9Fb-R06juLFRka8qy48t16k2gxwNv51mMoSVAvjB9CvG8DtV4cA49brjk" />
+                                    </div>
+                                    <span class="text-xs text-on-surface">JULIAN_V</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="px-3 py-1 bg-secondary/10 text-secondary text-[8px] font-headline font-bold uppercase tracking-widest">Live</span>
+                            </td>
+                            <td class="px-8 py-6 text-sm font-headline">12,402</td>
+                            <td class="px-8 py-6 text-sm font-headline">842</td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary">more_vert</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-high transition-colors">
+                            <td class="px-8 py-6">
+                                <p class="text-sm font-headline font-bold text-on-surface">Architecture of the Void:
+                                    Minimalism 2.0</p>
+                                <p class="text-[10px] text-tertiary">PUBLISHED: 5H AGO</p>
+                            </td>
+                            <td class="px-8 py-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 bg-surface-container-highest">
+                                        <img alt="Author" class="w-full h-full object-cover grayscale"
+                                            data-alt="Small thumbnail of elara"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNWwKrhI8Z3GhP-NGykcxWtLLjiiBUveUmsmW7RL3BhJwPjtnYz5B8CSS8c3p8abK8mowxF6yE29M_8XlurUcvX8d1PIq8967OCUCpzCY4pua52xjdsZmUMUgIx-gsVdIV8_DqXxT8h-X2gmNqJmPgzdai_bmNDGHdOAEnYWB0YWeYX9SeqLE3HcX8zkLj4xFlYLKcX6vZBPaylP9N_FZbfM8nY0Ojx-HFG0COWN1YaKIgg16m6VxRbsr45CkXsVA8I3TGWA5BEwgi" />
+                                    </div>
+                                    <span class="text-xs text-on-surface">ELARA_K</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="px-3 py-1 bg-secondary/10 text-secondary text-[8px] font-headline font-bold uppercase tracking-widest">Live</span>
+                            </td>
+                            <td class="px-8 py-6 text-sm font-headline">8,110</td>
+                            <td class="px-8 py-6 text-sm font-headline">351</td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary">more_vert</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-high transition-colors">
+                            <td class="px-8 py-6">
+                                <p class="text-sm font-headline font-bold text-on-surface">Curating the Future: AI in
+                                    Galleries</p>
+                                <p class="text-[10px] text-tertiary">DRAFT: SAVED 1H AGO</p>
+                            </td>
+                            <td class="px-8 py-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 bg-surface-container-highest">
+                                        <img alt="Author" class="w-full h-full object-cover grayscale"
+                                            data-alt="Small thumbnail of marcus"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQXeznG_beY9JdxDvVx9nftNxM2hSTfBolvHj4_BVQFwReslIopNa2fv2Zy0F5CGy34JLTsnuIb8PkT9mcGVhq0UN4hRXNNGHsHXexnavzUs_pusOpJ3-MMBnG91YAQGoU4pv_UtU252A03V0dqeN_p6FBEX6bpAJdpjF_jLbociMJbSd_lFe3mM0IdC_y9Wf7_KDFLoVV_riM7eHmguIbFVaupPP8Fd9eFeYdeI_-Ip-CdojnMgUYSWta1Vc1EciCerWfqjbs8So1" />
+                                    </div>
+                                    <span class="text-xs text-on-surface">MARCUS_D</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="px-3 py-1 bg-primary/10 text-primary text-[8px] font-headline font-bold uppercase tracking-widest">Draft</span>
+                            </td>
+                            <td class="px-8 py-6 text-sm font-headline">--</td>
+                            <td class="px-8 py-6 text-sm font-headline">--</td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary">more_vert</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-high transition-colors">
+                            <td class="px-8 py-6">
+                                <p class="text-sm font-headline font-bold text-on-surface">Obsidian Interfaces: Dark
+                                    Mode Psychology</p>
+                                <p class="text-[10px] text-tertiary">PUBLISHED: 1D AGO</p>
+                            </td>
+                            <td class="px-8 py-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 bg-surface-container-highest">
+                                        <img alt="Author" class="w-full h-full object-cover grayscale"
+                                            data-alt="Small thumbnail of sarah"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHLzU2Cj9VUyLLpAVq1g04eluvU5iYZPFcCyyzynagmfw6OWkiZOr9-Slskz0LIN5druLzs22nlVeMB1p91ymJWNgUixyNC1Sxw-U3pLLfEIHC3CFyY14MBqzSfNOBoTpq45ejl9Va2-bvj7dqaCVSBzz2z5u5QVlTt2XArsjSgESBZ8G9cruYw7_VcxI_vF1VHgneJAWhXqMyVRsKvstBkQe5rCKYLdOQ7-JHWeJoR_JkxMm7SF0-txZbAKuNJ2Cvc4xInbinemdT" />
+                                    </div>
+                                    <span class="text-xs text-on-surface">SARAH_L</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="px-3 py-1 bg-secondary/10 text-secondary text-[8px] font-headline font-bold uppercase tracking-widest">Live</span>
+                            </td>
+                            <td class="px-8 py-6 text-sm font-headline">42,309</td>
+                            <td class="px-8 py-6 text-sm font-headline">2,903</td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary">more_vert</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-8 flex justify-center">
+                <button
+                    class="text-[10px] font-headline uppercase tracking-[0.3em] text-tertiary hover:text-primary transition-colors">Load
+                    Extended Repository</button>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

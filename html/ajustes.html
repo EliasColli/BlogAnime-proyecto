@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CURATOR | Ajustes del Sistema</title>
+    
+    <!-- Requisitos Académicos: Bootstrap & jQuery -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Tailwind Config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffb2b7",
+                        "primary-container": "#ff516a",
+                        "secondary": "#7bd0ff",
+                        "secondary-container": "#00a6e0",
+                        "surface": "#0b1326",
+                        "surface-container-low": "#131b2e",
+                        "surface-container": "#171f33",
+                        "surface-container-highest": "#2d3449",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#e3bdbf",
+                        "outline-variant": "#5b4041",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bg-grid { background-image: radial-gradient(#2d3449 1px, transparent 1px); background-size: 32px 32px; }
+        
+        input:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 2px #7bd0ff !important;
+            border-color: #7bd0ff !important;
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #7bd0ff;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #7bd0ff;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary/30 min-h-screen flex flex-col bg-grid">
+    
+    <!-- Navbar -->
+    <nav class="px-8 md:px-12 py-6 border-b border-white/5 flex justify-between items-center bg-surface/90 backdrop-blur-md sticky top-0 z-50">
+        <a href="index.html" class="font-headline text-2xl font-black tracking-tighter text-white hover:text-secondary transition-colors uppercase">SakuraBlog</a>
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors font-headline tracking-widest uppercase">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                Volver
+            </a>
+        </div>
+    </nav>
+    
+    <main class="flex-grow w-full max-w-5xl mx-auto px-6 py-12 md:py-16 flex flex-col lg:flex-row gap-12 items-start">
+        
+        <aside class="w-full lg:w-64 flex flex-col gap-2 shrink-0">
+            <h2 class="font-headline text-xs text-secondary tracking-[0.3em] font-black uppercase mb-6">Configuración</h2>
+            <button type="button" id="btn-perfil" class="tab-btn active w-full text-left bg-surface-container-low border-l-4 border-secondary text-white px-6 py-4 font-headline text-xs font-bold tracking-widest uppercase transition-colors">Perfil de Usuario</button>
+            <button type="button" id="btn-sistema" class="tab-btn w-full text-left hover:bg-surface-container-low border-l-4 border-transparent hover:border-outline-variant text-slate-400 hover:text-white px-6 py-4 font-headline text-xs font-bold tracking-widest uppercase transition-colors">Sistema & Interfaz</button>
+            <button type="button" id="btn-privacidad" class="tab-btn w-full text-left hover:bg-surface-container-low border-l-4 border-transparent hover:border-outline-variant text-slate-400 hover:text-white px-6 py-4 font-headline text-xs font-bold tracking-widest uppercase transition-colors">Privacidad</button>
+        </aside>
+
+        <!-- Contenido principal de Ajustes (Perfil Muestra) -->
+        <div class="flex-1 w-full bg-surface-container-low p-8 md:p-12 rounded border border-outline-variant/30 shadow-2xl relative overflow-hidden">
+            <!-- Detalles decorativos -->
+            <div class="absolute top-0 right-0 w-48 h-48 bg-secondary/5 rounded-bl-full pointer-events-none"></div>
+
+            <header class="mb-12 border-b border-white/10 pb-8 flex items-center justify-between">
+                <div>
+                    <h1 class="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase leading-none mb-3">Tu Perfil</h1>
+                    <p class="text-on-surface-variant text-xs tracking-widest uppercase opacity-80">Edita tu información pública y credenciales</p>
+                </div>
+            </header>
+
+            <form id="settingsForm" class="space-y-12 relative">
+                
+                <!-- VISTA: PERFIL -->
+                <div id="view-perfil" class="space-y-12 view-section block">
+                    <!-- Avatar Section -->
+                    <div class="flex items-center gap-8">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVNDh2HpSgo0gY5JHH45wt3mKcDNOxhu2Eu3QMhFWDOJOX1eN-YpsUl4-WazVYPSs0K3yxK-ImjkJ0xsHKHH2QTFAtnHk-txU9d_b-fWzsBBIWJ42fR-VLci6VI1joNRdHLQurNckya2-4SrxdF9TyBrduyRpYb8Ak3X2bXc3vHqKqMVYNXCAjw-FRkAWML2OYT17mx45Ab9BtxNZmKcY9Fb-R06juLFRka8qy48t16k2gxwNv51mMoSVAvjB9CvG8DtV4cA49brjk" class="w-24 h-24 rounded-full border-4 border-surface-container-highest object-cover" alt="Perfil" id="userAvatar" />
+                        <div class="space-y-3">
+                            <button type="button" class="px-6 py-2 bg-secondary/10 text-secondary border border-secondary/50 font-headline text-[10px] font-bold tracking-widest uppercase hover:bg-secondary hover:text-surface transition-colors rounded">Cambiar Avatar</button>
+                            <p class="text-[10px] text-slate-400 font-headline tracking-widest">JPG, GIF o PNG. Max 5MB.</p>
+                        </div>
+                    </div>
+
+                    <!-- Detalles de la Cuenta -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-headline font-bold text-secondary tracking-[0.2em] uppercase">Nombre de Usuario (Alias)</label>
+                            <input type="text" id="username" placeholder="OPERATOR_01" 
+                                class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-headline placeholder:text-slate-600 transition-colors" />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-headline font-bold text-secondary tracking-[0.2em] uppercase">Correo Electrónico</label>
+                            <input type="email" id="email" placeholder="correo@terminal.com" 
+                                class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-headline placeholder:text-slate-600 transition-colors" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VISTA: SISTEMA -->
+                <div id="view-sistema" class="space-y-8 view-section hidden">
+                    <h3 class="font-headline text-lg font-bold text-white uppercase tracking-tighter mb-6">Preferencias del Sistema</h3>
+                    
+                    <div class="flex items-center justify-between p-4 bg-surface-container rounded border border-white/5">
+                        <div>
+                            <p class="text-sm font-bold text-white uppercase tracking-widest font-headline mb-1">Alertas de Contenido Nuevo</p>
+                            <p class="text-[10px] text-slate-400 font-body">Recibir un email cuando se publiquen reseñas destacadas.</p>
+                        </div>
+                        <label for="toggleNotifications" class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="toggleNotifications" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-surface-container-high hover:bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- VISTA: PRIVACIDAD -->
+                <div id="view-privacidad" class="space-y-8 view-section hidden">
+                    <h3 class="font-headline text-lg font-bold text-white uppercase tracking-tighter mb-6">Seguridad Crítica</h3>
+                    
+                    <div class="space-y-2 max-w-md">
+                        <label class="block text-[10px] font-headline font-bold text-secondary tracking-[0.2em] uppercase">Cambiar Contraseña</label>
+                        <input type="password" id="new-password" placeholder="Nueva Contraseña (Dejar vacío si no)" 
+                            class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-headline placeholder:text-slate-600 transition-colors" />
+                        <p class="text-[10px] text-slate-400 font-headline tracking-widest pt-2">Si actualizas la contraseña, serás desconectado.</p>
+                    </div>
+                </div>
+
+                <!-- Submit y Acciones -->
+                <div class="pt-6 flex flex-col md:flex-row items-center gap-6 justify-between border-t border-white/10 mt-10">
+                    <button type="button" class="text-xs font-headline font-bold tracking-[0.2em] uppercase text-error hover:text-error-container transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">delete_forever</span> Eliminar Cuenta
+                    </button>
+                    
+                    <button type="button" class="w-full md:w-auto px-8 py-4 bg-secondary-container text-white font-headline font-black tracking-widest text-sm hover:bg-secondary hover:text-surface transition-all uppercase flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-lg">save</span>
+                        Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="w-full py-8 text-center border-t border-white/5 opacity-50 mt-auto">
+        <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-slate-500">©2024 SAKURABLOG // SISTEMA DE AJUSTES</span>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if(!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // TABS LOGIC
+            const tabs = [
+                { btn: document.getElementById('btn-perfil'), view: document.getElementById('view-perfil') },
+                { btn: document.getElementById('btn-sistema'), view: document.getElementById('view-sistema') },
+                { btn: document.getElementById('btn-privacidad'), view: document.getElementById('view-privacidad') }
+            ];
+
+            tabs.forEach(tab => {
+                tab.btn.addEventListener('click', () => {
+                    // Limpiar active de todos
+                    tabs.forEach(t => {
+                        t.btn.className = "tab-btn w-full text-left hover:bg-surface-container-low border-l-4 border-transparent hover:border-outline-variant text-slate-400 hover:text-white px-6 py-4 font-headline text-xs font-bold tracking-widest uppercase transition-colors";
+                        t.view.classList.add('hidden');
+                        t.view.classList.remove('block');
+                    });
+                    // Activar el clickeado
+                    tab.btn.className = "tab-btn active w-full text-left bg-surface-container-low border-l-4 border-secondary text-white px-6 py-4 font-headline text-xs font-bold tracking-widest uppercase transition-colors";
+                    tab.view.classList.remove('hidden');
+                    tab.view.classList.add('block');
+                });
+            });
+
+            // Llenar datos actuales
+            const usernameInput = document.getElementById('username');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('new-password');
+            const toggleNotif = document.getElementById('toggleNotifications');
+            
+            usernameInput.value = currentUser.name;
+            emailInput.value = currentUser.email;
+
+            // Restoring custom settings if exist
+            if(currentUser.settings) {
+                toggleNotif.checked = currentUser.settings.notifications;
+            }
+
+            // Funcionalidad - Guardar Cambios
+            const settingsForm = document.getElementById('settingsForm');
+            const saveBtn = settingsForm.querySelector('button[type="button"].bg-secondary-container');
+            
+            saveBtn.addEventListener('click', () => {
+                const newName = usernameInput.value.trim();
+                const newEmail = emailInput.value.trim();
+                const newPassword = passwordInput.value.trim();
+                
+                if (!newName || !newEmail) {
+                    alert('Por favor, no dejes nombre o correo vacíos.');
+                    return;
+                }
+
+                // Actualizar DB global
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                const userIndex = users.findIndex(u => u.id === currentUser.id);
+                
+                let requiresRelogin = false;
+
+                if (userIndex !== -1) {
+                    users[userIndex].name = newName;
+                    users[userIndex].email = newEmail;
+                    if(newPassword) {
+                        users[userIndex].password = newPassword;
+                        requiresRelogin = true;
+                    }
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+
+                // Actualizar Sesión Local
+                currentUser.name = newName;
+                currentUser.email = newEmail;
+                currentUser.settings = { notifications: toggleNotif.checked };
+                
+                if(requiresRelogin) {
+                    localStorage.removeItem('currentUser');
+                    alert('Has cambiado tu contraseña. Por seguridad debes iniciar sesión nuevamente.');
+                    window.location.href = 'login.html';
+                } else {
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    alert('¡Todos tus ajustes han sido guardados integralmente!');
+                    window.location.reload();
+                }
+            });
+
+            // Funcionalidad - Eliminar Cuenta
+            const deleteBtn = settingsForm.querySelector('button.text-error');
+            deleteBtn.addEventListener('click', () => {
+                const confirmation = confirm('⚠️ ADVERTENCIA CRÍTICA: ¿Estás seguro de que deseas eliminar tu cuenta? Esta acción borrará permanentemente todos tus accesos al sistema.');
+                if (confirmation) {
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+                    users = users.filter(u => u.id !== currentUser.id);
+                    localStorage.setItem('users', JSON.stringify(users));
+                    
+                    localStorage.removeItem('currentUser');
+                    alert('Tu cuenta ha sido eliminada. Regresando a la pantalla de acceso.');
+                    window.location.href = 'index.html';
+                }
+            });
+
+            // Funcionalidad Simbólica - Cambiar Avatar
+            const changeAvatarBtn = document.querySelector('button.bg-secondary\\/10');
+            changeAvatarBtn.addEventListener('click', () => {
+                alert('La funcionalidad para subir archivos de avatar interactuará con tu storage block de Backend (Fase 3). ¡Mantente sincronizado!');
+            });
+        });
+    </script>
+</body>
+</html>

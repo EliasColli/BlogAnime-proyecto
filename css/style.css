@@ -1,9 +1,89 @@
-/* Configuración Global de Iconos */
+/* =========================================
+   VARIABLES Y COLORES (Reemplazo de Tailwind)
+   ========================================= */
+:root {
+    --color-surface: #060e20;
+    --color-background: #060e20;
+    --color-primary: #81ecff;
+    --color-primary-dim: #00d4ec;
+    --color-secondary: #ff7520;
+    --color-tertiary: #e966ff;
+    --color-on-surface: #dee5ff;
+    
+    --color-container-low: #091328;
+    --color-container-high: #141f38;
+    
+    --font-headline: 'Space Grotesk', sans-serif;
+    --font-body: 'Manrope', 'Inter', sans-serif;
+    --font-label: 'Be Vietnam Pro', 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+}
+
+/* =========================================
+   CLASES UTILITARIAS PERSONALIZADAS
+   ========================================= */
+.bg-custom-surface { background-color: var(--color-surface); }
+.bg-custom-container { background-color: var(--color-container-low); }
+
+.text-custom-primary { color: var(--color-primary) !important; }
+.bg-custom-primary { background-color: var(--color-primary) !important; border-color: var(--color-primary) !important; }
+.border-custom-primary { border-color: var(--color-primary) !important; }
+
+.text-custom-secondary { color: var(--color-secondary) !important; }
+.bg-custom-secondary { background-color: var(--color-secondary) !important; }
+.bg-custom-secondary-subtle { background-color: rgba(255, 117, 32, 0.2) !important; }
+.border-custom-secondary { border-color: rgba(255, 117, 32, 0.4) !important; }
+
+.bg-custom-tertiary { background-color: var(--color-tertiary) !important; }
+
+.text-custom-surface { color: var(--color-surface) !important; }
+
+.custom-font-headline { font-family: var(--font-headline); }
+.custom-font-body { font-family: var(--font-body); }
+.custom-font-label { font-family: var(--font-label); }
+
+.fw-black { font-weight: 900; }
+
+.selection-primary ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+/* =========================================
+   EFECTOS HOVER Y TRANSICIONES
+   ========================================= */
+.custom-hover-primary:hover { color: var(--color-primary) !important; transition: color 0.2s; }
+.custom-hover-secondary:hover { color: var(--color-secondary) !important; transition: color 0.2s; }
+
+.btn-hover-secondary:hover {
+    background-color: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: #fff !important;
+    transform: scale(0.98);
+}
+
+/* =========================================
+   CONFIGURACIÓN DE ICONOS GLOBALES
+   ========================================= */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* --- Efectos de SECURE_ACCESS --- */
+/* =========================================
+   EFECTOS ESPECIALES Y ANIMACIONES
+   ========================================= */
+
+/* Nav Blur Support */
+.custom-nav-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Efectos de SECURE_ACCESS */
 .clipped-corner {
     clip-path: polygon(0 0, 92% 0, 100% 15%, 100% 100%, 0 100%);
 }
@@ -13,35 +93,73 @@
     background-size: 100% 4px;
 }
 
-/* --- Efectos de AniVibe --- */
+.custom-bg-radial {
+    background: radial-gradient(circle at 50% 50%, rgba(129,236,255,0.1), transparent 70%);
+}
+
+.shadow-custom {
+    box-shadow: 20px 20px 0px rgba(129, 236, 255, 0.03);
+}
+
+.glow-primary {
+    transition: all 0.2s;
+}
 .glow-primary:hover {
     box-shadow: 0 0 15px rgba(129, 236, 255, 0.4);
 }
 
-.text-glow-secondary {
-    text-shadow: 0 0 10px rgba(255, 117, 32, 0.5);
+/* Campos de Input Personalizados */
+.custom-input {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid #40485d !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s;
+}
+.custom-input:focus {
+    border-color: var(--color-primary) !important;
+}
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
 }
 
-/* --- Animaciones Comunes --- */
-.sync-glow, .animate-pulse-custom {
-    animation: pulse-custom 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.custom-input-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 4px;
+    height: 8px;
+    background-color: var(--color-primary);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.custom-input-group:focus-within .custom-input-indicator {
+    opacity: 1;
 }
 
-@keyframes pulse-custom {
+/* Animaciones */
+.sync-glow, .custom-pulse-fast {
+    animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes custom-pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
 }
 
-/* Scrollbar Estilo Cyberpunk */
+/* =========================================
+   SCROLLBAR CYBERPUNK
+   ========================================= */
 ::-webkit-scrollbar {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #060e20;
+    background: var(--color-background);
 }
 ::-webkit-scrollbar-thumb {
     background: #40485d;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #81ecff;
+    background: var(--color-primary);
 }

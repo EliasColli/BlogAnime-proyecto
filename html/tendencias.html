@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CURATOR | Tendencias</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#ffb2b7",
+                        "primary": "#ffb2b7",
+                        "secondary-container": "#00a6e0",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "outline": "#aa888a",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#00374d",
+                        "primary-container": "#ff516a",
+                        "outline-variant": "#5b4041",
+                        "surface": "#0b1326",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "secondary": "#7bd0ff",
+                        "on-tertiary-container": "#340080",
+                        "surface-bright": "#31394d",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary": "#3c0091",
+                        "surface-dim": "#0b1326",
+                        "on-secondary": "#00354a",
+                        "secondary-fixed": "#c4e7ff",
+                        "on-primary-fixed": "#40000d",
+                        "background": "#0b1326",
+                        "surface-variant": "#2d3449",
+                        "tertiary-container": "#a078ff",
+                        "primary-fixed": "#ffdadb",
+                        "on-background": "#dae2fd",
+                        "on-primary-fixed-variant": "#92002a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#ffb2b7",
+                        "surface-container": "#171f33",
+                        "on-secondary-fixed": "#001e2c",
+                        "surface-container-highest": "#2d3449",
+                        "tertiary": "#d0bcff",
+                        "on-primary": "#67001b",
+                        "on-surface": "#dae2fd",
+                        "inverse-on-surface": "#283044",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-primary-container": "#5b0017",
+                        "surface-container-high": "#222a3d",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-surface-variant": "#e3bdbf",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "inverse-primary": "#bc0b3b",
+                        "surface-container-lowest": "#060e20"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background-color: rgba(11, 19, 38, 0.7);
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary selection:text-on-tertiary">
+
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background flex justify-between items-center px-6 py-4 h-16 border-b-0">
+    <div class="flex items-center gap-8">
+        <span class="text-2xl font-black tracking-tighter text-primary uppercase font-headline">SAKURABLOG</span>
+        <nav class="hidden md:flex gap-6 items-center h-full">
+            <a class="text-tertiary font-bold border-b-4 border-tertiary pb-1 font-headline text-xs tracking-widest" href="article.html">RESEÑAS</a>
+            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="index.html">TEMPORADAS</a>
+            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="article.html">CULTURA</a>
+        </nav>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="hidden md:block bg-surface-container-low px-4 py-1 flex items-center h-10">
+            <span class="material-symbols-outlined text-outline text-sm" translate="no">search</span>
+            <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 w-48 text-on-surface" placeholder="BUSCAR_TERMINAL..." type="text"/>
+        </div>
+        <div id="auth-section" class="flex items-center">
+            <a href="login.html" class="px-5 py-2 bg-primary text-on-primary font-headline text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors">INICIAR SESIÓN</a>
+        </div>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 border-r border-outline-variant/15 bg-surface-container-lowest pt-20 hidden lg:flex flex-col justify-between">
+    <div>
+
+        <nav class="flex flex-col">
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 transition-transform active:translate-x-1 font-headline text-xs tracking-widest" href="index.html"><span class="material-symbols-outlined" translate="no">home</span> INICIO</a>
+            <a class="text-surface bg-tertiary font-black px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="#"><span class="material-symbols-outlined" translate="no">trending_up</span> TENDENCIAS</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="ultimo.html"><span class="material-symbols-outlined" translate="no">schedule</span> ÚLTIMO</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="rankings.html"><span class="material-symbols-outlined" translate="no">military_tech</span> RANKINGS</a>
+        </nav>
+    </div>
+    <div class="p-6">
+        <button onclick="window.location.href='register.html'" class="w-full bg-primary-container text-white font-headline font-black py-3 text-xs tracking-[0.2em] mb-8 hover:bg-secondary-container transition-all">SUSCRÍBETE_AHORA</button>
+        <div class="flex flex-col gap-2">
+            <a class="text-gray-500 hover:text-white flex items-center gap-2 font-headline text-[10px] tracking-widest" href="admin.html"><span class="material-symbols-outlined text-sm" translate="no">settings</span> AJUSTES</a>
+            <a class="text-gray-500 hover:text-white flex items-center gap-2 font-headline text-[10px] tracking-widest" href="login.html"><span class="material-symbols-outlined text-sm" translate="no">logout</span> CERRAR_SESIÓN</a>
+        </div>
+    </div>
+</aside>
+
+<!-- Main Content Area -->
+<main class="lg:ml-64 pt-16">
+    <!-- Tendencias Section -->
+    <section class="p-8 md:p-16 min-h-screen bg-background text-on-background">
+        <div class="flex items-baseline justify-between mb-12 border-b border-outline-variant/15 pb-4">
+            <h2 class="font-headline text-5xl font-black uppercase tracking-tighter">[//_GRID_TENDENCIAS]</h2>
+            <span class="font-headline text-xs text-tertiary tracking-[0.3em]">ANALIZANDO_RED</span>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 trending-grid">
+            <!-- Anime Card 1 -->
+            <div class="anime-card relative bg-surface-container-low border border-outline-variant/30 overflow-hidden group hover:border-primary transition-colors cursor-pointer" onclick="window.location.href='article.html'">
+                <div class="rank-badge absolute top-4 left-4 bg-primary text-on-primary-fixed font-headline font-black px-4 py-2 text-sm z-10 shadow-lg">#1</div>
+                <div class="relative w-full h-80 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrSnNvKyM0PdY-1vFSK_KTcsvSfrU7F0J4IAqIAZ4mSTD1LhjwHzmEEzTkGAsKepi609AajSh7WFXNzEq8QJQj_Uvyah5s4kpgUJ0spLnTOP9Hnn5sVLn4r1z0qI-N86NrB0J86VOpVUMaorZcBCcNed3Zzv5ZOPrXVR9-WN2LTYfwZ3sPgcgxD7IL02_Cr5JEajXbxF9nErgAqJB9OUX_hoj2KVfnjY--oRX_L71bqhmMjd8CSdqy8GOqo_ioeuFWtipZs1VqH5rn" alt="Shingeki" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                </div>
+                <div class="card-info p-6 bg-surface-container border-t border-outline-variant/30 flex flex-col gap-2">
+                    <h3 class="font-headline text-2xl font-black uppercase text-on-surface group-hover:text-primary transition-colors">TITLE // SHINGEKI</h3>
+                    <p class="font-headline text-xs tracking-[0.2em] text-tertiary">TRENDING_SCORE: 98.4%</p>
+                </div>
+            </div>
+            
+            <!-- Anime Card 2 -->
+            <div class="anime-card relative bg-surface-container-low border border-outline-variant/30 overflow-hidden group hover:border-primary transition-colors cursor-pointer" onclick="window.location.href='article.html'">
+                <div class="rank-badge absolute top-4 left-4 bg-tertiary text-on-tertiary font-headline font-black px-4 py-2 text-sm z-10 shadow-lg">#2</div>
+                <div class="relative w-full h-80 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwTzc22LoDq2hwgmwyLxUCrTZfMVi53TzfKhhMX5Vl8RHTFBDfo5s3XmQEebGzHOy9_b6-eQbqIpGupdqV8xtcs1C0-3NAMGJlWzIQ_eZ_PU3e3CIPuZq3qJkE7I5x9F7F-uFvhw8isiLC6OFmUVnDIzXmvLCFfPtqZYaX-HlnxRqxrypjnV3CBu1xOFgujV7w2mvPldLvnzcz9MkSYDRCCEjV_zvhxTQmt45VnZoKEb1r69PE_1ipA7DEn7hJDw_2-gSDnNR99sq0" alt="Ghibli" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                </div>
+                <div class="card-info p-6 bg-surface-container border-t border-outline-variant/30 flex flex-col gap-2">
+                    <h3 class="font-headline text-2xl font-black uppercase text-on-surface group-hover:text-tertiary transition-colors">TITLE // SPIRITED AWAY</h3>
+                    <p class="font-headline text-xs tracking-[0.2em] text-tertiary opacity-80">TRENDING_SCORE: 95.1%</p>
+                </div>
+            </div>
+            
+            <!-- Anime Card 3 -->
+            <div class="anime-card relative bg-surface-container-low border border-outline-variant/30 overflow-hidden group hover:border-primary transition-colors cursor-pointer" onclick="window.location.href='article.html'">
+                <div class="rank-badge absolute top-4 left-4 bg-secondary text-on-secondary-fixed font-headline font-black px-4 py-2 text-sm z-10 shadow-lg">#3</div>
+                <div class="relative w-full h-80 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu43Lt96d_7cmxu5PE0k57prKi3ySgI8xgK2skgGsgzvGXz7QfCj4MhXZxlP7eQ23SkBF7PZgw3haA5ZRsx465i9FlkfSvwAag7zoX4uOsRnn_0z0A8GXDHIElrqnvjpoCoV78KsvubxTP1a-JxeaT6A-QRM1W8vbXKh1ht35pIZTEqZ8oHuZypIraq-pMDv04d8xNtGzKJFNrAkcV-8833nm5kCJHRJ0jLSE9eK3EDrbyCBbTB0LzWVqRJ6E4vwzvKEOSLkz_-XOD" alt="Mecha" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                </div>
+                <div class="card-info p-6 bg-surface-container border-t border-outline-variant/30 flex flex-col gap-2">
+                    <h3 class="font-headline text-2xl font-black uppercase text-on-surface group-hover:text-secondary transition-colors">TITLE // GHOST IN THE SHELL</h3>
+                    <p class="font-headline text-xs tracking-[0.2em] text-tertiary opacity-80">TRENDING_SCORE: 92.7%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
+        <div class="md:col-span-1">
+            <span class="text-lg font-black text-primary font-headline tracking-tighter uppercase mb-6 block">SAKURABLOG</span>
+            <p class="font-headline text-[10px] tracking-widest text-gray-500 leading-relaxed uppercase">Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">RED</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="#">TWITTER</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="#">ACCESO_TERMINAL</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">COMUNIDAD</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="ajustes.html">PRIVACIDAD</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="terminos_condiciones_anime.pdf" target="_blank">REGLAS_SOPORTE_[PDF]</a>
+        </div>
+        <div class="md:col-span-1 flex flex-col justify-end items-start md:items-end">
+            <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500">©2024 SAKURABLOG // PROTOCOLO_V.01</span>
+        </div>
+    </footer>
+</main>
+
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-background glass-nav z-50 flex justify-around items-center h-16 border-t-0 shadow-2xl">
+    <a class="text-primary flex flex-col items-center gap-1" href="index.html">
+        <span class="material-symbols-outlined" translate="no">home</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">INICIO</span>
+    </a>
+    <a class="text-tertiary flex flex-col items-center gap-1" href="#">
+        <span class="material-symbols-outlined" translate="no">trending_up</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">TENDENCIAS</span>
+    </a>
+    <a class="text-primary flex flex-col items-center gap-1" href="ultimo.html">
+        <span class="material-symbols-outlined" translate="no">schedule</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">ÚLTIMO</span>
+    </a>
+    <a class="text-primary flex flex-col items-center gap-1" href="admin.html">
+        <span class="material-symbols-outlined" translate="no">person</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">PERFIL</span>
+    </a>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>

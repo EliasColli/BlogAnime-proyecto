@@ -3,126 +3,369 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>AniVibe | Neon Monolith Anime Editorial</title>
+    <title>CURATOR | The Digital Anime Magazine</title>
     
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Manrope:wght@200;300;400;500;600;700;800&family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#ffb2b7",
+                        "primary": "#ffb2b7",
+                        "secondary-container": "#00a6e0",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "outline": "#aa888a",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#00374d",
+                        "primary-container": "#ff516a",
+                        "outline-variant": "#5b4041",
+                        "surface": "#0b1326",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "secondary": "#7bd0ff",
+                        "on-tertiary-container": "#340080",
+                        "surface-bright": "#31394d",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary": "#3c0091",
+                        "surface-dim": "#0b1326",
+                        "on-secondary": "#00354a",
+                        "secondary-fixed": "#c4e7ff",
+                        "on-primary-fixed": "#40000d",
+                        "background": "#0b1326",
+                        "surface-variant": "#2d3449",
+                        "tertiary-container": "#a078ff",
+                        "primary-fixed": "#ffdadb",
+                        "on-background": "#dae2fd",
+                        "on-primary-fixed-variant": "#92002a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#ffb2b7",
+                        "surface-container": "#171f33",
+                        "on-secondary-fixed": "#001e2c",
+                        "surface-container-highest": "#2d3449",
+                        "tertiary": "#d0bcff",
+                        "on-primary": "#67001b",
+                        "on-surface": "#dae2fd",
+                        "inverse-on-surface": "#283044",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-primary-container": "#5b0017",
+                        "surface-container-high": "#222a3d",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-surface-variant": "#e3bdbf",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "inverse-primary": "#bc0b3b",
+                        "surface-container-lowest": "#060e20"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background-color: rgba(11, 19, 38, 0.7);
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    
+    <!-- Requisitos Academicos: Bootstrap & jQuery -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary-fixed">
+<body class="bg-background text-on-background font-body selection:bg-tertiary selection:text-on-tertiary">
 
-    <nav class="bg-[#060e20]/70 backdrop-blur-md fixed top-0 w-full z-50 border-b border-[#40485d]/15 shadow-[0_0_15px_rgba(129,236,255,0.05)]">
-        <div class="flex justify-between items-center px-8 h-20 max-w-[1920px] mx-auto">
-            <div class="flex items-center gap-12">
-                <a class="text-2xl font-black text-[#81ecff] italic tracking-tighter" href="#">AniVibe</a>
-                <div class="hidden lg:flex gap-8 font-['Space_Grotesk'] tracking-tight font-bold uppercase text-sm">
-                    <a class="text-[#81ecff] border-b-2 border-[#81ecff] pb-1" href="#">Temporadas</a>
-                    <a class="text-[#a3aac4] hover:text-[#81ecff] transition-all" href="#">Noticias</a>
-                    <a class="text-[#a3aac4] hover:text-[#81ecff] transition-all" href="#">Reseñas</a>
-                    <a class="text-[#a3aac4] hover:text-[#81ecff] transition-all" href="#">Comunidad</a>
-                </div>
-            </div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background flex justify-between items-center px-6 py-4 h-16 border-b-0">
+    <div class="flex items-center gap-8">
+        <span class="text-2xl font-black tracking-tighter text-primary uppercase font-headline">SAKURABLOG</span>
+        <nav class="hidden md:flex gap-6 items-center h-full">
+            <a class="text-tertiary font-bold border-b-4 border-tertiary pb-1 font-headline text-xs tracking-widest" href="article.html">RESEÑAS</a>
+            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="index.html">TEMPORADAS</a>
+            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="article.html">CULTURA</a>
+        </nav>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="hidden md:block bg-surface-container-low px-4 py-1 flex items-center h-10">
+            <span class="material-symbols-outlined text-outline text-sm" translate="no">search</span>
+            <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 w-48 text-on-surface" placeholder="BUSCAR_TERMINAL..." type="text"/>
+        </div>
+        <div id="auth-section" class="flex items-center">
+            <a href="login.html" class="px-5 py-2 bg-primary text-on-primary font-headline text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors">INICIAR SESIÓN</a>
+        </div>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 border-r border-outline-variant/15 bg-surface-container-lowest pt-20 hidden lg:flex flex-col justify-between">
+    <div>
+
+        <nav class="flex flex-col">
+            <a class="text-surface bg-tertiary font-black px-6 py-3 flex items-center gap-3 transition-transform active:translate-x-1 font-headline text-xs tracking-widest" href="index.html"><span class="material-symbols-outlined" translate="no">home</span> INICIO</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="panel_escritor.html"><span class="material-symbols-outlined" translate="no">edit_document</span> ESCRIBIR RESEÑA</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="tendencias.html"><span class="material-symbols-outlined" translate="no">trending_up</span> TENDENCIAS</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="ultimo.html"><span class="material-symbols-outlined" translate="no">schedule</span> ÚLTIMO</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="rankings.html"><span class="material-symbols-outlined" translate="no">military_tech</span> RANKINGS</a>
+        </nav>
+    </div>
+    <div class="p-6">
+        <button onclick="window.location.href='register.html'" class="w-full bg-primary-container text-white font-headline font-black py-3 text-xs tracking-[0.2em] mb-8 hover:bg-secondary-container transition-all">SUSCRÍBETE_AHORA</button>
+    </div>
+</aside>
+
+<!-- Main Content Area -->
+<main class="lg:ml-64 pt-16">
+    <!-- Hero Section -->
+    <section class="relative w-full h-[870px] overflow-hidden bg-surface-container-lowest">
+        <div class="absolute inset-0">
+            <img alt="Evangelion" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Cinematic shot of a giant mecha in a dark futuristic city" src="mapa-pirata.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+        </div>
+        <div class="relative h-full flex flex-col justify-end p-8 md:p-16 max-w-6xl">
+            <span class="inline-block bg-tertiary text-on-tertiary px-3 py-1 text-[10px] font-black font-headline tracking-widest mb-6">CRÍTICA_DESTACADA // VOL. 042</span>
+            <h1 class="font-headline text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-8 text-on-background">NEON <br/> GENESIS <br/> <span class="text-transparent border-2 border-primary bg-clip-text" style="-webkit-text-stroke: 1px #ffb2b7;">ETERNIDAD</span></h1>
+            <p class="max-w-xl font-body text-lg text-on-surface-variant mb-10 leading-relaxed">Cómo el trauma de Hideaki Anno redefinió el género mecha y por qué, treinta años después, seguimos atrapados en el Proyecto de Instrumentalización de los medios modernos.</p>
             <div class="flex items-center gap-6">
-                <div class="hidden md:flex items-center bg-surface-container px-4 py-2 border-b border-outline-variant/30 focus-within:border-primary transition-all">
-                    <span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
-                    <input class="bg-transparent border-none focus:ring-0 text-xs font-label tracking-widest uppercase w-48 placeholder:text-outline" placeholder="BUSCAR ANIME..." type="text"/>
-                </div>
-                <div class="flex items-center gap-4">
-                    <button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
-                    <button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">person</button>
-                    <button class="bg-primary text-on-primary-fixed px-6 py-2 font-headline font-bold uppercase text-sm tracking-wider hover:bg-primary-container transition-all active:scale-95 glow-primary">Suscribirse</button>
+                <button onclick="window.location.href='article.html'" class="px-8 py-4 bg-primary-container text-white font-headline font-black tracking-widest text-sm hover:bg-secondary-container transition-all">LEER_TRANSCRIPCIÓN</button>
+                <div class="flex flex-col">
+                    <span class="text-[10px] font-headline text-tertiary tracking-widest uppercase">Autor</span>
+                    <span class="text-sm font-headline font-bold">@UNIT_01_PILOT</span>
                 </div>
             </div>
         </div>
-    </nav><!DOCTYPE html>
-<html class="dark" lang="es">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>AniVibe | Neon Monolith Anime Editorial</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&family=Manrope:wght@400;700&family=Be+Vietnam+Pro:wght@400;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/script.js"></script>
-</head>
-<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-background">
+    </section>
 
-    <nav class="bg-background/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/10">
-        <div class="flex justify-between items-center px-8 h-20 max-w-[1920px] mx-auto">
-            <div class="flex items-center gap-12">
-                <a class="text-3xl font-black text-primary italic tracking-tighter uppercase" href="#">AniVibe</a>
-                <div class="hidden lg:flex gap-8 font-headline tracking-tight font-bold uppercase text-sm">
-                    <a class="text-primary border-b-2 border-primary pb-1" href="#">Temporadas</a>
-                    <a class="text-on-surface-variant hover:text-primary transition-all" href="#">Noticias</a>
-                    <a class="text-on-surface-variant hover:text-primary transition-all" href="#">Reseñas</a>
-                </div>
-            </div>
-            <div class="flex items-center gap-6">
-                <div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 border-b border-outline-variant/30 focus-within:border-primary transition-all">
-                    <span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
-                    <input class="bg-transparent border-none focus:ring-0 text-xs font-label tracking-widest uppercase w-48" placeholder="BUSCAR ANIME..." type="text"/>
-                </div>
-                <button class="bg-primary text-background px-6 py-2 font-headline font-black uppercase text-sm tracking-wider hover:bg-secondary transition-all active:scale-95 glow-primary">Suscribirse</button>
-            </div>
+    <!-- The Feed: Asymmetric Grid -->
+    <section class="px-8 md:px-16 py-24 bg-background">
+        <div class="flex items-baseline justify-between mb-16 border-b border-outline-variant/15 pb-4">
+            <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">EL_FEED</h2>
+            <span class="font-headline text-xs text-tertiary tracking-[0.3em]">REFINANDO_LA_SEÑAL</span>
         </div>
-    </nav>
-
-    <main class="pt-20">
-        <section class="relative h-[80vh] w-full overflow-hidden bg-black">
-            <div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10"></div>
-            <img alt="Hero Visual" class="absolute inset-0 w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1578632738908-4521c726eebf?q=80&w=2070&auto=format&fit=crop"/>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <!-- Large Story Card -->
+            <div class="md:col-span-8 group cursor-pointer" onclick="window.location.href='article.html'">
+                <div class="relative overflow-hidden mb-6 bg-surface-container-low aspect-video">
+                    <img alt="Cyberpunk City" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Vibrant neon streets of a Japanese city at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrSnNvKyM0PdY-1vFSK_KTcsvSfrU7F0J4IAqIAZ4mSTD1LhjwHzmEEzTkGAsKepi609AajSh7WFXNzEq8QJQj_Uvyah5s4kpgUJ0spLnTOP9Hnn5sVLn4r1z0qI-N86NrB0J86VOpVUMaorZcBCcNed3Zzv5ZOPrXVR9-WN2LTYfwZ3sPgcgxD7IL02_Cr5JEajXbxF9nErgAqJB9OUX_hoj2KVfnjY--oRX_L71bqhmMjd8CSdqy8GOqo_ioeuFWtipZs1VqH5rn"/>
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="bg-secondary-container text-white px-3 py-1 font-headline text-[10px] font-bold tracking-widest uppercase">HISTORIA_DESTACADA</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="flex gap-4 items-center">
+                        <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold">CULTURA // ARQUITECTURA</span>
+                        <span class="w-12 h-[1px] bg-outline-variant/30"></span>
+                        <span class="text-on-surface-variant text-[10px] font-headline tracking-widest">12.04.24</span>
+                    </div>
+                    <h3 class="font-headline text-4xl font-bold tracking-tight uppercase group-hover:text-primary transition-colors">EL_SUEÑO_BRUTALISTA: Por qué las ciudades Cyberpunk siempre deben llover</h3>
+                    <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">Explorando la melancolía arquitectónica de Neo-Tokyo y cómo la estética de los 90 dio forma a nuestras expectativas digitales del futuro.</p>
+                </div>
+            </div>
             
-            <div class="relative z-20 h-full max-w-[1920px] mx-auto px-8 flex flex-col justify-center items-start">
-                <div class="mb-4 inline-flex items-center gap-2 bg-secondary/10 border border-secondary/30 px-3 py-1">
-                    <span class="w-2 h-2 bg-secondary animate-pulse"></span>
-                    <span class="text-secondary font-label text-[10px] font-black uppercase tracking-[0.2em]">Estreno Global</span>
+            <!-- Small Cards Sidebar-within-feed -->
+            <div class="md:col-span-4 flex flex-col gap-12">
+                <div class="group cursor-pointer" onclick="window.location.href='article.html'">
+                    <div class="aspect-square bg-surface-container overflow-hidden mb-4">
+                        <img alt="90s Aesthetic" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Lo-fi anime scene with retro electronics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUoKBpd0cz5lFZ8YSLQHleRsJ1Cq-xzeezeL5hk9CF-DRoP6Vnq-m9Tc6i0ANoG2AphLOOPsH6P-Dw0qWphKkhO4kkX0TYGhMdu6T0MV0XBFan-KCHiQxuAmc_9Mj8gW-1OtMJo_-42HCuYAIoApGjddWWUrPwfixZoyHOWk1vqNKiiuwZ7uvd9CmNxMzeIXVBfbk9l_QfZ3w5j806y6PvqURzPtL5ub9e_OkwuI6IX6EqLTyE11bbEWWSFpqKQsBjCKNiSCxFbhWW"/>
+                    </div>
+                    <span class="text-secondary font-headline text-[10px] tracking-widest font-bold uppercase mb-2 block">ESTÉTICA</span>
+                    <h4 class="font-headline text-xl font-bold uppercase tracking-tight group-hover:text-tertiary transition-colors">Retro-Hardware: La belleza del diseño de SO de los 90</h4>
                 </div>
-                <h1 class="font-headline text-8xl md:text-9xl font-black text-on-surface uppercase tracking-tighter leading-[0.85] mb-6">
-                    SOLO<br/><span class="text-primary italic">LEVELING</span>
-                </h1>
-                <p class="max-w-xl text-on-surface-variant font-body text-lg leading-relaxed mb-10 border-l-2 border-primary/30 pl-6">
-                    Analizamos el impacto visual y narrativo de la obra que redefine el género de fantasía urbana.
-                </p>
-                <div class="flex gap-4">
-                    <button class="bg-primary text-background px-10 py-4 font-headline font-black uppercase tracking-widest text-lg glow-primary active:scale-95 transition-all">Leer Más</button>
-                    <button class="border border-outline-variant text-on-surface px-10 py-4 font-headline font-black uppercase tracking-widest text-lg hover:bg-surface-container-high transition-all">Tráiler</button>
+                <div class="group cursor-pointer" onclick="window.location.href='article.html'">
+                    <div class="aspect-square bg-surface-container overflow-hidden mb-4">
+                        <img alt="Studio Ghibli" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Lush green landscape from an animated film" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwTzc22LoDq2hwgmwyLxUCrTZfMVi53TzfKhhMX5Vl8RHTFBDfo5s3XmQEebGzHOy9_b6-eQbqIpGupdqV8xtcs1C0-3NAMGJlWzIQ_eZ_PU3e3CIPuZq3qJkE7I5x9F7F-uFvhw8isiLC6OFmUVnDIzXmvLCFfPtqZYaX-HlnxRqxrypjnV3CBu1xOFgujV7w2mvPldLvnzcz9MkSYDRCCEjV_zvhxTQmt45VnZoKEb1r69PE_1ipA7DEn7hJDw_2-gSDnNR99sq0"/>
+                    </div>
+                    <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold uppercase mb-2 block">LEGADO_GHIBLI</span>
+                    <h4 class="font-headline text-xl font-bold uppercase tracking-tight group-hover:text-primary transition-colors">El Silencio de Ghibli: El Arte del Momento 'Ma'</h4>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        </main>
-
-    <footer class="bg-surface-container-low border-t-2 border-secondary/20 py-16 px-8">
-        <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <!-- Visual Archives: Horizontal Scroll Gallery -->
+    <section class="py-24 bg-surface-container-low overflow-hidden">
+        <div class="px-8 md:px-16 mb-12 flex justify-between items-end">
             <div>
-                <span class="text-2xl font-black text-primary uppercase italic">AniVibe</span>
-                <p class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest mt-2">© 2026 Neon Monolith // Cybernet</p>
+                <h2 class="font-headline text-5xl font-black uppercase tracking-tighter mb-2">ARCHIVOS_VISUALES</h2>
+                <p class="font-headline text-xs text-on-surface-variant tracking-widest">ENVIADO_POR_LA_COMUNIDAD</p>
             </div>
-            <div class="flex gap-8 font-label text-xs font-bold uppercase tracking-widest">
-                <a href="#" class="hover:text-secondary transition-colors">Twitter</a>
-                <a href="#" class="hover:text-secondary transition-colors">Discord</a>
-                <a href="#" class="hover:text-secondary transition-colors">Legal</a>
+            <button onclick="window.location.href='article.html'" class="font-headline text-[10px] tracking-[0.2em] font-bold flex items-center gap-2 hover:text-primary">VER_TODAS_LAS_ENTRADAS <span class="material-symbols-outlined text-sm" translate="no">arrow_forward</span></button>
+        </div>
+        <div class="flex gap-4 overflow-x-auto no-scrollbar px-8 md:px-16">
+            <div class="min-w-[400px] h-[500px] bg-surface-container relative group">
+                <img alt="Concept Art 1" class="w-full h-full object-cover" data-alt="Mechanical sketch of a futuristic robot head" src="img_archive_1.png"/>
+                <div class="absolute inset-0 bg-primary-container/80 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                    <p class="font-headline text-2xl font-black uppercase tracking-tighter text-white">CIUDAD_CYBERPUNK</p>
+                    <p class="font-headline text-[10px] tracking-[0.2em] text-tertiary">ENVIADO_POR_LA_COMUNIDAD</p>
+                </div>
             </div>
+            <div class="min-w-[300px] h-[500px] bg-surface-container relative group">
+                <img alt="Concept Art 2" class="w-full h-full object-cover" data-alt="Stylized character portrait in bold ink lines" src="img_archive_2.png"/>
+                <div class="absolute inset-0 bg-secondary-container/80 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                    <p class="font-headline text-2xl font-black uppercase tracking-tighter text-white">MECHA_PROTOTYPE</p>
+                    <p class="font-headline text-[10px] tracking-[0.2em] text-primary">ENVIADO_POR_LA_COMUNIDAD</p>
+                </div>
+            </div>
+            <div class="min-w-[500px] h-[500px] bg-surface-container relative group">
+                <img alt="Keyframe" class="w-full h-full object-cover" data-alt="Abstract digital landscape with floating geometry" src="img_archive_3.png"/>
+                <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                    <p class="font-headline text-2xl font-black uppercase tracking-tighter text-white">NEON_ROOFTOP</p>
+                    <p class="font-headline text-[10px] tracking-[0.2em] text-tertiary">ENVIADO_POR_LA_COMUNIDAD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar Grid Section -->
+    <section class="px-8 md:px-16 py-24 editorial-grid">
+        <!-- Main Column for the Grid -->
+        <div class="col-span-12 md:col-span-8 flex flex-col gap-16">
+            <div class="flex flex-col gap-8">
+                <div class="h-1 w-20 bg-primary mb-4"></div>
+                <h2 class="font-headline text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-none break-all sm:break-words">DESTACADO_DE_TEMPORADA</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-surface-container">
+                    <div class="h-[400px] relative">
+                        <img alt="Seasonal Anime" class="w-full h-full object-cover" data-alt="Dark dramatic scenery from an anime background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQRPiPs0E6fT1dpZOSikb6z4A2_wIkKQbAAbksCTuvmh0nzuWk0gC6BJ8Wi0qJy2Eb3cgMTwL9dFpgRucXcorPemuKGrAUCKCWAmvoh5eEQk_tjP2ABvznexunzXzW91pToNmfgbAnYQWaaiG1F9rWPlBF9MHxTS4-ahPj7dEwgHIrfnnoniN6RGiAu2X3UaNpxVs7NlA94W12qZT2nNVQfz9Y22ZZvIZPz5KTDjsC6CzuTRW5knrOohj5am2WeglYHWV2KoiNCP2_"/>
+                    </div>
+                    <div class="p-10 bg-secondary-container flex flex-col justify-between">
+                        <div>
+                            <span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold mb-4 inline-block">VISTO_OTOÑO_2024</span>
+                            <h3 class="font-headline text-3xl xl:text-4xl font-black uppercase tracking-tighter text-white leading-tight mb-6">CYBER_DRIFTER: CRÓNICAS L7</h3>
+                            <p class="text-white font-body opacity-90 mb-8 leading-relaxed text-sm">La producción visual más impactante desde 2021. Nuestro equipo analiza los keyframes y la banda sonora cargada de sintetizadores que define esta nueva era de proyectos estudiantiles.</p>
+                        </div>
+                        <button onclick="window.location.href='article.html'" class="w-full border-2 border-white py-4 font-headline font-black text-white tracking-[0.2em] hover:bg-white hover:text-secondary-container transition-all">ACCEDER_AL_CASO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Trending/Sidebar Column -->
+        <div class="col-span-12 md:col-span-4 flex flex-col gap-12">
+            <div class="bg-surface-container-low p-6 xl:p-8 border-l-4 border-tertiary">
+                <h3 class="font-headline text-xs font-black tracking-[0.3em] text-tertiary mb-8 uppercase">TENDENCIA_AHORA</h3>
+                <ul class="flex flex-col gap-8">
+                    <li class="flex flex-col gap-2 group cursor-pointer border-b border-outline-variant/20 pb-6">
+                        <div class="flex items-center gap-3">
+                            <span class="font-headline text-2xl font-black text-outline-variant group-hover:text-primary transition-colors">01</span>
+                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-primary uppercase">ESTÉTICA</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">¿La muerte del protagonista Shonen?</h4>
+                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">12K LECTURAS</p>
+                        </div>
+                    </li>
+                    <li class="flex flex-col gap-2 group cursor-pointer border-b border-outline-variant/20 pb-6">
+                        <div class="flex items-center gap-3">
+                            <span class="font-headline text-2xl font-black text-outline-variant group-hover:text-primary transition-colors">02</span>
+                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-tertiary uppercase">LEGADO_GHIBLI</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">Studio MAPPA: Un análisis profundo de su crisis de producción</h4>
+                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">9.5K LECTURAS</p>
+                        </div>
+                    </li>
+                    <li class="flex flex-col gap-2 group cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="font-headline text-2xl font-black text-outline-variant group-hover:text-primary transition-colors">03</span>
+                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-secondary uppercase">MÚSICA</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">Por qué Cowboy Bebop sigue sonando como el futuro</h4>
+                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">8.2K LECTURAS</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Newsletter Terminal -->
+            <div class="bg-black p-8 font-label text-xs">
+                <div class="flex justify-between items-center mb-6 opacity-50">
+                    <span>SUSCRIPCIÓN_TERMINAL_v.01</span>
+                    <div class="flex gap-1">
+                        <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                        <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                </div>
+                <p class="text-tertiary mb-4 tracking-widest uppercase">&gt; INGRESAR_EMAIL_PARA_ACTUALIZACIONES</p>
+                <div class="flex flex-col gap-4">
+                    <div class="border-b-2 border-primary py-2 flex items-center">
+                        <span class="text-primary mr-2">SUSCRIPCIÓN_TERMINAL_v.01</span>
+                        <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 p-0 text-white w-full" placeholder="USUARIO@DOMINIO.JP" type="email"/>
+                    </div>
+                    <button class="bg-primary text-on-primary-fixed font-black py-2 tracking-[0.2em] hover:bg-tertiary hover:text-black transition-colors">INICIAR_CONEXIÓN</button>
+                </div>
+                <p class="mt-6 text-[8px] opacity-30 leading-tight">Al suscribirse, acepta nuestro PROTOCOLO_DE_DATOS y permite notificaciones de terminal para actualizaciones estacionales.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
+        <div class="md:col-span-1">
+            <span class="text-lg font-black text-primary font-headline tracking-tighter uppercase mb-6 block">SAKURABLOG</span>
+            <p class="font-headline text-[10px] tracking-widest text-gray-500 leading-relaxed uppercase">Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">RED</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="#">TWITTER</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="#">ACCESO_TERMINAL</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">COMUNIDAD</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="ajustes.html">PRIVACIDAD</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="terminos_condiciones_anime.pdf" target="_blank">REGLAS_SOPORTE_[PDF]</a>
+        </div>
+        <div class="md:col-span-1 flex flex-col justify-end items-start md:items-end">
+            <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500">©2024 SAKURABLOG // PROTOCOLO_V.01</span>
         </div>
     </footer>
+</main>
 
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-background glass-nav z-50 flex justify-around items-center h-16 border-t-0 shadow-2xl">
+    <a class="text-tertiary flex flex-col items-center gap-1" href="index.html">
+        <span class="material-symbols-outlined" translate="no">home</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">INICIO</span>
+    </a>
+    <a class="text-primary flex flex-col items-center gap-1" href="tendencias.html">
+        <span class="material-symbols-outlined" translate="no">trending_up</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">TENDENCIAS</span>
+    </a>
+    <a class="text-primary flex flex-col items-center gap-1" href="ultimo.html">
+        <span class="material-symbols-outlined" translate="no">schedule</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">ÚLTIMO</span>
+    </a>
+    <a class="text-primary flex flex-col items-center gap-1" href="admin.html">
+        <span class="material-symbols-outlined" translate="no">person</span>
+        <span class="text-[8px] font-headline font-bold uppercase tracking-widest">PERFIL</span>
+    </a>
+</nav>
+
+<script src="script.js"></script>
 </body>
 </html>
-
-    <main class="pt-20">
-        <section class="relative h-[870px] w-full overflow-hidden bg-surface-container-lowest">
-            <div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10"></div>
-            <img alt="Solo Leveling Visual" class="absolute inset-0 w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaxO6ZqUBlaaJnFPApezX2bT3UYptL496J2D1EAPRfTxKkC45-YZ2V3DS21Efq3DS5sgq3D86D_jias6sHr91l-m1Mf-PlKNxGK2P33PwsazL0l7xJuvrmGrW2xsBT9hPs0UE9aUg8ZB9eMCbUdKz33lILMDyaR2_m-7TEkrR8ezFtZKN12ElQdjfV7aeBu5mWNdxV42cpDg1mtolZoZpAeb2LpKix3UgeKSy-xTcLZP5xjNnujkoK_D_HE88Fgdn7yECeIC8Fvg"/>
-            <div class="relative z-20 h-full max-w-[1920px] mx-auto px-8 flex flex-col justify-center items-start">
-                <div class="mb-4 inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 px-3 py-1">
-                    <span class="w-2 h-2 bg-secondary animate-pulse"></span>
-                    <span class="text-secondary font-label text-[10px] font-black uppercase tracking-[0.2em]">Estreno Global</span>
-                </div>
-                <h1 class="font-headline text-7xl md:text-9xl font-black text-on-surface uppercase tracking-tighter leading-[0.85] mb-6">
-                    SOLO<br/><span class="text-primary italic">LEVELING</span>
-                </h1>
-                <p class="max-w-xl text-on-surface-variant font-body text-lg leading-relaxed mb-10 border-l-2 border-primary/30 pl-6">
-                    La espera ha terminado. Analizamos el impacto visual y narrativo de
