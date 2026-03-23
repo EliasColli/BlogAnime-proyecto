@@ -74,7 +74,7 @@
             },
         }
     </script>
-    <style>
+   <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -92,17 +92,16 @@
         }
     </style>
     
-    <!-- Requisitos Academicos: Bootstrap & jQuery -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<body class="bg-background text-on-background font-body selection:bg-tertiary selection:text-on-tertiary">
+<body class="bg-background text-on-background font-body selection:bg-tertiary">
 
-<!-- TopAppBar -->
-<header class="fixed top-0 left-0 w-full z-50 bg-background flex justify-between items-center px-6 py-4 h-16 border-b-0">
+<header class="fixed top-0 left-0 w-full z-50 bg-background flex justify-between items-center px-6 py-4 h-16 border-b border-white/5">
     <div class="flex items-center gap-8">
+        <img src="../img/logo_sakurablog.png" alt="Logo" class="h-8 w-auto object-contain">
         <span class="text-2xl font-black tracking-tighter text-primary uppercase font-headline">SAKURABLOG</span>
-        <nav class="hidden md:flex gap-6 items-center h-full">
+        <nav class="hidden md:flex gap-6 items-center">
             <a class="text-tertiary font-bold border-b-4 border-tertiary pb-1 font-headline text-xs tracking-widest" href="article.html">RESEÑAS</a>
             <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="index.html">TEMPORADAS</a>
             <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="article.html">CULTURA</a>
@@ -132,158 +131,142 @@
         </nav>
     </div>
     <div class="p-6">
-        <button onclick="window.location.href='register.html'" class="w-full bg-primary-container text-white font-headline font-black py-3 text-xs tracking-[0.2em] mb-8 hover:bg-secondary-container transition-all">SUSCRÍBETE_AHORA</button>
+        <button onclick="window.location.href='register.html'" class="w-full bg-primary-container text-white font-headline font-black py-3 text-xs tracking-[0.2em] mb-8 hover:bg-secondary-container transition-all">REGISTRATE AHORA</button>
     </div>
 </aside>
 
-<!-- Main Content Area -->
 <main class="lg:ml-64 pt-16">
-    <!-- Hero Section -->
-    <section class="relative w-full h-[870px] overflow-hidden bg-surface-container-lowest">
-        <div class="absolute inset-0">
-            <img alt="Evangelion" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Cinematic shot of a giant mecha in a dark futuristic city" src="mapa-pirata.jpg"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
-        </div>
-        <div class="relative h-full flex flex-col justify-end p-8 md:p-16 max-w-6xl">
-            <span class="inline-block bg-tertiary text-on-tertiary px-3 py-1 text-[10px] font-black font-headline tracking-widest mb-6">CRÍTICA_DESTACADA // VOL. 042</span>
-            <h1 class="font-headline text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-8 text-on-background">NEON <br/> GENESIS <br/> <span class="text-transparent border-2 border-primary bg-clip-text" style="-webkit-text-stroke: 1px #ffb2b7;">ETERNIDAD</span></h1>
-            <p class="max-w-xl font-body text-lg text-on-surface-variant mb-10 leading-relaxed">Cómo el trauma de Hideaki Anno redefinió el género mecha y por qué, treinta años después, seguimos atrapados en el Proyecto de Instrumentalización de los medios modernos.</p>
-            <div class="flex items-center gap-6">
-                <button onclick="window.location.href='article.html'" class="px-8 py-4 bg-primary-container text-white font-headline font-black tracking-widest text-sm hover:bg-secondary-container transition-all">LEER_TRANSCRIPCIÓN</button>
-                <div class="flex flex-col">
-                    <span class="text-[10px] font-headline text-tertiary tracking-widest uppercase">Autor</span>
-                    <span class="text-sm font-headline font-bold">@UNIT_01_PILOT</span>
-                </div>
+<!-- CONTENIDO PRINCIPAL AQUÍ -->
+<section class="relative w-full h-[870px] overflow-hidden bg-surface-container-lowest">
+    <div class="absolute inset-0">
+        <img alt="Evangelion" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Cinematic shot of a giant mecha in a dark futuristic city" src="../img/jujutsu kaisen 3.jpg"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+    </div>
+    <div class="relative h-full flex flex-col justify-end p-8 md:p-16 max-w-6xl">
+        <span class="inline-block bg-tertiary text-on-tertiary px-3 py-1 text-[10px] font-black font-headline tracking-widest mb-6">CRÍTICA_DESTACADA </span>
+        <h1 class="font-headline text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-8 text-on-background">Jujutsu <br/> Kaisen <br/> 
+            <span class="text-transparent border-2 border-primary bg-clip-text" style="-webkit-text-stroke: 1px #ffb2b7;">Tercera Temporada</span>
+        </h1>
+        <p class="max-w-xl font-body text-lg text-on-surface-variant mb-10 leading-relaxed">Aunque nació con un poder inmenso, Itadori Yuji lleva una vida completamente normal. Un día, para salvar a un compañero de clase, come un dedo maldito, y ahora Ryomen Sukuna habita en su alma.</p>
+        <div class="flex items-center gap-6">
+            <button onclick="window.location.href='article.html'" class="px-8 py-4 bg-primary-container text-white font-headline font-black tracking-widest text-sm hover:bg-secondary-container transition-all">LEER_TRANSCRIPCIÓN</button>
+            <div class="flex flex-col">
+                <span class="text-[10px] font-headline text-tertiary tracking-widest uppercase">Autor</span>
+                <span class="text-sm font-headline font-bold">@UNIT_01_PILOT</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<!-- Sección 2 -->
+<section class="px-8 md:px-16 py-24 bg-background">
+    <div class="flex items-baseline justify-between mb-16 border-b border-outline-variant/15 pb-4">
+        <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">ANUNCIOS</h2>
+        <span class="font-headline text-xs text-tertiary tracking-[0.3em]">REFINANDO_LA_SEÑAL</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-8 group cursor-pointer" onclick="window.location.href='article.html'">
+            <div class="relative overflow-hidden mb-6 bg-surface-container-low aspect-video">
+                <img alt="Cyberpunk City" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Vibrant neon streets of a Japanese city at night" src="../img/Assassination Classroom.jpg"/>
+                <div class="absolute top-0 right-0 p-4">
+                    <span class="bg-secondary-container text-white px-3 py-1 font-headline text-[10px] font-bold tracking-widest uppercase">HISTORIA DESTACADA</span>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4">
+                <div class="flex gap-4 items-center">
+                    <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold">CINE // ENTRETENIMIENTO</span>
+                    <span class="w-12 h-[1px] bg-outline-variant/30"></span>
+                    <span class="text-on-surface-variant text-[10px] font-headline tracking-widest">12.04.24</span>
+                </div>
+                <h3 class="font-headline text-4xl font-bold tracking-tight uppercase group-hover:text-primary transition-colors">Vean los primeros cuatro minutos de Assassination Classroom The Movie: Our Time</h3>
+                <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">En conmemoración del estreno nacional de Assassination Classroom The Movie: Our Time , el sitio web oficial publicó hoy los primeros cuatro minutos de la película. </p>
+            </div>
+        </div>
+        
+        <div class="md:col-span-4 flex flex-col gap-12">
+            <div class="group cursor-pointer" onclick="window.location.href='article.html'">
+                <div class="aspect-square bg-surface-container overflow-hidden mb-4">
+                    <img alt="90s Aesthetic" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Lo-fi anime scene with retro electronics" src="../img/Dr Stone.jpg"/>
+                </div>
+                <span class="text-secondary font-headline text-[10px] tracking-widest font-bold uppercase mb-2 block">NOVEDAD</span>
+                <h4 class="font-headline text-xl font-bold uppercase tracking-tight group-hover:text-tertiary transition-colors">Dr. STONE SCIENCE FUTURE revela el final de la tercera parte de la última temporada</h4>
+            </div>
+            <div class="group cursor-pointer" onclick="window.location.href='article.html'">
+                <div class="aspect-square bg-surface-container overflow-hidden mb-4">
+                    <img alt="Studio Ghibli" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Lush green landscape from an animated film" src="../img/el castillo ambulante.jpg"/>
+                </div>
+                <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold uppercase mb-2 block">LEGADO GHIBLI</span>
+                <h4 class="font-headline text-xl font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Se reestrena "El Castillo Ambulante (Howl's Moving Castle)" en los cines de México, una de las peliculas mas taquilleras.</h4>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- The Feed: Asymmetric Grid -->
-    <section class="px-8 md:px-16 py-24 bg-background">
-        <div class="flex items-baseline justify-between mb-16 border-b border-outline-variant/15 pb-4">
-            <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">EL_FEED</h2>
-            <span class="font-headline text-xs text-tertiary tracking-[0.3em]">REFINANDO_LA_SEÑAL</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <!-- Large Story Card -->
-            <div class="md:col-span-8 group cursor-pointer" onclick="window.location.href='article.html'">
-                <div class="relative overflow-hidden mb-6 bg-surface-container-low aspect-video">
-                    <img alt="Cyberpunk City" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Vibrant neon streets of a Japanese city at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrSnNvKyM0PdY-1vFSK_KTcsvSfrU7F0J4IAqIAZ4mSTD1LhjwHzmEEzTkGAsKepi609AajSh7WFXNzEq8QJQj_Uvyah5s4kpgUJ0spLnTOP9Hnn5sVLn4r1z0qI-N86NrB0J86VOpVUMaorZcBCcNed3Zzv5ZOPrXVR9-WN2LTYfwZ3sPgcgxD7IL02_Cr5JEajXbxF9nErgAqJB9OUX_hoj2KVfnjY--oRX_L71bqhmMjd8CSdqy8GOqo_ioeuFWtipZs1VqH5rn"/>
-                    <div class="absolute top-0 right-0 p-4">
-                        <span class="bg-secondary-container text-white px-3 py-1 font-headline text-[10px] font-bold tracking-widest uppercase">HISTORIA_DESTACADA</span>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center">
-                        <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold">CULTURA // ARQUITECTURA</span>
-                        <span class="w-12 h-[1px] bg-outline-variant/30"></span>
-                        <span class="text-on-surface-variant text-[10px] font-headline tracking-widest">12.04.24</span>
-                    </div>
-                    <h3 class="font-headline text-4xl font-bold tracking-tight uppercase group-hover:text-primary transition-colors">EL_SUEÑO_BRUTALISTA: Por qué las ciudades Cyberpunk siempre deben llover</h3>
-                    <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">Explorando la melancolía arquitectónica de Neo-Tokyo y cómo la estética de los 90 dio forma a nuestras expectativas digitales del futuro.</p>
-                </div>
-            </div>
-            
-            <!-- Small Cards Sidebar-within-feed -->
-            <div class="md:col-span-4 flex flex-col gap-12">
-                <div class="group cursor-pointer" onclick="window.location.href='article.html'">
-                    <div class="aspect-square bg-surface-container overflow-hidden mb-4">
-                        <img alt="90s Aesthetic" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Lo-fi anime scene with retro electronics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUoKBpd0cz5lFZ8YSLQHleRsJ1Cq-xzeezeL5hk9CF-DRoP6Vnq-m9Tc6i0ANoG2AphLOOPsH6P-Dw0qWphKkhO4kkX0TYGhMdu6T0MV0XBFan-KCHiQxuAmc_9Mj8gW-1OtMJo_-42HCuYAIoApGjddWWUrPwfixZoyHOWk1vqNKiiuwZ7uvd9CmNxMzeIXVBfbk9l_QfZ3w5j806y6PvqURzPtL5ub9e_OkwuI6IX6EqLTyE11bbEWWSFpqKQsBjCKNiSCxFbhWW"/>
-                    </div>
-                    <span class="text-secondary font-headline text-[10px] tracking-widest font-bold uppercase mb-2 block">ESTÉTICA</span>
-                    <h4 class="font-headline text-xl font-bold uppercase tracking-tight group-hover:text-tertiary transition-colors">Retro-Hardware: La belleza del diseño de SO de los 90</h4>
-                </div>
-                <div class="group cursor-pointer" onclick="window.location.href='article.html'">
-                    <div class="aspect-square bg-surface-container overflow-hidden mb-4">
-                        <img alt="Studio Ghibli" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Lush green landscape from an animated film" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwTzc22LoDq2hwgmwyLxUCrTZfMVi53TzfKhhMX5Vl8RHTFBDfo5s3XmQEebGzHOy9_b6-eQbqIpGupdqV8xtcs1C0-3NAMGJlWzIQ_eZ_PU3e3CIPuZq3qJkE7I5x9F7F-uFvhw8isiLC6OFmUVnDIzXmvLCFfPtqZYaX-HlnxRqxrypjnV3CBu1xOFgujV7w2mvPldLvnzcz9MkSYDRCCEjV_zvhxTQmt45VnZoKEb1r69PE_1ipA7DEn7hJDw_2-gSDnNR99sq0"/>
-                    </div>
-                    <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold uppercase mb-2 block">LEGADO_GHIBLI</span>
-                    <h4 class="font-headline text-xl font-bold uppercase tracking-tight group-hover:text-primary transition-colors">El Silencio de Ghibli: El Arte del Momento 'Ma'</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visual Archives: Horizontal Scroll Gallery -->
-    <section class="py-24 bg-surface-container-low overflow-hidden">
-        <div class="px-8 md:px-16 mb-12 flex justify-between items-end">
-            <div>
-                <h2 class="font-headline text-5xl font-black uppercase tracking-tighter mb-2">ARCHIVOS_VISUALES</h2>
-                <p class="font-headline text-xs text-on-surface-variant tracking-widest">ENVIADO_POR_LA_COMUNIDAD</p>
-            </div>
-            <button onclick="window.location.href='article.html'" class="font-headline text-[10px] tracking-[0.2em] font-bold flex items-center gap-2 hover:text-primary">VER_TODAS_LAS_ENTRADAS <span class="material-symbols-outlined text-sm" translate="no">arrow_forward</span></button>
+    <!-- Sección 3 -->
+    <section class="py-24 bg-white/5 overflow-hidden">
+        <div class="px-8 md:px-16 mb-12">
+            <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">ANIMES DEL MOMENTO</h2>
         </div>
         <div class="flex gap-4 overflow-x-auto no-scrollbar px-8 md:px-16">
-            <div class="min-w-[400px] h-[500px] bg-surface-container relative group">
-                <img alt="Concept Art 1" class="w-full h-full object-cover" data-alt="Mechanical sketch of a futuristic robot head" src="img_archive_1.png"/>
-                <div class="absolute inset-0 bg-primary-container/80 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
-                    <p class="font-headline text-2xl font-black uppercase tracking-tighter text-white">CIUDAD_CYBERPUNK</p>
-                    <p class="font-headline text-[10px] tracking-[0.2em] text-tertiary">ENVIADO_POR_LA_COMUNIDAD</p>
-                </div>
+            <div class="min-w-[300px] h-[400px] bg-white/5">
+                <img alt="Anime 1" class="w-full h-full object-cover" src="../img/oshi no ko.jpg"/>
+                <h3 class="font-headline text-lg font-bold uppercase tracking-tight text-white p-4">Rooster Fighter</h3>
             </div>
-            <div class="min-w-[300px] h-[500px] bg-surface-container relative group">
-                <img alt="Concept Art 2" class="w-full h-full object-cover" data-alt="Stylized character portrait in bold ink lines" src="img_archive_2.png"/>
-                <div class="absolute inset-0 bg-secondary-container/80 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
-                    <p class="font-headline text-2xl font-black uppercase tracking-tighter text-white">MECHA_PROTOTYPE</p>
-                    <p class="font-headline text-[10px] tracking-[0.2em] text-primary">ENVIADO_POR_LA_COMUNIDAD</p>
-                </div>
+            <div class="min-w-[300px] h-[400px] bg-white/5">
+                <img alt="Anime 2" class="w-full h-full object-cover" src="../img/Tamon-kun Ima Docchi.jpg"/>
+                <h3 class="font-headline text-lg font-bold uppercase tracking-tight text-white p-4">Tamon-kun Ima Docchi</h3>
             </div>
-            <div class="min-w-[500px] h-[500px] bg-surface-container relative group">
-                <img alt="Keyframe" class="w-full h-full object-cover" data-alt="Abstract digital landscape with floating geometry" src="img_archive_3.png"/>
-                <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
-                    <p class="font-headline text-2xl font-black uppercase tracking-tighter text-white">NEON_ROOFTOP</p>
-                    <p class="font-headline text-[10px] tracking-[0.2em] text-tertiary">ENVIADO_POR_LA_COMUNIDAD</p>
-                </div>
+            <div class="min-w-[300px] h-[400px] bg-white/5">
+                <img alt="Anime 2" class="w-full h-full object-cover" src="../img/Uruwashi no Yoi no Tsuki.jpg"/>
+                <h3 class="font-headline text-lg font-bold uppercase tracking-tight text-white p-4">Uruwashi no Yoi no Tsuki</h3>
             </div>
         </div>
     </section>
 
-    <!-- Sidebar Grid Section -->
-    <section class="px-8 md:px-16 py-24 editorial-grid">
-        <!-- Main Column for the Grid -->
-        <div class="col-span-12 md:col-span-8 flex flex-col gap-16">
-            <div class="flex flex-col gap-8">
-                <div class="h-1 w-20 bg-primary mb-4"></div>
-                <h2 class="font-headline text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-none break-all sm:break-words">DESTACADO_DE_TEMPORADA</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-surface-container">
-                    <div class="h-[400px] relative">
-                        <img alt="Seasonal Anime" class="w-full h-full object-cover" data-alt="Dark dramatic scenery from an anime background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQRPiPs0E6fT1dpZOSikb6z4A2_wIkKQbAAbksCTuvmh0nzuWk0gC6BJ8Wi0qJy2Eb3cgMTwL9dFpgRucXcorPemuKGrAUCKCWAmvoh5eEQk_tjP2ABvznexunzXzW91pToNmfgbAnYQWaaiG1F9rWPlBF9MHxTS4-ahPj7dEwgHIrfnnoniN6RGiAu2X3UaNpxVs7NlA94W12qZT2nNVQfz9Y22ZZvIZPz5KTDjsC6CzuTRW5knrOohj5am2WeglYHWV2KoiNCP2_"/>
+<!-- sección 3 -->
+ <section class="px-8 md:px-16 py-24 editorial-grid">
+    <div class="col-span-12 md:col-span-8 flex flex-col gap-16">
+        <div class="flex flex-col gap-8">
+            <div class="h-1 w-20 bg-primary mb-4"></div>
+            <h2 class="font-headline text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-none break-all sm:break-words">ANIME MAS DESTACADO DE LA TEMPORADA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-surface-container">
+                <div class="h-[400px] relative">
+                    <img alt="Seasonal Anime" class="w-full h-full object-cover" data-alt="Dark dramatic scenery from an anime background" src="../img/FRIEREN BEYOND JOURNEY'S END.jpg"/>
+                </div>
+                <div class="p-10 bg-secondary-container flex flex-col justify-between">
+                    <div>
+                        <span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold mb-4 inline-block">VISTO INVIERNO/PRIMAVERA 2026</span>
+                        <h3 class="font-headline text-3xl xl:text-4xl font-black uppercase tracking-tighter text-white leading-tight mb-6">Frieren: Más allá del final del viaje temporada 2, Dónde ver, avances, reparto y más</h3>
+                        <p class="text-white font-body opacity-90 mb-8 leading-relaxed text-sm">No es del todo cierto que todo lo bueno tenga un final. Por ejemplo, Frieren: Más allá del fin del viajeSe abre en una pestaña nueva. ( Frieren: Más allá del final del viaje ) demostró que, aunque la poderosa maga elfa Frieren derrotó al Rey Demonio con su grupo y llevó una historia a su épico final, otra aguardaba entre bastidores.</p>
                     </div>
-                    <div class="p-10 bg-secondary-container flex flex-col justify-between">
-                        <div>
-                            <span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold mb-4 inline-block">VISTO_OTOÑO_2024</span>
-                            <h3 class="font-headline text-3xl xl:text-4xl font-black uppercase tracking-tighter text-white leading-tight mb-6">CYBER_DRIFTER: CRÓNICAS L7</h3>
-                            <p class="text-white font-body opacity-90 mb-8 leading-relaxed text-sm">La producción visual más impactante desde 2021. Nuestro equipo analiza los keyframes y la banda sonora cargada de sintetizadores que define esta nueva era de proyectos estudiantiles.</p>
-                        </div>
-                        <button onclick="window.location.href='article.html'" class="w-full border-2 border-white py-4 font-headline font-black text-white tracking-[0.2em] hover:bg-white hover:text-secondary-container transition-all">ACCEDER_AL_CASO</button>
-                    </div>
+                    <button onclick="window.location.href='article.html'" class="w-full border-2 border-white py-4 font-headline font-black text-white tracking-[0.2em] hover:bg-white hover:text-secondary-container transition-all">Leer mas</button>
                 </div>
             </div>
         </div>
+    </div>
         
         <!-- Trending/Sidebar Column -->
         <div class="col-span-12 md:col-span-4 flex flex-col gap-12">
             <div class="bg-surface-container-low p-6 xl:p-8 border-l-4 border-tertiary">
-                <h3 class="font-headline text-xs font-black tracking-[0.3em] text-tertiary mb-8 uppercase">TENDENCIA_AHORA</h3>
+                <h3 class="font-headline text-xs font-black tracking-[0.3em] text-tertiary mb-8 uppercase">TENDENCIA MAS DESTACADAS</h3>
                 <ul class="flex flex-col gap-8">
                     <li class="flex flex-col gap-2 group cursor-pointer border-b border-outline-variant/20 pb-6">
                         <div class="flex items-center gap-3">
                             <span class="font-headline text-2xl font-black text-outline-variant group-hover:text-primary transition-colors">01</span>
-                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-primary uppercase">ESTÉTICA</span>
+                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-primary uppercase">WEPTOON</span>
                         </div>
                         <div>
-                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">¿La muerte del protagonista Shonen?</h4>
+                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">La emperatriz divorciada</h4>
                             <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">12K LECTURAS</p>
                         </div>
                     </li>
                     <li class="flex flex-col gap-2 group cursor-pointer border-b border-outline-variant/20 pb-6">
                         <div class="flex items-center gap-3">
                             <span class="font-headline text-2xl font-black text-outline-variant group-hover:text-primary transition-colors">02</span>
-                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-tertiary uppercase">LEGADO_GHIBLI</span>
+                            <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-tertiary uppercase">MANHWA</span>
                         </div>
                         <div>
-                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">Studio MAPPA: Un análisis profundo de su crisis de producción</h4>
+                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">Complejo de Amigos de la Infancia</h4>
                             <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">9.5K LECTURAS</p>
                         </div>
                     </li>
@@ -293,7 +276,7 @@
                             <span class="font-headline text-[10px] font-bold tracking-[0.2em] text-secondary uppercase">MÚSICA</span>
                         </div>
                         <div>
-                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">Por qué Cowboy Bebop sigue sonando como el futuro</h4>
+                            <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">A principios de 2026, la canción más escuchada y premiada es "Golden", interpretada por HUNTR/X</h4>
                             <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">8.2K LECTURAS</p>
                         </div>
                     </li>
@@ -310,35 +293,34 @@
                         <div class="w-2 h-2 rounded-full bg-green-500"></div>
                     </div>
                 </div>
-                <p class="text-tertiary mb-4 tracking-widest uppercase">&gt; INGRESAR_EMAIL_PARA_ACTUALIZACIONES</p>
+                <p class="text-tertiary mb-4 tracking-widest uppercase">&gt; REGISTRATE_PARA_ TENER_MAS_ACTUALIZACIONES</p>
                 <div class="flex flex-col gap-4">
                     <div class="border-b-2 border-primary py-2 flex items-center">
-                        <span class="text-primary mr-2">SUSCRIPCIÓN_TERMINAL_v.01</span>
-                        <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 p-0 text-white w-full" placeholder="USUARIO@DOMINIO.JP" type="email"/>
+                        <span class="text-primary mr-2">TERMINAL DE SUSCRIPCIÓN</span>
+                        <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 p-0 text-white w-full" placeholder="USUARIO@GMAIL.COM" type="email"/>
                     </div>
-                    <button class="bg-primary text-on-primary-fixed font-black py-2 tracking-[0.2em] hover:bg-tertiary hover:text-black transition-colors">INICIAR_CONEXIÓN</button>
+                    <button class="bg-primary text-on-primary-fixed font-black py-2 tracking-[0.2em] hover:bg-tertiary hover:text-black transition-colors">INICIAR REGISTRO</button>
                 </div>
                 <p class="mt-6 text-[8px] opacity-30 leading-tight">Al suscribirse, acepta nuestro PROTOCOLO_DE_DATOS y permite notificaciones de terminal para actualizaciones estacionales.</p>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
+<!-- final de secciónes -->
+ <footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
         <div class="md:col-span-1">
             <span class="text-lg font-black text-primary font-headline tracking-tighter uppercase mb-6 block">SAKURABLOG</span>
             <p class="font-headline text-[10px] tracking-widest text-gray-500 leading-relaxed uppercase">Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.</p>
         </div>
         <div class="flex flex-col gap-3">
             <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">RED</h5>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="#">TWITTER</a>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="#">ACCESO_TERMINAL</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="#">TWITTER</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="#">ACCESO_TERMINAL</a>
         </div>
         <div class="flex flex-col gap-3">
             <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">COMUNIDAD</h5>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="ajustes.html">PRIVACIDAD</a>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline decoration-2 underline-offset-4 hover:text-white transition-all" href="terminos_condiciones_anime.pdf" target="_blank">REGLAS_SOPORTE_[PDF]</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="ajustes.html">PRIVACIDAD</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="terminos_condiciones_anime.pdf" target="_blank">REGLAS_SOPORTE_[PDF]</a>
         </div>
         <div class="md:col-span-1 flex flex-col justify-end items-start md:items-end">
             <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500">©2024 SAKURABLOG // PROTOCOLO_V.01</span>
