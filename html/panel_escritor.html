@@ -5,13 +5,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>CURATOR | Escribir Nueva Reseña</title>
     
-    <!-- Requisitos Académicos: Bootstrap & jQuery -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- Tailwind Config -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -48,7 +46,6 @@
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .bg-grid { background-image: radial-gradient(#2d3449 1px, transparent 1px); background-size: 32px 32px; }
         
-        /* Ajuste para inputs nativos y Bootstrap reseteando outline */
         input:focus, textarea:focus, select:focus {
             outline: none !important;
             box-shadow: 0 0 0 2px #ffb2b7 !important;
@@ -62,14 +59,16 @@
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen flex flex-col bg-grid">
     
-    <!-- Navbar -->
-    <nav class="px-8 md:px-12 py-6 border-b border-white/5 flex justify-between items-center bg-surface/90 backdrop-blur-md sticky top-0 z-50">
-        <a href="index.html" class="font-headline text-2xl font-black tracking-tighter text-white hover:text-secondary transition-colors uppercase">SakuraBlog</a>
+    <nav class="px-8 md:px-12 py-4 border-b border-white/5 flex justify-between items-center bg-surface/90 backdrop-blur-md sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-4 group no-underline">
+            <img src="../img/logo_sakurablog.png" alt="Logo" class="h-14 w-auto object-contain transition-transform group-hover:scale-110 duration-300">
+            <span class="font-headline text-2xl font-black tracking-tighter text-white group-hover:text-primary transition-colors uppercase">SakuraBlog</span>
+        </a>
         <div class="flex items-center gap-6">
             <div id="auth-section" class="flex items-center">
-                <a href="login.html" class="px-5 py-2 bg-primary text-on-primary font-headline text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors">INICIAR SESIÓN</a>
+                <a href="login.html" class="px-5 py-2 bg-primary text-on-primary font-headline text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors no-underline">INICIAR SESIÓN</a>
             </div>
-            <a href="index.html" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors font-headline tracking-widest uppercase border-l border-white/10 pl-6">
+            <a href="index.html" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors font-headline tracking-widest uppercase border-l border-white/10 pl-6 no-underline">
                 <span class="material-symbols-outlined text-lg">arrow_back</span>
                 Volver
             </a>
@@ -83,42 +82,45 @@
             <p class="text-on-surface-variant text-sm tracking-widest uppercase opacity-80">Crear una reseña o recomendación para el muro central</p>
         </header>
 
-        <!-- Formulario: panel del escritor -->
         <div class="w-full bg-surface-container-low p-8 md:p-12 rounded border border-outline-variant/30 shadow-2xl relative overflow-hidden">
-            <!-- Detalles decorativos -->
             <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none"></div>
             
             <form id="writeArticleForm" class="space-y-8 relative">
-                
-                <!-- Título -->
                 <div class="space-y-2">
                     <label for="title" class="block text-xs font-headline font-bold text-primary tracking-[0.2em] uppercase">Título del Anime / Post</label>
                     <input type="text" id="title" required placeholder="Ej. Neon Genesis Evangelion: El dilema del erizo" 
                         class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-headline placeholder:text-slate-600 transition-colors" />
                 </div>
 
-                <!-- Categoría (Fase 1 Requerimiento) -->
                 <div class="space-y-2">
                     <label for="category" class="block text-xs font-headline font-bold text-secondary tracking-[0.2em] uppercase">Categoría</label>
                     <select id="category" required 
-                        class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-headline appearance-none transition-colors cursor-pointer">
+                        class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-headline appearance-none transition-colors cursor-pointer focus:border-primary focus:ring-0">
                         <option value="" disabled selected>Selecciona una categoría crítica</option>
                         <option value="Shonen">⚔️ Shonen</option>
                         <option value="Seinen">🌑 Seinen</option>
                         <option value="Isekai">🌌 Isekai</option>
+                        <option value="Shojo">🌸 Shojo</option>
+                        <option value="Mecha">🤖 Mecha / Sci-Fi</option>
+                        <option value="Slice of Life">🍵 Slice of Life</option>
+                        <option value="Horror">🩸 Horror / Psicológico</option>
+                        <option value="Cyberpunk">💾 Cyberpunk</option>
+                        <option value="Deportes">⚽ Spokon (Deportes)</option>
                         <option value="Reseñas">📜 Reseñas</option>
                         <option value="Recomendaciones">⭐ Recomendaciones</option>
+                        <option value="Cultura">⛩️ Cultura Japonesa</option>
+                        <option value="Noticias">📡 Noticias de Última Hora</option>
+                        <option value="Rankings">🏆 Rankings / Top 10</option>
+                        <option value="Bandas Sonoras">🎶 OST / Música</option>
                     </select>
                 </div>
 
-                <!-- Contenido (Reseña) -->
                 <div class="space-y-2">
                     <label for="content" class="block text-xs font-headline font-bold text-primary tracking-[0.2em] uppercase">Contenido de la Reseña</label>
                     <textarea id="content" required rows="10" placeholder="Escribe aquí tu análisis, sin spoilers por favor..."
                         class="w-full bg-surface-container border border-outline-variant/40 text-white rounded p-4 font-body leading-relaxed resize-y placeholder:text-slate-600 transition-colors"></textarea>
                 </div>
 
-                <!-- Submit y Acciones -->
                 <div class="pt-6 flex flex-col md:flex-row items-center gap-6 justify-end border-t border-white/10 mt-10">
                     <button type="button" onclick="window.history.back()" class="text-sm font-headline tracking-widest uppercase text-slate-400 hover:text-white transition-colors">
                         Cancelar
@@ -130,12 +132,16 @@
                 </div>
             </form>
         </div>
-        
     </main>
 
-    <!-- Footer Simple -->
-    <footer class="w-full py-8 text-center border-t border-white/5 opacity-50">
-        <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-slate-500">©2024 SAKURABLOG // SISTEMA DE ESCRITORES</span>
+    <footer class="w-full py-12 border-t border-white/5 bg-surface/50">
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-4">
+            <div class="flex items-center gap-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img src="../img/img_archive_1.png" alt="Logo" class="h-6 w-auto">
+                <span class="font-headline text-xs font-black tracking-widest text-white uppercase">SakuraBlog</span>
+            </div>
+            <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-slate-500 opacity-50">©2024 SAKURABLOG // SISTEMA DE ESCRITORES</span>
+        </div>
     </footer>
 
     <script src="script.js"></script>
