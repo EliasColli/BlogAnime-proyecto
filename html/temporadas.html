@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SAKURABLOG | Temporadas</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#ffb2b7",
+                        "primary": "#ffb2b7",
+                        "secondary-container": "#00a6e0",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "outline": "#aa888a",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#00374d",
+                        "primary-container": "#ff516a",
+                        "outline-variant": "#5b4041",
+                        "surface": "#0b1326",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "secondary": "#7bd0ff",
+                        "on-tertiary-container": "#340080",
+                        "surface-bright": "#31394d",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary": "#3c0091",
+                        "surface-dim": "#0b1326",
+                        "on-secondary": "#00354a",
+                        "secondary-fixed": "#c4e7ff",
+                        "on-primary-fixed": "#40000d",
+                        "background": "#0b1326",
+                        "surface-variant": "#2d3449",
+                        "tertiary-container": "#a078ff",
+                        "primary-fixed": "#ffdadb",
+                        "on-background": "#dae2fd",
+                        "on-primary-fixed-variant": "#92002a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#ffb2b7",
+                        "surface-container": "#171f33",
+                        "on-secondary-fixed": "#001e2c",
+                        "surface-container-highest": "#2d3449",
+                        "tertiary": "#d0bcff",
+                        "on-primary": "#67001b",
+                        "on-surface": "#dae2fd",
+                        "inverse-on-surface": "#283044",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-primary-container": "#5b0017",
+                        "surface-container-high": "#222a3d",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-surface-variant": "#e3bdbf",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "inverse-primary": "#bc0b3b",
+                        "surface-container-lowest": "#060e20"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;900&family=Inter&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+
+<header class="fixed top-0 left-0 w-full z-50 bg-background flex justify-between items-center px-6 py-4 h-20 border-b border-outline-variant/20">
+    <div class="flex items-center gap-8">
+        <div class="flex items-center gap-4">
+            <img src="../img/logo_sakurablog.png" alt="Logo" class="h-12 w-auto object-contain">
+            <span class="text-3xl font-black tracking-tighter text-primary uppercase font-headline">SAKURABLOG</span>
+        </div>
+        <nav class="hidden md:flex gap-6 items-center">
+            <a class="text-on-background font-medium hover:text-primary pb-1 font-headline text-xs tracking-widest no-underline transition-colors uppercase" href="article.html">RESEÑAS</a>
+            <a class="text-primary font-bold border-b-4 border-primary pb-1 font-headline text-xs tracking-widest no-underline uppercase" href="temporadas.html">TEMPORADAS</a>
+            <a class="text-on-background font-medium hover:text-primary pb-1 font-headline text-xs tracking-widest no-underline transition-colors uppercase" href="cultura.html">CULTURA</a>
+        </nav>
+    </div>
+</header>
+
+<main class="pt-32 pb-20 px-8 md:px-16 max-w-7xl mx-auto">
+    <header class="mb-16">
+        <h1 class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">Archivo de_ <br><span class="text-secondary">Temporadas</span></h1>
+        <p class="text-tertiary font-headline tracking-[0.3em] uppercase text-sm italic">Protocolo de sincronización 2026 activo</p>
+    </header>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div class="bg-surface-container-low p-8 border-l-4 border-tertiary group hover:bg-surface-container transition-all">
+            <span class="text-tertiary font-headline text-xs tracking-widest block mb-4 uppercase font-bold">Primavera 2026</span>
+            <h2 class="text-3xl font-black font-headline uppercase mb-4 group-hover:text-tertiary transition-colors">Guía de Simulcasts</h2>
+            <p class="text-on-surface-variant mb-6 leading-relaxed">Explora los estrenos más esperados de este ciclo y las nuevas joyas que definen el año.</p>
+            <a href="index.html" class="inline-flex items-center gap-2 text-primary font-black text-xs tracking-widest uppercase no-underline group-hover:gap-4 transition-all">Ver Cartelera <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+        
+        <div class="bg-surface-container-low p-8 border-l-4 border-primary group hover:bg-surface-container transition-all">
+            <span class="text-primary font-headline text-xs tracking-widest block mb-4 uppercase font-bold">Invierno 2026</span>
+            <h2 class="text-3xl font-black font-headline uppercase mb-4 group-hover:text-primary transition-colors">Lo Mejor del Año</h2>
+            <p class="text-on-surface-variant mb-6 leading-relaxed">Un recuento de las producciones que dominaron las listas de popularidad en el primer trimestre.</p>
+            <a href="index.html" class="inline-flex items-center gap-2 text-primary font-black text-xs tracking-widest uppercase no-underline group-hover:gap-4 transition-all">Ver Archivo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+    </div>
+
+    <section class="mb-24">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">Estrenos_Destacados</h2>
+            <div class="h-[1px] flex-grow bg-outline-variant"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-surface-container-low border border-outline-variant overflow-hidden group">
+                <div class="h-64 overflow-hidden relative bg-black">
+                    <img src="../img/portada.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70" alt="Anime">
+                    <div class="absolute bottom-0 left-0 bg-secondary-container text-on-secondary-container font-headline font-black px-3 py-1 text-[10px] uppercase">En Emisión</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-headline font-bold text-lg uppercase mb-2 leading-tight">Solo Leveling: Arise</h3>
+                    <p class="text-[10px] text-tertiary font-headline uppercase tracking-widest mb-4">A-1 Pictures // Acción</p>
+                    <div class="flex justify-between items-center opacity-60">
+                        <span class="text-[10px] uppercase font-headline">Episodios: 12/24</span>
+                        <span class="material-symbols-outlined text-primary text-xl">favorite</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-surface-container-low border border-outline-variant overflow-hidden group">
+                <div class="h-64 overflow-hidden relative bg-black">
+                    <img src="../img/portada.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70" alt="Anime">
+                    <div class="absolute bottom-0 left-0 bg-primary-container text-white font-headline font-black px-3 py-1 text-[10px] uppercase">Próximamente</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-headline font-bold text-lg uppercase mb-2 leading-tight">Chainsaw Man: Reze</h3>
+                    <p class="text-[10px] text-tertiary font-headline uppercase tracking-widest mb-4">MAPPA // Gore</p>
+                    <div class="flex justify-between items-center opacity-60">
+                        <span class="text-[10px] uppercase font-headline">Estreno: Oct 2026</span>
+                        <span class="material-symbols-outlined text-primary text-xl">bookmark</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-surface-container-low border border-outline-variant overflow-hidden group">
+                <div class="h-64 overflow-hidden relative bg-black">
+                    <img src="../img/portada.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70" alt="Anime">
+                    <div class="absolute bottom-0 left-0 bg-tertiary-container text-on-tertiary-container font-headline font-black px-3 py-1 text-[10px] uppercase">Destacado</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-headline font-bold text-lg uppercase mb-2 leading-tight">Kaiju No. 8 Vol. 2</h3>
+                    <p class="text-[10px] text-tertiary font-headline uppercase tracking-widest mb-4">Production I.G</p>
+                    <div class="flex justify-between items-center opacity-60">
+                        <span class="text-[10px] uppercase font-headline">Episodios: 08/12</span>
+                        <span class="material-symbols-outlined text-primary text-xl">star</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-surface-container-low border border-outline-variant overflow-hidden group">
+                <div class="h-64 overflow-hidden relative bg-black">
+                    <img src="../img/portada.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70" alt="Anime">
+                    <div class="absolute bottom-0 left-0 bg-surface-variant text-on-surface font-headline font-black px-3 py-1 text-[10px] uppercase">Finalizado</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-headline font-bold text-lg uppercase mb-2 leading-tight">Oshi No Ko: Final</h3>
+                    <p class="text-[10px] text-tertiary font-headline uppercase tracking-widest mb-4">Doga Kobo // Drama</p>
+                    <div class="flex justify-between items-center opacity-60">
+                        <span class="text-[10px] uppercase font-headline">Visto completo</span>
+                        <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-surface-container-lowest border border-outline-variant p-8 md:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-1">
+                <h2 class="font-headline text-3xl font-black uppercase tracking-tighter mb-4 italic">Simulcast_ <br> Schedule</h2>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-8">Actualizaciones en tiempo real basadas en el lanzamiento oficial.</p>
+                <button class="w-full border border-primary text-primary font-headline text-xs font-black py-4 tracking-widest uppercase hover:bg-primary hover:text-surface transition-all">Exportar Calendario</button>
+            </div>
+            
+            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="border-b border-outline-variant pb-4">
+                    <span class="text-secondary font-headline font-black text-[10px] tracking-widest uppercase">Lunes / 月曜日</span>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li class="flex justify-between"><span>Tower of God S2</span> <span class="text-tertiary font-black">11:00 AM</span></li>
+                    </ul>
+                </div>
+                <div class="border-b border-outline-variant pb-4">
+                    <span class="text-primary font-headline font-black text-[10px] tracking-widest uppercase">Miércoles / 水曜日</span>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li class="flex justify-between"><span>Re:Zero S3</span> <span class="text-tertiary font-black">10:30 AM</span></li>
+                    </ul>
+                </div>
+                <div class="border-b border-outline-variant pb-4">
+                    <span class="text-tertiary font-headline font-black text-[10px] tracking-widest uppercase">Viernes / 金曜日</span>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li class="flex justify-between"><span>Jujutsu Kaisen</span> <span class="text-tertiary font-black">12:00 PM</span></li>
+                    </ul>
+                </div>
+                <div class="border-b border-outline-variant pb-4">
+                    <span class="text-on-background font-headline font-black text-[10px] tracking-widest uppercase">Domingo / 日曜日</span>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li class="flex justify-between"><span>Demon Slayer</span> <span class="text-tertiary font-black">11:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
+        <div class="md:col-span-1">
+            <span class="text-lg font-black text-primary font-headline tracking-tighter uppercase mb-6 block">SAKURABLOG</span>
+            <p class="font-headline text-[10px] tracking-widest text-gray-500 leading-relaxed uppercase">Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">RED</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="#">TWITTER</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="#">ACCESO_TERMINAL</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">COMUNIDAD</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="ajustes.html">PRIVACIDAD</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="terminos_condiciones.html">TERMINOS_Y_CONDICIONES</a>
+        </div>
+        <div class="md:col-span-1 flex flex-col justify-end items-start md:items-end">
+            <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500">©2024 SAKURABLOG // PROTOCOLO_V.01</span>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SAKURABLOG | Cultura</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffb2b7",
+                        "secondary": "#7bd0ff",
+                        "tertiary": "#d0bcff",
+                        "background": "#0b1326",
+                        "surface": "#171f33",
+                        "surface-variant": "#2d3449",
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                    },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;900&family=Inter&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background text-white font-body selection:bg-secondary selection:text-background">
+
+<header class="fixed top-0 left-0 w-full z-50 bg-background flex justify-between items-center px-6 py-4 h-20 border-b border-white/5">
+    <div class="flex items-center gap-8">
+        <div class="flex items-center gap-4">
+            <img src="../img/logo_sakurablog.png" alt="Logo" class="h-12 w-auto">
+            <span class="text-3xl font-black tracking-tighter text-primary uppercase font-headline">SAKURABLOG</span>
+        </div>
+        <nav class="hidden md:flex gap-6 items-center">
+            <a class="text-white font-medium hover:text-primary pb-1 font-headline text-xs tracking-widest no-underline transition-colors" href="article.html">RESEÑAS</a>
+            <a class="text-white font-medium hover:text-primary pb-1 font-headline text-xs tracking-widest no-underline transition-colors" href="temporadas.html">TEMPORADAS</a>
+            <a class="text-primary font-bold border-b-4 border-primary pb-1 font-headline text-xs tracking-widest no-underline" href="cultura.html">CULTURA</a>
+        </nav>
+    </div>
+</header>
+
+<main class="pt-32 pb-20 px-8 md:px-16 max-w-7xl mx-auto">
+    <header class="border-b border-white/10 pb-8 mb-16 relative">
+        <span class="absolute -top-6 left-0 text-[10px] tracking-[0.5em] text-tertiary font-headline uppercase">Archivo_Antropológico_v.04</span>
+        <h1 class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none">Estética y_ <br><span class="text-transparent" style="-webkit-text-stroke: 1px #7bd0ff;">Cultura</span></h1>
+        <p class="text-secondary font-headline text-sm tracking-[0.3em] uppercase mt-6 max-w-xl leading-relaxed">Exploramos el ADN de la animación japonesa: desde las raíces del folklore hasta la arquitectura de las megaciudades del futuro.</p>
+    </header>
+
+    <section class="space-y-24 mb-32">
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center group">
+            <div class="md:col-span-6 relative overflow-hidden bg-surface aspect-video">
+                <img src="../img/portada.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Arquitectura Anime">
+                <div class="absolute inset-0 bg-secondary/10 mix-blend-overlay"></div>
+            </div>
+            <div class="md:col-span-6">
+                <span class="text-secondary font-headline text-[10px] tracking-[0.4em] uppercase block mb-4">Arquitectura // Análisis</span>
+                <h3 class="text-3xl md:text-4xl font-black uppercase font-headline mb-6 leading-none">El Impacto del Brutalismo en Neo-Tokyo</h3>
+                <p class="opacity-70 mb-8 leading-relaxed text-base italic">¿Cómo la arquitectura de posguerra definió la mirada ciberpunk de los 90? Un análisis técnico sobre la infraestructura visual en Akira y Ghost in the Shell.</p>
+                <button class="bg-secondary text-background px-8 py-3 text-xs font-black uppercase tracking-widest hover:bg-white transition-all">Leer Ensayo_Completo</button>
+            </div>
+        </article>
+
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center group">
+            <div class="md:col-span-6 md:order-2 relative overflow-hidden bg-surface aspect-video">
+                <img src="../img/portada.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Sonido Anime">
+                <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+            </div>
+            <div class="md:col-span-6 md:order-1 text-right flex flex-col items-end">
+                <span class="text-primary font-headline text-[10px] tracking-[0.4em] uppercase block mb-4">Acústica // Banda Sonora</span>
+                <h3 class="text-3xl md:text-4xl font-black uppercase font-headline mb-6 leading-none">Sintetizadores y Distopía</h3>
+                <p class="opacity-70 mb-8 leading-relaxed text-base italic">La evolución del diseño sonoro en el género Mecha. Cómo el ruido industrial se convirtió en la melodía de una generación.</p>
+                <button class="bg-primary text-background px-8 py-3 text-xs font-black uppercase tracking-widest hover:bg-white transition-all">Acceder_al_Audio</button>
+            </div>
+        </article>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32 bg-surface-variant/20 p-8 md:p-12 border border-white/5">
+        <div class="space-y-4">
+            <div class="h-1 w-12 bg-tertiary mb-6"></div>
+            <h4 class="font-headline font-black text-xl uppercase tracking-tighter text-tertiary">Morfología del Dibujo</h4>
+            <p class="text-sm opacity-60 leading-relaxed">Estudio sobre la transición del acetato pintado a mano al renderizado digital y su impacto en la calidez visual de las obras contemporáneas.</p>
+        </div>
+        <div class="space-y-4">
+            <div class="h-1 w-12 bg-secondary mb-6"></div>
+            <h4 class="font-headline font-black text-xl uppercase tracking-tighter text-secondary">Urbanismo Ficcionado</h4>
+            <p class="text-sm opacity-60 leading-relaxed">Análisis de la cartografía de las ciudades fantasma en el anime: por qué el vacío es un personaje principal en el Slice of Life.</p>
+        </div>
+        <div class="space-y-4">
+            <div class="h-1 w-12 bg-primary mb-6"></div>
+            <h4 class="font-headline font-black text-xl uppercase tracking-tighter text-primary">Folklore Digital</h4>
+            <p class="text-sm opacity-60 leading-relaxed">De los Yokais a la Inteligencia Artificial. Cómo las leyendas sintoístas mutaron en algoritmos dentro de las nuevas narrativas.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="flex justify-between items-end mb-12">
+            <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">Bitácora_Visual</h2>
+            <span class="text-[10px] font-headline tracking-[0.2em] opacity-40 uppercase pb-1">Deslizar para navegar</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="aspect-[3/4] bg-surface overflow-hidden group border border-white/5">
+                <img src="../img/portada.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Imagen Galería">
+            </div>
+            <div class="aspect-[3/4] bg-surface overflow-hidden group border border-white/5">
+                <img src="../img/portada.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Imagen Galería">
+            </div>
+            <div class="aspect-[3/4] bg-surface overflow-hidden group border border-white/5">
+                <img src="../img/portada.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Imagen Galería">
+            </div>
+            <div class="aspect-[3/4] bg-surface overflow-hidden group border border-white/5">
+                <img src="../img/portada.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Imagen Galería">
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
+        <div class="md:col-span-1">
+            <span class="text-lg font-black text-primary font-headline tracking-tighter uppercase mb-6 block">SAKURABLOG</span>
+            <p class="font-headline text-[10px] tracking-widest text-gray-500 leading-relaxed uppercase">Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">RED</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="#">TWITTER</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="#">ACCESO_TERMINAL</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">COMUNIDAD</h5>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="ajustes.html">PRIVACIDAD</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="terminos_condiciones.html">TERMINOS_Y_CONDICIONES</a>
+        </div>
+        <div class="md:col-span-1 flex flex-col justify-end items-start md:items-end">
+            <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500">©2024 SAKURABLOG // PROTOCOLO_V.01</span>
+        </div>
+    </footer>
+
+</body>
+</html>

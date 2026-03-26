@@ -102,9 +102,9 @@
         <img src="../img/logo_sakurablog.png" alt="Logo" class="h-8 w-auto object-contain">
         <span class="text-2xl font-black tracking-tighter text-primary uppercase font-headline">SAKURABLOG</span>
         <nav class="hidden md:flex gap-6 items-center">
-            <a class="text-tertiary font-bold border-b-4 border-tertiary pb-1 font-headline text-xs tracking-widest" href="article.html">RESEÑAS</a>
-            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="index.html">TEMPORADAS</a>
-            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200" href="article.html">CULTURA</a>
+            <a class="text-tertiary font-bold border-b-4 border-tertiary pb-1 font-headline text-xs tracking-widest no-underline" href="article.html">RESEÑAS</a>
+            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200 no-underline" href="temporadas.html">TEMPORADAS</a>
+            <a class="text-white font-medium hover:text-primary font-headline text-xs tracking-widest transition-colors duration-200 no-underline" href="cultura.html">CULTURA</a>
         </nav>
     </div>
     <div class="flex items-center gap-4">
@@ -113,30 +113,28 @@
             <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 w-48 text-on-surface" placeholder="BUSCAR_TERMINAL..." type="text"/>
         </div>
         <div id="auth-section" class="flex items-center">
-            <a href="login.html" class="px-5 py-2 bg-primary text-on-primary font-headline text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors">INICIAR SESIÓN</a>
+            <a href="login.html" class="px-5 py-2 bg-primary text-on-primary font-headline text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors no-underline">INICIAR SESIÓN</a>
         </div>
     </div>
 </header>
 
-<!-- SideNavBar -->
 <aside class="fixed left-0 top-0 h-full w-64 z-40 border-r border-outline-variant/15 bg-surface-container-lowest pt-20 hidden lg:flex flex-col justify-between">
     <div>
 
         <nav class="flex flex-col">
-            <a class="text-surface bg-tertiary font-black px-6 py-3 flex items-center gap-3 transition-transform active:translate-x-1 font-headline text-xs tracking-widest" href="index.html"><span class="material-symbols-outlined" translate="no">home</span> INICIO</a>
-            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="panel_escritor.html"><span class="material-symbols-outlined" translate="no">edit_document</span> ESCRIBIR RESEÑA</a>
-            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="tendencias.html"><span class="material-symbols-outlined" translate="no">trending_up</span> TENDENCIAS</a>
-            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="ultimo.html"><span class="material-symbols-outlined" translate="no">schedule</span> ÚLTIMO</a>
-            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200" href="rankings.html"><span class="material-symbols-outlined" translate="no">military_tech</span> RANKINGS</a>
+            <a class="text-surface bg-tertiary font-black px-6 py-3 flex items-center gap-3 transition-transform active:translate-x-1 font-headline text-xs tracking-widest no-underline" href="index.html"><span class="material-symbols-outlined" translate="no">home</span> INICIO</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200 no-underline" href="panel_escritor.html"><span class="material-symbols-outlined" translate="no">edit_document</span> ESCRIBIR RESEÑA</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200 no-underline" href="tendencias.html"><span class="material-symbols-outlined" translate="no">trending_up</span> TENDENCIAS</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200 no-underline" href="ultimo.html"><span class="material-symbols-outlined" translate="no">schedule</span> ÚLTIMO</a>
+            <a class="text-primary hover:bg-surface-container-low px-6 py-3 flex items-center gap-3 font-headline text-xs tracking-widest transition-colors duration-200 no-underline" href="rankings.html"><span class="material-symbols-outlined" translate="no">military_tech</span> RANKINGS</a>
         </nav>
     </div>
     <div class="p-6">
-        <button onclick="window.location.href='register.html'" class="w-full bg-primary-container text-white font-headline font-black py-3 text-xs tracking-[0.2em] mb-8 hover:bg-secondary-container transition-all">REGISTRATE AHORA</button>
+        <button onclick="window.location.href='register.html'" class="w-full bg-primary-container text-white font-headline font-black py-3 text-xs tracking-[0.2em] mb-8 hover:bg-secondary-container transition-all uppercase">REGISTRATE AHORA</button>
     </div>
 </aside>
 
 <main class="lg:ml-64 pt-16">
-<!-- CONTENIDO PRINCIPAL AQUÍ -->
 <section class="relative w-full h-[870px] overflow-hidden bg-surface-container-lowest">
     <div class="absolute inset-0">
         <img alt="Evangelion" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Cinematic shot of a giant mecha in a dark futuristic city" src="../img/jujutsu kaisen 3.jpg"/>
@@ -150,7 +148,7 @@
         </h1>
         <p class="max-w-xl font-body text-lg text-on-surface-variant mb-10 leading-relaxed">Aunque nació con un poder inmenso, Itadori Yuji lleva una vida completamente normal. Un día, para salvar a un compañero de clase, come un dedo maldito, y ahora Ryomen Sukuna habita en su alma.</p>
         <div class="flex items-center gap-6">
-            <button onclick="window.location.href='article.html'" class="px-8 py-4 bg-primary-container text-white font-headline font-black tracking-widest text-sm hover:bg-secondary-container transition-all">LEER_TRANSCRIPCIÓN</button>
+            <button onclick="window.location.href='article.html'" class="px-8 py-4 bg-primary-container text-white font-headline font-black tracking-widest text-sm hover:bg-secondary-container transition-all uppercase">LEER_TRANSCRIPCIÓN</button>
             <div class="flex flex-col">
                 <span class="text-[10px] font-headline text-tertiary tracking-widest uppercase">Autor</span>
                 <span class="text-sm font-headline font-bold">@UNIT_01_PILOT</span>
@@ -158,7 +156,6 @@
         </div>
     </div>
 </section>
-<!-- Sección 2 -->
 <section class="px-8 md:px-16 py-24 bg-background">
     <div class="flex items-baseline justify-between mb-16 border-b border-outline-variant/15 pb-4">
         <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">ANUNCIOS</h2>
@@ -174,7 +171,7 @@
             </div>
             <div class="flex flex-col gap-4">
                 <div class="flex gap-4 items-center">
-                    <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold">CINE // ENTRETENIMIENTO</span>
+                    <span class="text-tertiary font-headline text-[10px] tracking-widest font-bold uppercase">CINE // ENTRETENIMIENTO</span>
                     <span class="w-12 h-[1px] bg-outline-variant/30"></span>
                     <span class="text-on-surface-variant text-[10px] font-headline tracking-widest">12.04.24</span>
                 </div>
@@ -202,7 +199,6 @@
     </div>
 </section>
 
-    <!-- Sección 3 -->
     <section class="py-24 bg-white/5 overflow-hidden">
         <div class="px-8 md:px-16 mb-12">
             <h2 class="font-headline text-4xl font-black uppercase tracking-tighter">ANIMES DEL MOMENTO</h2>
@@ -223,8 +219,7 @@
         </div>
     </section>
 
-<!-- sección 3 -->
- <section class="px-8 md:px-16 py-24 editorial-grid">
+<section class="px-8 md:px-16 py-24 editorial-grid">
     <div class="col-span-12 md:col-span-8 flex flex-col gap-16">
         <div class="flex flex-col gap-8">
             <div class="h-1 w-20 bg-primary mb-4"></div>
@@ -235,17 +230,16 @@
                 </div>
                 <div class="p-10 bg-secondary-container flex flex-col justify-between">
                     <div>
-                        <span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold mb-4 inline-block">VISTO INVIERNO/PRIMAVERA 2026</span>
+                        <span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold mb-4 inline-block uppercase">VISTO INVIERNO/PRIMAVERA 2026</span>
                         <h3 class="font-headline text-3xl xl:text-4xl font-black uppercase tracking-tighter text-white leading-tight mb-6">Frieren: Más allá del final del viaje temporada 2, Dónde ver, avances, reparto y más</h3>
                         <p class="text-white font-body opacity-90 mb-8 leading-relaxed text-sm">No es del todo cierto que todo lo bueno tenga un final. Por ejemplo, Frieren: Más allá del fin del viajeSe abre en una pestaña nueva. ( Frieren: Más allá del final del viaje ) demostró que, aunque la poderosa maga elfa Frieren derrotó al Rey Demonio con su grupo y llevó una historia a su épico final, otra aguardaba entre bastidores.</p>
                     </div>
-                    <button onclick="window.location.href='article.html'" class="w-full border-2 border-white py-4 font-headline font-black text-white tracking-[0.2em] hover:bg-white hover:text-secondary-container transition-all">Leer mas</button>
+                    <button onclick="window.location.href='article.html'" class="w-full border-2 border-white py-4 font-headline font-black text-white tracking-[0.2em] hover:bg-white hover:text-secondary-container transition-all uppercase">Leer mas</button>
                 </div>
             </div>
         </div>
     </div>
         
-        <!-- Trending/Sidebar Column -->
         <div class="col-span-12 md:col-span-4 flex flex-col gap-12">
             <div class="bg-surface-container-low p-6 xl:p-8 border-l-4 border-tertiary">
                 <h3 class="font-headline text-xs font-black tracking-[0.3em] text-tertiary mb-8 uppercase">TENDENCIA MAS DESTACADAS</h3>
@@ -257,7 +251,7 @@
                         </div>
                         <div>
                             <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">La emperatriz divorciada</h4>
-                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">12K LECTURAS</p>
+                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2 uppercase">12K LECTURAS</p>
                         </div>
                     </li>
                     <li class="flex flex-col gap-2 group cursor-pointer border-b border-outline-variant/20 pb-6">
@@ -267,7 +261,7 @@
                         </div>
                         <div>
                             <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">Complejo de Amigos de la Infancia</h4>
-                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">9.5K LECTURAS</p>
+                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2 uppercase">9.5K LECTURAS</p>
                         </div>
                     </li>
                     <li class="flex flex-col gap-2 group cursor-pointer">
@@ -277,16 +271,15 @@
                         </div>
                         <div>
                             <h4 class="font-headline font-bold text-sm uppercase leading-tight group-hover:underline">A principios de 2026, la canción más escuchada y premiada es "Golden", interpretada por HUNTR/X</h4>
-                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2">8.2K LECTURAS</p>
+                            <p class="text-[10px] text-on-surface-variant font-headline tracking-widest mt-2 uppercase">8.2K LECTURAS</p>
                         </div>
                     </li>
                 </ul>
             </div>
             
-            <!-- Newsletter Terminal -->
             <div class="bg-black p-8 font-label text-xs">
                 <div class="flex justify-between items-center mb-6 opacity-50">
-                    <span>SUSCRIPCIÓN_TERMINAL_v.01</span>
+                    <span class="uppercase">SUSCRIPCIÓN_TERMINAL_v.01</span>
                     <div class="flex gap-1">
                         <div class="w-2 h-2 rounded-full bg-red-500"></div>
                         <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -296,31 +289,30 @@
                 <p class="text-tertiary mb-4 tracking-widest uppercase">&gt; REGISTRATE_PARA_ TENER_MAS_ACTUALIZACIONES</p>
                 <div class="flex flex-col gap-4">
                     <div class="border-b-2 border-primary py-2 flex items-center">
-                        <span class="text-primary mr-2">TERMINAL DE SUSCRIPCIÓN</span>
+                        <span class="text-primary mr-2 uppercase">TERMINAL DE SUSCRIPCIÓN</span>
                         <input class="bg-transparent border-none text-xs font-label uppercase tracking-widest focus:ring-0 p-0 text-white w-full" placeholder="USUARIO@GMAIL.COM" type="email"/>
                     </div>
-                    <button class="bg-primary text-on-primary-fixed font-black py-2 tracking-[0.2em] hover:bg-tertiary hover:text-black transition-colors">INICIAR REGISTRO</button>
+                    <button class="bg-primary text-on-primary-fixed font-black py-2 tracking-[0.2em] hover:bg-tertiary hover:text-black transition-colors uppercase">INICIAR REGISTRO</button>
                 </div>
-                <p class="mt-6 text-[8px] opacity-30 leading-tight">Al suscribirse, acepta nuestro PROTOCOLO_DE_DATOS y permite notificaciones de terminal para actualizaciones estacionales.</p>
+                <p class="mt-6 text-[8px] opacity-30 leading-tight uppercase">Al suscribirse, acepta nuestro PROTOCOLO_DE_DATOS y permite notificaciones de terminal para actualizaciones estacionales.</p>
             </div>
         </div>
     </section>
-<!-- final de secciónes -->
- <footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
+<footer class="w-full py-16 px-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-surface-container-lowest border-t border-outline-variant/15 mt-20">
         <div class="md:col-span-1">
             <span class="text-lg font-black text-primary font-headline tracking-tighter uppercase mb-6 block">SAKURABLOG</span>
             <p class="font-headline text-[10px] tracking-widest text-gray-500 leading-relaxed uppercase">Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.</p>
         </div>
         <div class="flex flex-col gap-3">
             <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">RED</h5>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="#">TWITTER</a>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="#">ACCESO_TERMINAL</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="#">TWITTER</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="#">ACCESO_TERMINAL</a>
         </div>
         <div class="flex flex-col gap-3">
             <h5 class="font-headline text-xs font-black text-tertiary tracking-widest uppercase mb-4">COMUNIDAD</h5>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="ajustes.html">PRIVACIDAD</a>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
-            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:text-white" href="terminos_condiciones.html">TERMINOS_Y_CONDICIONES</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="ajustes.html">PRIVACIDAD</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="nosotros.html">ACERCA_DE_NOSOTROS</a>
+            <a class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:underline hover:text-white transition-all no-underline" href="terminos_condiciones.html">TERMINOS_Y_CONDICIONES</a>
         </div>
         <div class="md:col-span-1 flex flex-col justify-end items-start md:items-end">
             <span class="font-headline text-[10px] tracking-[0.2em] uppercase text-gray-500">©2024 SAKURABLOG // PROTOCOLO_V.01</span>
@@ -328,21 +320,20 @@
     </footer>
 </main>
 
-<!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full bg-background glass-nav z-50 flex justify-around items-center h-16 border-t-0 shadow-2xl">
-    <a class="text-tertiary flex flex-col items-center gap-1" href="index.html">
+    <a class="text-tertiary flex flex-col items-center gap-1 no-underline" href="index.html">
         <span class="material-symbols-outlined" translate="no">home</span>
         <span class="text-[8px] font-headline font-bold uppercase tracking-widest">INICIO</span>
     </a>
-    <a class="text-primary flex flex-col items-center gap-1" href="tendencias.html">
+    <a class="text-primary flex flex-col items-center gap-1 no-underline" href="tendencias.html">
         <span class="material-symbols-outlined" translate="no">trending_up</span>
         <span class="text-[8px] font-headline font-bold uppercase tracking-widest">TENDENCIAS</span>
     </a>
-    <a class="text-primary flex flex-col items-center gap-1" href="ultimo.html">
+    <a class="text-primary flex flex-col items-center gap-1 no-underline" href="ultimo.html">
         <span class="material-symbols-outlined" translate="no">schedule</span>
         <span class="text-[8px] font-headline font-bold uppercase tracking-widest">ÚLTIMO</span>
     </a>
-    <a class="text-primary flex flex-col items-center gap-1" href="admin.html">
+    <a class="text-primary flex flex-col items-center gap-1 no-underline" href="admin.html">
         <span class="material-symbols-outlined" translate="no">person</span>
         <span class="text-[8px] font-headline font-bold uppercase tracking-widest">PERFIL</span>
     </a>
