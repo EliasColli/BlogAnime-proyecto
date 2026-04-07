@@ -1,72 +1,110 @@
-// Funcionalidad Principal: AniVibe / SECURE_ACCESS (Convertido a jQuery según requerimientos)
+// Funcionalidad Principal: AniVibe / SECURE_ACCESS adaptado a Backend Node.js
+const API_URL = 'http://localhost:3000/api';
+
+// Sobrescritura de Alertas Nativas con Modal Premium
+window.alert = function(msg) {
+    $('#customAlertModal').remove();
+    const modalHtml = `
+    <div class="modal fade" id="customAlertModal" tabindex="-1" aria-hidden="true" style="backdrop-filter: blur(5px);">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-white" style="background:linear-gradient(145deg, #130e24, #0a0614); border: 1px solid rgba(255,100,150,0.3); border-radius: 12px; box-shadow: 0 0 30px rgba(0,0,0,0.6);">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" style="letter-spacing:0.15em; color:var(--primary); font-family:'Space Grotesk', sans-serif;">// SYS_MSG</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-4 text-center">
+            <p class="mb-0 fs-5" style="font-family:'Space Grotesk', sans-serif; letter-spacing:0.02em;">${msg}</p>
+          </div>
+          <div class="modal-footer border-0 pt-0 justify-content-center">
+            <button type="button" class="btn fw-bold text-white px-5 text-uppercase" style="background:var(--accent); border-radius:8px; letter-spacing:0.1em;" data-bs-dismiss="modal">Entendido</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    $('body').append(modalHtml);
+    const modal = new bootstrap.Modal(document.getElementById('customAlertModal'));
+    modal.show();
+};
 
 /** El sitio usa solo páginas *-bootstrap.html (variantes .html legacy eliminadas). */
 function usingBootstrapPages() {
     return true;
 }
 
-/** Nombre lógico -> archivo en /html (ej. 'login' -> login-bootstrap.html). */
+/** Nombre lógico -> archivo virtual limpio */
 function sitePage(stem) {
-    if (stem === 'admin') return 'index-bootstrap.html';
-    return stem + '-bootstrap.html';
+    if (stem === 'admin') return '/';
+    if (stem === 'index') return '/';
+    return '/' + stem;
 }
 
 $(document).ready(function () {
-    console.log("Sistema Iniciado: AniVibe / SECURE_ACCESS");
-
-    // Initialize mock database in localStorage
-    if (!localStorage.getItem('users')) {
-        const initialUsers = [
-            { id: 1, name: 'Admin', email: 'admin@curator.com', password: 'admin', role: 'ADMIN' },
-            { id: 2, name: 'Normal User', email: 'user@curator.com', password: 'user', role: 'USER' }
-        ];
-        localStorage.setItem('users', JSON.stringify(initialUsers));
-    }
-
-    if (!localStorage.getItem('articles')) {
-        const initialArticles = [
-            { id: 1, title: 'The Visual Mastery of Studio Ghibli', content: 'A deep dive into the color theory and animation techniques that make these films legendary in the anime community. Using soft palettes and organic movement, they redefined the landscape...', author: 'Admin', date: new Date().toISOString() },
-            { id: 2, title: 'Cyberpunk Edgerunners & Urban Aesthetic', content: 'Analyzing how Studio Trigger adapted Night City and utilized neon palettes to evoke emotion. The rapid-fire editing matches the pacing of the game perfectly...', author: 'Normal User', date: new Date().toISOString() }
-        ];
-        localStorage.setItem('articles', JSON.stringify(initialArticles));
-    }
+    console.log("Sistema Iniciado: AniVibe / SECURE_ACCESS conectado a Backend");
 
     // Funciones globales para botones dinámicos
-    window.deleteUser = function (email) {
+    window.deleteUser = async function (email) {
         if (confirm("¿Seguro que deseas eliminar este usuario?")) {
-            let users = JSON.parse(localStorage.getItem('users'));
-            users = users.filter(u => u.email !== email);
-            localStorage.setItem('users', JSON.stringify(users));
-            alert("Usuario eliminado.");
-            window.location.reload();
+            try {
+                const res = await fetch(`${API_URL}/users/${email}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    alert("Usuario eliminado.");
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    const error = await res.json();
+                    alert(error.message || "Error eliminando usuario.");
+                }
+            } catch (e) {
+                console.error(e);
+            }
         }
     };
 
-    window.changeRole = function (email) {
-        let users = JSON.parse(localStorage.getItem('users'));
-        let user = users.find(u => u.email === email);
-        if (user) {
-            user.role = user.role === 'ADMIN' ? 'USER' : 'ADMIN';
-            localStorage.setItem('users', JSON.stringify(users));
-            alert("Rol actualizado a " + user.role);
-            window.location.reload();
+    window.changeRole = async function (email) {
+        try {
+            const res = await fetch(`${API_URL}/users/role/${email}`, {
+                method: 'PUT',
+                credentials: 'include'
+            });
+            if (res.ok) {
+                const data = await res.json();
+                alert(data.message);
+                setTimeout(() => window.location.reload(), 1500);
+            } else {
+                const error = await res.json();
+                alert(error.message || "Error al cambiar rol");
+            }
+        } catch (e) {
+            console.error(e);
         }
     };
 
-    window.deleteArticle = function (id) {
+    window.deleteArticle = async function (id) {
         if (confirm("¿Seguro que deseas eliminar este proyecto/artículo?")) {
-            let articles = JSON.parse(localStorage.getItem('articles'));
-            articles = articles.filter(a => a.id !== id);
-            localStorage.setItem('articles', JSON.stringify(articles));
-            alert("Proyecto eliminado.");
-            window.location.reload();
+            try {
+                const res = await fetch(`${API_URL}/articles/${id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    alert("Proyecto eliminado.");
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    const error = await res.json();
+                    alert(error.message || "Error eliminando artículo.");
+                }
+            } catch (e) {
+                console.error(e);
+            }
         }
     };
 
     // ===== Lógica de Login (SECURE_ACCESS) =====
     const $loginForm = $('#loginForm');
     if ($loginForm.length) {
-        $loginForm.on('submit', function (e) {
+        $loginForm.on('submit', async function (e) {
             e.preventDefault();
             const inputs = $loginForm.find('input');
             const email = $(inputs[0]).val();
@@ -80,13 +118,17 @@ $(document).ready(function () {
             $btnContent.html('Verificando... <span class="material-symbols-outlined text-xl animate-spin">refresh</span>');
             $btn.addClass('opacity-80 cursor-not-allowed');
 
-            setTimeout(() => {
-                const users = JSON.parse(localStorage.getItem('users'));
-                const user = users.find(u => u.email === email && u.password === password);
+            try {
+                const res = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                    credentials: 'include'
+                });
 
-                if (user) {
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-
+                if (res.ok) {
+                    const data = await res.json();
+                    localStorage.setItem('currentUser', JSON.stringify(data.user));
                     window.location.href = sitePage('index');
                 } else {
                     alert('CREDENCIALES INVÁLIDAS. ACCESO DENEGADO.');
@@ -94,14 +136,19 @@ $(document).ready(function () {
                     $btn.prop('disabled', false);
                     $btn.removeClass('opacity-80 cursor-not-allowed');
                 }
-            }, 1000);
+            } catch (err) {
+                alert('No se pudo conectar al servidor.');
+                $btnContent.html(originalHTML);
+                $btn.prop('disabled', false);
+                $btn.removeClass('opacity-80 cursor-not-allowed');
+            }
         });
     }
 
     // ===== Lógica de Registro =====
     const $registerForm = $('#registerForm');
     if ($registerForm.length) {
-        $registerForm.on('submit', function (e) {
+        $registerForm.on('submit', async function (e) {
             e.preventDefault();
             const fullname = $('#fullname').val();
             const email = $('#email').val();
@@ -120,30 +167,27 @@ $(document).ready(function () {
             $btn.prop('disabled', true);
             $btnContent.html('Registrando... <span class="material-symbols-outlined text-xl animate-spin">refresh</span>');
 
-            setTimeout(() => {
-                const users = JSON.parse(localStorage.getItem('users'));
+            try {
+                const res = await fetch(`${API_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: fullname, email, password })
+                });
 
-                if (users.find(u => u.email === email)) {
-                    alert("El usuario ya existe.");
+                if (res.ok) {
+                    alert('Registro exitoso. Serás redirigido al login.');
+                    window.location.href = sitePage('login');
+                } else {
+                    const error = await res.json();
+                    alert(error.message || 'Error en el registro');
                     $btnContent.html(originalHTML);
                     $btn.prop('disabled', false);
-                    return;
                 }
-
-                const newUser = {
-                    id: Date.now(),
-                    name: fullname,
-                    email: email,
-                    password: password,
-                    role: 'USER' // Por defecto es USER
-                };
-
-                users.push(newUser);
-                localStorage.setItem('users', JSON.stringify(users));
-
-                alert('Registro exitoso. Serás redirigido al login.');
-                window.location.href = sitePage('login');
-            }, 1000);
+            } catch (err) {
+                alert('No se pudo conectar al servidor.');
+                $btnContent.html(originalHTML);
+                $btn.prop('disabled', false);
+            }
         });
     }
 
@@ -152,26 +196,7 @@ $(document).ready(function () {
     if ($recoverForm.length) {
         $recoverForm.on('submit', function (e) {
             e.preventDefault();
-            const email = $('#email').val();
-
-            const $btn = $recoverForm.find('button');
-            const originalHTML = $btn.html();
-
-            $btn.prop('disabled', true).text('Enviando...');
-
-            setTimeout(() => {
-                const users = JSON.parse(localStorage.getItem('users'));
-                const user = users.find(u => u.email === email);
-                if (user) {
-                    alert('Se ha enviado un token de recuperación a tu correo electrónico.');
-                    // Simular que el usuario restablece su contraseña haciendo login temporal o guiándolo a reset-password
-                    localStorage.setItem('recoveryEmail', email);
-                    window.location.href = sitePage('login');
-                } else {
-                    alert('No se encontró ninguna cuenta con ese correo.');
-                    $btn.html(originalHTML).prop('disabled', false);
-                }
-            }, 1000);
+            alert('Aún no implementado en el backend real.');
         });
     }
 
@@ -220,12 +245,14 @@ $(document).ready(function () {
         `);
         }
 
-        $('#logoutBtn').on('click', function () {
+        $('#logoutBtn').on('click', async function () {
+            try {
+                await fetch(`${API_URL}/auth/logout`, { method: 'POST', credentials: 'include' });
+            } catch(e) {}
             localStorage.removeItem('currentUser');
             window.location.reload();
         });
 
-        // Ocultar botón de suscripción si el usuario ya está registrado/logueado
         $('button:contains("SUSCRÍBETE_AHORA")').parent().hide();
         $('aside a[href*="register"]').closest('div.mt-auto, div.px-3').hide();
     }
@@ -234,92 +261,82 @@ $(document).ready(function () {
     const isIndex = /\/index-bootstrap\.html(\?|$)/i.test(window.location.pathname) || window.location.pathname.endsWith('/');
     if (isIndex) {
 
-        // Cargar artículos creados por la comunidad dinámicamente
         const $articlesGrid = $('.lg\\:col-span-8 .grid.grid-cols-1.md\\:grid-cols-2.gap-12');
         if ($articlesGrid.length) {
-            let articles = JSON.parse(localStorage.getItem('articles')) || [];
-
-            // Llamada a la API de AnimeAPIPlatform (y fallback open-source para garantizar que siempre funcione sin Key manual)
             async function loadReviews() {
-                let displayArticles = [...articles];
-
-                // Si NO es un USER normal mirando solo su panel personal, inyectamos reseñas mundiales "buenas" de la API
-                if (!currentUser || currentUser.role !== 'USER') {
-                    try {
-                        const premiumRes = await fetch('https://www.animeapiplatform.com/api/v1/anime', {
-                            headers: {
-                                'Authorization': 'Bearer sk-8deebbe3cf4bb33e429149b8999f287c6e99fc3be63f35d4'
-                            }
-                        });
-                        
-                        const apiData = await premiumRes.json();
-                        
-                        // Map de la estructura real de AnimeAPIPlatform
-                        // Tomamos los primeros 6 para que quepan bien en el layout
-                        const topAnimes = apiData.data ? apiData.data.slice(0, 6) : [];
-                        
-                        const apiReviews = topAnimes.map(anime => {
-                            const tags = anime.tags ? anime.tags.slice(0,3).join(', ') : 'Sin tags';
-                            return {
-                                id: anime.id,
-                                title: anime.title,
-                                author: "AnimeAPIPlatform",
-                                category: anime.type || "Tendencia",
-                                content: `Status: ${anime.status}. Etiquetas detectadas: ${tags}. Análisis y catálogo cargado directo desde la base de datos oficial.`,
-                                image: anime.picture || "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1080&auto=format&fit=crop"
-                            };
-                        });
-
-                        // Unir Base de Datos Local con la API
-                        displayArticles = [...displayArticles, ...apiReviews];
-                    } catch (e) {
-                        console.warn('Error contactando https://www.animeapiplatform.com/ (O la API fallback):', e);
+                try {
+                    const dbRes = await fetch(`${API_URL}/articles`, { credentials: 'include' });
+                    let dbArticles = [];
+                    if (dbRes.ok) {
+                        dbArticles = await dbRes.json();
                     }
-                } else {
-                    // Si es un Estudiante, sólo mira sus propias reseñas que él haya escrito en local
-                    displayArticles = displayArticles.filter(a => a.author === currentUser.name);
-                    const $title = $('.lg\\:col-span-8 > div > h3');
-                    if ($title.length) $title.text("My Projects / Tasks");
-                }
 
-                $articlesGrid.empty();
+                    let displayArticles = [...dbArticles];
 
-                if (displayArticles.length > 0) {
-                    displayArticles.forEach(article => {
-                        const isOwn = (currentUser && currentUser.role === 'USER' && article.author === currentUser.name);
-                        const deleteBtn = isOwn ? `<button onclick="event.stopPropagation(); deleteArticle(${article.id})" class="absolute top-4 right-4 bg-error text-white font-bold p-2 rounded-full hover:scale-110 transition-transform z-20"><span class="material-symbols-outlined text-sm">delete</span></button>` : '';
-                        
-                        // Imagen por defecto neon, o la imagen real que vino de la API externa
-                        const coverImg = article.image || "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1080&auto=format&fit=crop";
+                    // Llamada a API externa como fallback (AnimeAPIPlatform) si aplicaba
+                    if (!currentUser || currentUser.role !== 'USER') {
+                        try {
+                            const premiumRes = await fetch('https://www.animeapiplatform.com/api/v1/anime', {
+                                headers: {
+                                    'Authorization': 'Bearer sk-8deebbe3cf4bb33e429149b8999f287c6e99fc3be63f35d4'
+                                }
+                            });
+                            const apiData = await premiumRes.json();
+                            const topAnimes = apiData.data ? apiData.data.slice(0, 6) : [];
+                            const apiReviews = topAnimes.map(anime => {
+                                const tags = anime.tags ? anime.tags.slice(0,3).join(', ') : 'Sin tags';
+                                return {
+                                    id: anime.id * 1000, // Make ID distinct to avoid clash
+                                    title: anime.title,
+                                    author: "AnimeAPIPlatform",
+                                    category: anime.type || "Tendencia",
+                                    content: `Status: ${anime.status}. Etiquetas detectadas: ${tags}.`,
+                                    image: anime.picture || "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1080&auto=format&fit=crop"
+                                };
+                            });
+                            displayArticles = [...displayArticles, ...apiReviews];
+                        } catch (e) {
+                            console.warn('API fallback failed');
+                        }
+                    } else {
+                        displayArticles = displayArticles.filter(a => a.author === currentUser.name);
+                        const $title = $('.lg\\:col-span-8 > div > h3');
+                        if ($title.length) $title.text("My Projects / Tasks");
+                    }
 
-                        const articleHTML = `
-                            <article class="space-y-6 group cursor-pointer relative bg-surface-container hover:bg-surface-container-high p-4 transition-colors" onclick="window.location.href='${sitePage('article')}?id=${article.id}'">
-                                ${deleteBtn}
-                                <div class="aspect-video overflow-hidden relative border border-outline-variant/30">
-                                    <img src="${coverImg}" alt="${article.title}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-duration-700">
-                                </div>
-                                <h4 class="font-headline text-2xl font-bold text-white leading-tight uppercase truncate">${article.title}</h4>
-                                <div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
-                                    <p class="text-[10px] font-headline tracking-widest text-primary uppercase">AUTOR // ${article.author}</p>
-                                    <span class="bg-surface-container-highest px-2 py-1 text-[10px] text-tertiary font-bold tracking-widest uppercase">${article.category || 'RESEÑA'}</span>
-                                </div>
-                                <p class="text-xs text-on-surface-variant leading-relaxed line-clamp-3">${article.content}</p>
-                            </article>
-                        `;
-                        $articlesGrid.append(articleHTML);
-                    });
-                } else if (currentUser && currentUser.role === 'USER') {
-                    $articlesGrid.html('<p class="text-tertiary font-headline tracking-widest uppercase text-sm">AÚN NO HAS ESCRITO NINGÚN DOCUMENTO DE ANÁLISIS.</p>');
+                    $articlesGrid.empty();
+
+                    if (displayArticles.length > 0) {
+                        displayArticles.forEach(article => {
+                            const isOwnOrAdmin = (currentUser && (currentUser.role === 'ADMIN' || article.author === currentUser.name));
+                            const originIsDB = article.id < 1000000; // Fake way to not delete API platform articles easily
+                            const deleteBtn = (isOwnOrAdmin && originIsDB) ? `<button onclick="event.stopPropagation(); deleteArticle(${article.id})" class="absolute top-4 right-4 bg-error text-white font-bold p-2 rounded-full hover:scale-110 transition-transform z-20"><span class="material-symbols-outlined text-sm">delete</span></button>` : '';
+                            
+                            const articleHTML = `
+                                <article class="space-y-4 group cursor-pointer relative bg-surface-container hover:bg-surface-container-high p-5 h-100 d-flex flex-column transition-colors" onclick="window.location.href='${sitePage('article')}?id=${article.id}'">
+                                    ${deleteBtn}
+                                    <h4 class="font-headline text-2xl font-bold text-white leading-tight uppercase truncate">${article.title}</h4>
+                                    <div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+                                        <p class="text-[10px] font-headline tracking-widest text-primary uppercase">AUTOR // ${article.author}</p>
+                                        <span class="bg-surface-container-highest px-2 py-1 text-[10px] text-tertiary font-bold tracking-widest uppercase">${article.category || 'RESEÑA'}</span>
+                                    </div>
+                                    <p class="text-xs text-on-surface-variant leading-relaxed flex-grow-1">${article.content.substring(0, 300) + '...'}</p>
+                                </article>
+                            `;
+                            $articlesGrid.append(articleHTML);
+                        });
+                    } else if (currentUser && currentUser.role === 'USER') {
+                        $articlesGrid.html('<p class="text-tertiary font-headline tracking-widest uppercase text-sm">AÚN NO HAS ESCRITO NINGÚN DOCUMENTO DE ANÁLISIS.</p>');
+                    }
+                } catch(e) {
+                    console.error("Error fetching articles", e);
                 }
             }
 
-            loadReviews(); // Ejecutar motor de carga asíncrona
+            loadReviews();
 
         }
 
-        // --- Nuevas Interacciones para index.html (INDEPENDIENTES DEL IDIOMA) ---
-
-        // 1. Search Bar (Fltrado en tiempo real en la vista)
         const $searchInputs = $('nav input[type="text"]');
         $searchInputs.on('keyup', function () {
             const val = $(this).val().toLowerCase();
@@ -328,134 +345,107 @@ $(document).ready(function () {
                 $(this).toggle(title.indexOf(val) > -1);
             });
         });
-
-        // 2. Newsletter Signup (Evitando depender de 'JOIN ELITE')
-        const $joinBtn = $('aside .bg-surface-container-low input[type="email"]').siblings('button');
-        if ($joinBtn.length) {
-            $joinBtn.on('click', function (e) {
-                e.preventDefault();
-                const $input = $(this).siblings('input');
-                const val = $input.val();
-                if (val && val.includes('@')) {
-                    alert('¡Suscripción exitosa con el correo: ' + val + '!');
-                    $input.val('');
-                } else {
-                    alert('Acción requerida: Por favor, introduce un correo electrónico válido.');
-                }
-            });
-        }
-
-        // 3. Transform static Trending / Seasonal views into interactive cards
-        $('aside .flex.gap-6, aside .relative.aspect-\\[4\\/5\\]').addClass('cursor-pointer hover:opacity-80 transition-opacity').on('click', function () {
-            window.location.href = sitePage('article') + '?id=1';
-        });
-
-        // 4. Hero actions
-        const $heroButtons = $('main > section:first-child button');
-        if ($heroButtons.length >= 2) {
-            $heroButtons.eq(0).on('click', function () {
-                window.location.href = sitePage('article') + '?id=1';
-            });
-            $heroButtons.eq(1).on('click', function () {
-                const $galleryTitle = $('section h2').last(); // Visual Archives
-                if ($galleryTitle.length) {
-                    $galleryTitle[0].scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        }
-
-        // 5. Visual Archives click simulation
-        $('section.py-24 div.relative.aspect-video, section.py-24 div.relative.aspect-square').addClass('cursor-pointer group').on('click', function () {
-            alert('Esta acción abrirá la galería de imágenes extendida.');
-        });
-
-        // 6. Navbar anchor links simulated scrolling
-        const $navLinks = $('nav .hidden.md\\:flex.gap-8 a');
-        if ($navLinks.length >= 4) {
-            $navLinks.eq(0).on('click', e => { e.preventDefault(); $('html,body').animate({ scrollTop: $('.lg\\:col-span-8').offset().top - 100 }, 'slow'); });
-            $navLinks.eq(1).on('click', e => { e.preventDefault(); $('html,body').animate({ scrollTop: $('aside').offset().top - 100 }, 'slow'); });
-            $navLinks.eq(2).on('click', e => {
-                e.preventDefault();
-                const $visArchive = $('section.py-24').first();
-                if ($visArchive.length > 0) $('html,body').animate({ scrollTop: $visArchive.offset().top - 100 }, 'slow');
-            });
-            $navLinks.eq(3).on('click', e => { e.preventDefault(); $('html,body').animate({ scrollTop: $('footer').offset().top }, 'slow'); });
-        }
     }
 
     // ===== Lógica de Write Article =====
     const $writeArticleForm = $('#writeArticleForm');
     if ($writeArticleForm.length) {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (!currentUser) {
             alert('Debes iniciar sesión para publicar un artículo.');
             window.location.href = sitePage('login');
         }
 
-        $writeArticleForm.on('submit', function (e) {
+        $writeArticleForm.on('submit', async function (e) {
             e.preventDefault();
             const title = $('#title').val();
             const category = $('#category').val() || 'Sin Categoría';
             const content = $('#content').val();
+            // Try to extract image URL if available
+            const image = $('#image').length ? $('#image').val() : '';
 
             const $btn = $writeArticleForm.find('button');
             const originalHTML = $btn.html();
 
             $btn.prop('disabled', true).text('Publicando...');
 
-            setTimeout(() => {
-                const articles = JSON.parse(localStorage.getItem('articles')) || [];
-                articles.push({
-                    id: Date.now(),
-                    title: title,
-                    category: category,
-                    content: content,
-                    author: currentUser.name,
-                    date: new Date().toISOString()
+            try {
+                const res = await fetch(`${API_URL}/articles`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ title, category, content, image })
                 });
-                localStorage.setItem('articles', JSON.stringify(articles));
 
-                alert('Proyecto publicado exitosamente.');
-                window.location.href = sitePage('index');
-            }, 1000);
+                if (res.ok) {
+                    alert('Proyecto publicado exitosamente.');
+                    window.location.href = sitePage('index');
+                } else {
+                    const error = await res.json();
+                    alert(error.message || 'Error al publicar');
+                    $btn.prop('disabled', false).html(originalHTML);
+                }
+            } catch (err) {
+                alert("Error de conexión");
+                $btn.prop('disabled', false).html(originalHTML);
+            }
         });
     }
 
     // ===== Lógica Viewing Article =====
-    const isArticleView = /\/article-bootstrap\.html(\?|$)/i.test(window.location.pathname);
+    const isArticleView = /\/article(\?|$)/i.test(window.location.pathname) || /\/article-bootstrap\.html(\?|$)/i.test(window.location.pathname);
     if (isArticleView) {
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
         if (articleId) {
-            const articles = JSON.parse(localStorage.getItem('articles')) || [];
-            const article = articles.find(a => a.id == articleId);
-            if (article) {
-                $('#article-title').text(article.title);
-                $('#article-author').text("By: " + article.author);
-                $('#article-content').text(article.content);
-            }
-        }
-    }
-
-    $('#newsletter-submit').on('click', function (e) {
-        e.preventDefault();
-        const $inp = $('#newsletter-email');
-        const val = ($inp.val() || '').trim();
-        if (val && val.includes('@')) {
-            alert('¡Suscripción exitosa con el correo: ' + val + '!');
-            $inp.val('');
+            fetch(`${API_URL}/articles/${articleId}`)
+                .then(res => res.json())
+                .then(article => {
+                    if (article && !article.message) {
+                        $('#article-title').text(article.title);
+                        $('#article-author').text("By: " + article.author);
+                        $('#article-content').text(article.content);
+                        if (article.image) {
+                            $('.article-cover').attr('src', article.image);
+                        }
+                    }
+                })
+                .catch(e => console.error(e));
         } else {
-            alert('Acción requerida: Por favor, introduce un correo electrónico válido.');
-        }
-    });
+            // Vista de Catálogo Completo
+            $('#single-article-view').hide();
+            $('#catalog-article-view').show();
+            
+            fetch(`${API_URL}/articles`, { credentials: 'include' })
+                .then(res => res.json())
+                .then(articles => {
+                    const catalogGrid = $('#catalog-grid');
+                    catalogGrid.empty();
+                    
+                    if (articles.length === 0) {
+                        catalogGrid.html('<p class="text-tertiary font-headline tracking-widest uppercase text-sm">EL CATÁLOGO ESTÁ VACÍO.</p>');
+                        return;
+                    }
 
-    if ($('#index-search-input').length) {
-        $('#index-search-input').on('keyup', function () {
-            const val = $(this).val().toLowerCase().trim();
-            $('#contenido .row.g-4').each(function () {
-                const txt = $(this).text().toLowerCase();
-                $(this).toggle(!val || txt.indexOf(val) > -1);
-            });
-        });
+                    articles.forEach(article => {
+                         const trunc = article.content.length > 200 ? article.content.substring(0, 200) + '...' : article.content;
+                         const card = `
+                         <div class="col-12 col-md-4 col-lg-3">
+                             <article class="group cursor-pointer bg-surface border border-secondary p-4 h-100 d-flex flex-column" style="background:#130e24;" onclick="window.location.href='${sitePage('article')}?id=${article.id}'">
+                                 <h4 class="text-white text-uppercase fw-bold mb-3" style="font-size:16px; letter-spacing:0.05em; font-family:'Space Grotesk', sans-serif;">${article.title}</h4>
+                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                     <p class="text-primary text-uppercase m-0" style="font-size: 10px; letter-spacing: 0.1em;">AUTOR // ${article.author}</p>
+                                     <span class="px-2 py-1 text-white text-uppercase m-0" style="font-size: 9px; background:var(--accent);">${article.category || 'RESEÑA'}</span>
+                                 </div>
+                                 <p class="text-muted m-0 flex-grow-1" style="font-size:13px; line-height:1.6;">${trunc}</p>
+                             </article>
+                         </div>`;
+                         catalogGrid.append(card);
+                    });
+                })
+                .catch(e => {
+                    console.error("Error cargando catálogo", e);
+                    $('#catalog-grid').html('<p class="text-danger font-headline uppercase text-sm">ERROR DE CONEXIÓN CON LA MATRIZ.</p>');
+                });
+        }
     }
 });
