@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SAKURABLOG | Cultura</title>
+    <meta name="theme-color" content="#0a0614"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="navbar navbar-expand-md navbar-dark sakura-topnav fixed-top">
+    <div class="container-xxl px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index-bootstrap.html">
+            <img src="../img/logo_sakurablog.png" alt="Logo" style="height: 28px; width: auto;">
+            <span class="sakura-brand fs-4 m-0 text-white">SAKURABLOG</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sakuraNavbar" aria-controls="sakuraNavbar" aria-expanded="false" aria-label="Abrir menú">
+            <span class="material-symbols-outlined text-white">menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="sakuraNavbar">
+            <ul class="navbar-nav me-auto ms-md-4 align-items-md-center gap-3 gap-lg-4" style="font-size: 0.9rem;">
+                <li class="nav-item"><a class="nav-link sakura-link" href="index-bootstrap.html">MAGAZINE</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="tendencias-bootstrap.html">EMISIÓN</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="article-bootstrap.html">RESEÑAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="rankings-bootstrap.html">RANKINGS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="ultimo-bootstrap.html">ÚLTIMO</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link sakura-underline" href="cultura-bootstrap.html">CULTURA</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="temporadas-bootstrap.html">TEMPORADAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="nosotros-bootstrap.html">NOSOTROS</a></li>
+                <li class="nav-item me-md-4 me-lg-5 mb-3 mb-md-0"><a class="nav-link sakura-link" href="panel_escritor-bootstrap.html">ESCRIBIR</a></li>
+            </ul>
+            <form class="d-flex align-items-center ms-md-auto mt-3 mt-md-0 sakura-search-wrap px-1 pb-1" role="search" aria-label="Buscar">
+                <span class="material-symbols-outlined text-white opacity-75 me-2 align-self-center" style="font-size:20px;">search</span>
+                <input class="form-control form-control-sm bg-transparent text-white border-0 sakura-search-input" type="text" placeholder="BUSCAR_TERMINAL..." aria-label="Buscar"/>
+            </form>
+            <div id="auth-section" class="d-flex align-items-center ms-md-4 mt-3 mt-md-0 gap-3">
+                <a href="login-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Iniciar Sesión">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">login</span>
+                </a>
+                <a href="register-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Registro">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">person_add</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="ab-main">
+    <section class="ab-page-hero">
+        <div class="container-xxl px-3">
+            <span class="sakura-section-kicker d-inline-block mb-2">Archivo antropológico · v.04</span>
+            <h1 class="culture-hero-title mb-3">Estética y <br><span style="color:transparent;-webkit-text-stroke:1px var(--accent);">Cultura</span></h1>
+            <p class="font-headline text-uppercase mb-0 sakura-muted" style="font-size:11px;letter-spacing:0.24em;max-width:760px;">
+                Exploramos el ADN de la animación japonesa: folklore, megaciudades y diseño sonoro.
+            </p>
+        </div>
+    </section>
+
+    <div class="container-xxl px-3 py-5">
+        <section class="d-flex flex-column gap-5 mb-5">
+            <article class="row g-4 align-items-center">
+                <div class="col-12 col-md-6">
+                    <div class="ratio ratio-16x9 culture-section-card overflow-hidden">
+                        <img src="../img/portada.jpg" class="w-100 h-100 object-fit-cover" alt="Arquitectura anime">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <span class="font-headline text-uppercase d-block mb-2" style="font-size:10px;letter-spacing:0.32em;color:var(--accent);">Arquitectura · Análisis</span>
+                    <h2 class="font-headline text-uppercase fw-bold text-white mb-3" style="font-size: clamp(1.5rem, 3.2vw, 2.1rem);">El impacto del brutalismo en Neo-Tokyo</h2>
+                    <p class="fst-italic mb-4 sakura-muted">
+                        ¿Cómo la arquitectura de posguerra definió la mirada ciberpunk de los 90? Infraestructura visual en Akira y Ghost in the Shell.
+                    </p>
+                    <a href="article-bootstrap.html" class="btn culture-btn" style="background:linear-gradient(135deg,var(--accent),#5eead4);color:#042f2e;">Leer ensayo completo</a>
+                </div>
+            </article>
+
+            <article class="row g-4 align-items-center">
+                <div class="col-12 col-md-6 order-md-2">
+                    <div class="ratio ratio-16x9 culture-section-card overflow-hidden">
+                        <img src="../img/portada.jpg" class="w-100 h-100 object-fit-cover" alt="Sonido anime">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-1 text-md-end">
+                    <span class="font-headline text-uppercase d-block mb-2" style="font-size:10px;letter-spacing:0.32em;color:var(--accent-hot);">Acústica · BSO</span>
+                    <h2 class="font-headline text-uppercase fw-bold text-white mb-3" style="font-size: clamp(1.5rem, 3.2vw, 2.1rem);">Sintetizadores y distopía</h2>
+                    <p class="fst-italic mb-4 sakura-muted">
+                        El diseño sonoro en el género Mecha: del ruido industrial a la melodía de una generación.
+                    </p>
+                    <a href="article-bootstrap.html" class="btn culture-btn" style="background:linear-gradient(135deg,var(--primary-bright),#7c3aed);color:#faf5ff;">Acceder al audio</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="sakura-card p-4 p-lg-5 mb-5">
+            <div class="row g-4">
+                <div class="col-12 col-lg-4">
+                    <div class="mb-3 ab-editorial-bar" style="width:48px;height:3px;"></div>
+                    <h3 class="font-headline text-uppercase fw-bold mb-2" style="color:var(--primary);">Morfología del dibujo</h3>
+                    <p class="mb-0 sakura-muted" style="font-size:0.95rem;">
+                        Del acetato pintado al render digital y su impacto en la calidez visual contemporánea.
+                    </p>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="mb-3" style="width:48px;height:3px;background:var(--accent);border-radius:2px;"></div>
+                    <h3 class="font-headline text-uppercase fw-bold mb-2" style="color:var(--accent);">Urbanismo ficcionado</h3>
+                    <p class="mb-0 sakura-muted" style="font-size:0.95rem;">
+                        Cartografía de ciudades fantasma: el vacío como personaje en el slice of life.
+                    </p>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="mb-3" style="width:48px;height:3px;background:var(--accent-hot);border-radius:2px;"></div>
+                    <h3 class="font-headline text-uppercase fw-bold mb-2" style="color:var(--accent-hot);">Folklore digital</h3>
+                    <p class="mb-0 sakura-muted" style="font-size:0.95rem;">
+                        De los yōkai a la IA: leyendas que mutan en algoritmos en narrativas actuales.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-2">
+            <header class="sakura-section-header">
+                <div>
+                    <p class="sakura-section-kicker mb-2">Galería</p>
+                    <h2 class="sakura-section-title m-0 text-white" style="font-size: clamp(1.35rem, 2.5vw, 1.85rem);">Bitácora visual</h2>
+                </div>
+                <span class="sakura-muted small text-uppercase text-md-end" style="letter-spacing:0.2em;font-size:10px;">Deslizar · moodboard</span>
+            </header>
+            <div class="row g-3">
+                <div class="col-6 col-md-3"><div class="ratio" style="--bs-aspect-ratio:133%;"><img src="../img/portada.jpg" class="w-100 h-100 object-fit-cover culture-section-card" alt="Galería"></div></div>
+                <div class="col-6 col-md-3"><div class="ratio" style="--bs-aspect-ratio:133%;"><img src="../img/portada.jpg" class="w-100 h-100 object-fit-cover culture-section-card" alt="Galería"></div></div>
+                <div class="col-6 col-md-3"><div class="ratio" style="--bs-aspect-ratio:133%;"><img src="../img/portada.jpg" class="w-100 h-100 object-fit-cover culture-section-card" alt="Galería"></div></div>
+                <div class="col-6 col-md-3"><div class="ratio" style="--bs-aspect-ratio:133%;"><img src="../img/portada.jpg" class="w-100 h-100 object-fit-cover culture-section-card" alt="Galería"></div></div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="sakura-footer py-5 mt-2">
+        <div class="container-xxl px-3">
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="sakura-brand fs-5 ab-brand-text text-uppercase fw-bold">SAKURABLOG</div>
+                    <p class="sakura-muted text-uppercase mt-3" style="font-size: 12px; line-height: 1.6;">
+                        Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.
+                    </p>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="sakura-muted text-uppercase fw-bold mb-3" style="letter-spacing:0.22em; font-size: 12px;">RED</div>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">TWITTER</a>
+                    <a href="login-bootstrap.html" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">ACCESO_TERMINAL</a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="sakura-muted text-uppercase fw-bold mb-3" style="letter-spacing:0.22em; font-size: 12px;">COMUNIDAD</div>
+                    <a href="ajustes-bootstrap.html" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">PRIVACIDAD</a>
+                    <a href="nosotros-bootstrap.html" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">ACERCA_DE_NOSOTROS</a>
+                    <a href="terminos_condiciones-bootstrap.html" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">TERMINOS_Y_CONDICIONES</a>
+                </div>
+                <div class="col-12 col-md-3 d-flex align-items-md-end justify-content-md-end">
+                    <div class="sakura-muted text-uppercase fw-bold" style="letter-spacing:0.22em; font-size: 11px;">©2024 SAKURABLOG // PROTOCOLO_V.01</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<nav class="sakura-mobile-bottom d-lg-none d-flex justify-content-around align-items-center">
+    <a href="index-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">home</span>
+        <span>INICIO</span>
+    </a>
+    <a href="tendencias-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">trending_up</span>
+        <span>TENDENCIAS</span>
+    </a>
+    <a href="cultura-bootstrap.html" class="d-flex flex-column align-items-center sakura-mnav-active">
+        <span class="material-symbols-outlined" translate="no">palette</span>
+        <span>CULTURA</span>
+    </a>
+    <a href="login-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">person</span>
+        <span>PERFIL</span>
+    </a>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>

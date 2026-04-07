@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAKURABLOG | Último</title>
+  <meta name="theme-color" content="#0a0614"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="navbar navbar-expand-md navbar-dark sakura-topnav fixed-top">
+  <div class="container-xxl px-3">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index-bootstrap.html">
+      <img src="../img/logo_sakurablog.png" alt="Logo" style="height: 28px; width: auto;">
+      <span class="sakura-brand fs-4 m-0 text-white">SAKURABLOG</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sakuraNavbar" aria-controls="sakuraNavbar" aria-expanded="false" aria-label="Abrir menú">
+      <span class="material-symbols-outlined text-white">menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="sakuraNavbar">
+      <ul class="navbar-nav me-auto ms-md-4 align-items-md-center gap-3 gap-lg-4" style="font-size: 0.9rem;">
+        <li class="nav-item"><a class="nav-link sakura-link" href="index-bootstrap.html">MAGAZINE</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link" href="tendencias-bootstrap.html">EN EMISIÓN</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link" href="article-bootstrap.html">RESEÑAS</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link" href="rankings-bootstrap.html">RANKINGS</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link sakura-underline" href="ultimo-bootstrap.html">ÚLTIMO</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link" href="cultura-bootstrap.html">CULTURA</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link" href="temporadas-bootstrap.html">TEMPORADAS</a></li>
+        <li class="nav-item"><a class="nav-link sakura-link" href="nosotros-bootstrap.html">NOSOTROS</a></li>
+                <li class="nav-item me-md-4 me-lg-5 mb-3 mb-md-0"><a class="nav-link sakura-link" href="panel_escritor-bootstrap.html">ESCRIBIR</a></li>
+      </ul>
+      <div id="auth-section" class="d-flex align-items-center ms-md-4 mt-3 mt-md-0 gap-3">
+        <a href="login-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Iniciar Sesión">
+          <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">login</span>
+        </a>
+        <a href="register-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Registro">
+          <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">person_add</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="ab-main">
+  <div class="container-xxl px-3 py-4 py-md-5">
+    <header class="sakura-section-header mb-4">
+      <div>
+        <p class="sakura-section-kicker mb-2">Feed en tiempo casi real</p>
+        <h1 class="sakura-section-title m-0 text-white" style="font-size:clamp(1.8rem,4vw,2.5rem);">Cargas recientes</h1>
+      </div>
+      <span class="sakura-muted small text-uppercase" style="letter-spacing:0.2em;font-size:10px;">Últimas entradas</span>
+    </header>
+
+    <div class="d-flex flex-column gap-3">
+      <div class="ab-log-row p-3 border-start border-4" style="border-color:var(--primary-bright)!important;" onclick="window.location.href='article-bootstrap.html'" role="button" tabindex="0">
+        <span class="badge rounded-pill mb-2" style="background:rgba(167,139,250,.2);color:var(--primary);border:1px solid rgba(196,181,253,.35);">ENTRY_042</span>
+        <p class="mb-2 fw-semibold text-white">¡Confirmado! Nuevo tráiler de SOLO LEVELING SEASON 2 rompe récords en 24 horas — fecha de estreno revelada</p>
+        <small class="font-headline text-uppercase sakura-muted" style="letter-spacing:.16em;">Hace 2 min</small>
+      </div>
+      <div class="ab-log-row p-3 border-start border-4" style="border-color:var(--accent-hot)!important;" onclick="window.location.href='article-bootstrap.html'" role="button" tabindex="0">
+        <span class="badge rounded-pill mb-2" style="background:rgba(244,114,182,.15);color:var(--accent-hot);border:1px solid rgba(244,114,182,.35);">ENTRY_041</span>
+        <p class="mb-2 fw-semibold text-white">'DAN DA DAN' Ep. 7: el anime del año según la crítica</p>
+        <small class="font-headline text-uppercase sakura-muted" style="letter-spacing:.16em;">Hace 1 h</small>
+      </div>
+      <div class="ab-log-row p-3 border-start border-4" style="border-color:var(--accent)!important;" onclick="window.location.href='article-bootstrap.html'" role="button" tabindex="0">
+        <span class="badge rounded-pill mb-2" style="background:rgba(45,212,191,.15);color:var(--accent);border:1px solid rgba(45,212,191,.35);">ENTRY_040</span>
+        <p class="mb-2 fw-semibold text-white">MAPPA anuncia 'Chainsaw Man — The Movie: Reze Arc' — teaser y staff</p>
+        <small class="font-headline text-uppercase sakura-muted" style="letter-spacing:.16em;">Hace 3 h</small>
+      </div>
+      <div class="ab-log-row p-3 border-start border-4" style="border-color:var(--outline)!important;" onclick="window.location.href='article-bootstrap.html'" role="button" tabindex="0">
+        <span class="badge rounded-pill mb-2" style="background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--outline);">ENTRY_039</span>
+        <p class="mb-2 fw-semibold text-white">Tetsuro Araki revela secretos de producción: «El final estaba planeado desde el episodio 1»</p>
+        <small class="font-headline text-uppercase sakura-muted" style="letter-spacing:.16em;">Ayer</small>
+      </div>
+    </div>
+  </div>
+
+  <footer class="sakura-footer py-5 mt-2">
+    <div class="container-xxl px-3 text-center text-md-start">
+      <div class="sakura-muted text-uppercase fw-bold" style="letter-spacing:0.22em; font-size: 11px;">©2024 SAKURABLOG // PROTOCOLO_V.01</div>
+    </div>
+  </footer>
+</main>
+
+<nav class="sakura-mobile-bottom d-lg-none d-flex justify-content-around align-items-center">
+  <a href="index-bootstrap.html" class="d-flex flex-column align-items-center">
+    <span class="material-symbols-outlined" translate="no">home</span>
+    <span>INICIO</span>
+  </a>
+  <a href="tendencias-bootstrap.html" class="d-flex flex-column align-items-center">
+    <span class="material-symbols-outlined" translate="no">trending_up</span>
+    <span>TENDENCIAS</span>
+  </a>
+  <a href="ultimo-bootstrap.html" class="d-flex flex-column align-items-center sakura-mnav-active">
+    <span class="material-symbols-outlined" translate="no">schedule</span>
+    <span>ÚLTIMO</span>
+  </a>
+  <a href="login-bootstrap.html" class="d-flex flex-column align-items-center">
+    <span class="material-symbols-outlined" translate="no">person</span>
+    <span>PERFIL</span>
+  </a>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>

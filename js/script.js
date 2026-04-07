@@ -1,4 +1,16 @@
 // Funcionalidad Principal: AniVibe / SECURE_ACCESS (Convertido a jQuery según requerimientos)
+
+/** El sitio usa solo páginas *-bootstrap.html (variantes .html legacy eliminadas). */
+function usingBootstrapPages() {
+    return true;
+}
+
+/** Nombre lógico -> archivo en /html (ej. 'login' -> login-bootstrap.html). */
+function sitePage(stem) {
+    if (stem === 'admin') return 'index-bootstrap.html';
+    return stem + '-bootstrap.html';
+}
+
 $(document).ready(function () {
     console.log("Sistema Iniciado: AniVibe / SECURE_ACCESS");
 
@@ -75,11 +87,7 @@ $(document).ready(function () {
                 if (user) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
 
-                    if (user.role === 'ADMIN') {
-                        window.location.href = 'admin.html';
-                    } else {
-                        window.location.href = 'index.html';
-                    }
+                    window.location.href = sitePage('index');
                 } else {
                     alert('CREDENCIALES INVÁLIDAS. ACCESO DENEGADO.');
                     $btnContent.html(originalHTML);
@@ -134,7 +142,7 @@ $(document).ready(function () {
                 localStorage.setItem('users', JSON.stringify(users));
 
                 alert('Registro exitoso. Serás redirigido al login.');
-                window.location.href = 'login.html';
+                window.location.href = sitePage('login');
             }, 1000);
         });
     }
@@ -158,7 +166,7 @@ $(document).ready(function () {
                     alert('Se ha enviado un token de recuperación a tu correo electrónico.');
                     // Simular que el usuario restablece su contraseña haciendo login temporal o guiándolo a reset-password
                     localStorage.setItem('recoveryEmail', email);
-                    window.location.href = 'login.html';
+                    window.location.href = sitePage('login');
                 } else {
                     alert('No se encontró ninguna cuenta con ese correo.');
                     $btn.html(originalHTML).prop('disabled', false);
@@ -172,7 +180,29 @@ $(document).ready(function () {
     const $authSection = $('#auth-section');
 
     if (currentUser && $authSection.length) {
-        $authSection.html(`
+        function escHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/"/g, '&quot;');
+        }
+        if (usingBootstrapPages()) {
+            const roleExtra = currentUser.role === 'ADMIN'
+                ? `<li><a class="dropdown-item" href="${sitePage('index')}">Portada</a></li>`
+                : `<li><a class="dropdown-item" href="${sitePage('panel_escritor')}">Escribir reseña</a></li>`;
+            $authSection.html(`
+                <div class="dropdown ms-md-3 mt-3 mt-md-0">
+                    <button type="button" class="btn btn-sm btn-outline-light dropdown-toggle text-uppercase fw-bold" style="letter-spacing:0.14em;font-size:11px;" data-bs-toggle="dropdown" aria-expanded="false">${escHtml(currentUser.name)}</button>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><h6 class="dropdown-header">${escHtml(currentUser.role)}</h6></li>
+                        <li><a class="dropdown-item" href="${sitePage('ajustes')}">Ajustes</a></li>
+                        ${roleExtra}
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button type="button" class="dropdown-item text-danger" id="logoutBtn">Cerrar sesión</button></li>
+                    </ul>
+                </div>`);
+        } else {
+            $authSection.html(`
             <div class="relative group cursor-pointer flex items-center gap-2 pr-2">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVNDh2HpSgo0gY5JHH45wt3mKcDNOxhu2Eu3QMhFWDOJOX1eN-YpsUl4-WazVYPSs0K3yxK-ImjkJ0xsHKHH2QTFAtnHk-txU9d_b-fWzsBBIWJ42fR-VLci6VI1joNRdHLQurNckya2-4SrxdF9TyBrduyRpYb8Ak3X2bXc3vHqKqMVYNXCAjw-FRkAWML2OYT17mx45Ab9BtxNZmKcY9Fb-R06juLFRka8qy48t16k2gxwNv51mMoSVAvjB9CvG8DtV4cA49brjk" class="w-10 h-10 rounded-full border-2 border-primary object-cover" alt="Perfil" />
                 <span class="material-symbols-outlined text-sm text-white group-hover:text-primary transition-all duration-300" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
@@ -182,12 +212,13 @@ $(document).ready(function () {
                         <p class="text-xs font-bold text-white font-headline">${currentUser.name}</p>
                         <p class="text-[10px] text-primary tracking-widest font-headline">${currentUser.role}</p>
                     </div>
-                    <a href="ajustes.html" class="flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-slate-300 hover:bg-surface-container hover:text-white"><span class="material-symbols-outlined text-sm">settings</span> Ajustes</a>
-                    ${currentUser.role === 'ADMIN' ? '<a href="admin.html" class="flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-white hover:bg-surface-container"><span class="material-symbols-outlined text-sm">admin_panel_settings</span> Admin Dashboard</a>' : '<a href="panel_escritor.html" class="flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-primary hover:bg-surface-container"><span class="material-symbols-outlined text-sm">edit_document</span> Escribir Reseña</a>'}
+                    <a href="${sitePage('ajustes')}" class="flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-slate-300 hover:bg-surface-container hover:text-white"><span class="material-symbols-outlined text-sm">settings</span> Ajustes</a>
+                    ${currentUser.role === 'ADMIN' ? `<a href="${sitePage('admin')}" class="flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-white hover:bg-surface-container"><span class="material-symbols-outlined text-sm">admin_panel_settings</span> Admin Dashboard</a>` : `<a href="${sitePage('panel_escritor')}" class="flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-primary hover:bg-surface-container"><span class="material-symbols-outlined text-sm">edit_document</span> Escribir Reseña</a>`}
                     <button id="logoutBtn" class="w-full text-left flex items-center gap-2 px-4 py-3 text-xs font-headline uppercase tracking-widest text-error hover:bg-surface-container"><span class="material-symbols-outlined text-sm">logout</span> Cerrar Sesión</button>
                 </div>
             </div>
         `);
+        }
 
         $('#logoutBtn').on('click', function () {
             localStorage.removeItem('currentUser');
@@ -196,10 +227,11 @@ $(document).ready(function () {
 
         // Ocultar botón de suscripción si el usuario ya está registrado/logueado
         $('button:contains("SUSCRÍBETE_AHORA")').parent().hide();
+        $('aside a[href*="register"]').closest('div.mt-auto, div.px-3').hide();
     }
 
     // ===== Lógica para el Navbar Público (Index) =====
-    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+    const isIndex = /\/index-bootstrap\.html(\?|$)/i.test(window.location.pathname) || window.location.pathname.endsWith('/');
     if (isIndex) {
 
         // Cargar artículos creados por la comunidad dinámicamente
@@ -261,7 +293,7 @@ $(document).ready(function () {
                         const coverImg = article.image || "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1080&auto=format&fit=crop";
 
                         const articleHTML = `
-                            <article class="space-y-6 group cursor-pointer relative bg-surface-container hover:bg-surface-container-high p-4 transition-colors" onclick="window.location.href='article.html?id=${article.id}'">
+                            <article class="space-y-6 group cursor-pointer relative bg-surface-container hover:bg-surface-container-high p-4 transition-colors" onclick="window.location.href='${sitePage('article')}?id=${article.id}'">
                                 ${deleteBtn}
                                 <div class="aspect-video overflow-hidden relative border border-outline-variant/30">
                                     <img src="${coverImg}" alt="${article.title}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-duration-700">
@@ -315,14 +347,14 @@ $(document).ready(function () {
 
         // 3. Transform static Trending / Seasonal views into interactive cards
         $('aside .flex.gap-6, aside .relative.aspect-\\[4\\/5\\]').addClass('cursor-pointer hover:opacity-80 transition-opacity').on('click', function () {
-            window.location.href = 'article.html?id=1';
+            window.location.href = sitePage('article') + '?id=1';
         });
 
         // 4. Hero actions
         const $heroButtons = $('main > section:first-child button');
         if ($heroButtons.length >= 2) {
             $heroButtons.eq(0).on('click', function () {
-                window.location.href = 'article.html?id=1';
+                window.location.href = sitePage('article') + '?id=1';
             });
             $heroButtons.eq(1).on('click', function () {
                 const $galleryTitle = $('section h2').last(); // Visual Archives
@@ -357,7 +389,7 @@ $(document).ready(function () {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (!currentUser) {
             alert('Debes iniciar sesión para publicar un artículo.');
-            window.location.href = 'login.html';
+            window.location.href = sitePage('login');
         }
 
         $writeArticleForm.on('submit', function (e) {
@@ -384,89 +416,13 @@ $(document).ready(function () {
                 localStorage.setItem('articles', JSON.stringify(articles));
 
                 alert('Proyecto publicado exitosamente.');
-                window.location.href = 'index.html';
+                window.location.href = sitePage('index');
             }, 1000);
         });
     }
 
-    // ===== Lógica general de Dashboards (Admin) =====
-    const isAdminView = window.location.pathname.endsWith('admin.html');
-
-    if (isAdminView) {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-        // Protección de ruta
-        if (!currentUser) {
-            alert('Acceso no autorizado. Se requiere iniciar sesión.');
-            window.location.href = 'login.html';
-            return;
-        }
-
-        if (currentUser.role !== 'ADMIN') {
-            alert('Acceso no autorizado. Se requiere rol de ADMINISTRADOR.');
-            window.location.href = 'index.html';
-            return;
-        }
-
-        // Handle Logout en el Header
-        const $logoutTrigger = $('header .relative.w-full + .flex.items-center.gap-6');
-        if ($logoutTrigger.length) {
-            // Actualizar el nombre en la barra
-            $logoutTrigger.find('p.text-\\[10px\\]').text(currentUser.name.toUpperCase());
-            $logoutTrigger.find('p.text-\\[8px\\]').text(currentUser.role);
-
-            $('<button>')
-                .addClass("text-error text-xs font-bold uppercase ml-4 tracking-widest")
-                .text("Logout")
-                .on('click', function () {
-                    localStorage.removeItem('currentUser');
-                    window.location.href = 'index.html';
-                })
-                .appendTo($logoutTrigger);
-        }
-
-        // Cargar usuarios en admin.html
-        const $table = $('table');
-        if ($table.length) {
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-
-            $table.find('thead tr').html(`
-                <th class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">Name</th>
-                <th class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">Email</th>
-                <th class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">Role</th>
-                <th class="px-8 py-5 text-[10px] font-headline uppercase tracking-widest text-tertiary font-medium">Actions</th>
-            `);
-
-            const $tbody = $table.find('tbody').empty();
-            users.forEach(u => {
-                const trHTML = `
-                    <tr class="hover:bg-surface-container-high transition-colors">
-                        <td class="px-8 py-6">
-                            <p class="text-sm font-headline font-bold text-on-surface">${u.name}</p>
-                            <p class="text-[10px] text-tertiary">ID: ${u.id}</p>
-                        </td>
-                        <td class="px-8 py-6 text-sm font-headline">${u.email}</td>
-                        <td class="px-8 py-6">
-                            <span class="px-3 py-1 ${u.role === 'ADMIN' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'} text-[8px] font-headline font-bold uppercase tracking-widest">${u.role}</span>
-                        </td>
-                        <td class="px-8 py-6 flex gap-4">
-                            <button onclick="changeRole('${u.email}')" class="text-xs text-secondary hover:text-white transition-colors">Change Role</button>
-                            ${u.email !== currentUser.email ? `<button onclick="deleteUser('${u.email}')" class="text-xs text-error hover:text-white transition-colors">Delete</button>` : ''}
-                        </td>
-                    </tr>
-                `;
-                $tbody.append(trHTML);
-            });
-
-            $('section h3.text-xl.font-headline').first().text("Manage All Users");
-        }
-
-        // Ocultar botón 'New Entry' genérico (Sin importar el idioma)
-        $('main section h3').siblings('button').hide();
-    }
-
     // ===== Lógica Viewing Article =====
-    const isArticleView = window.location.pathname.endsWith('article.html');
+    const isArticleView = /\/article-bootstrap\.html(\?|$)/i.test(window.location.pathname);
     if (isArticleView) {
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
@@ -479,5 +435,27 @@ $(document).ready(function () {
                 $('#article-content').text(article.content);
             }
         }
+    }
+
+    $('#newsletter-submit').on('click', function (e) {
+        e.preventDefault();
+        const $inp = $('#newsletter-email');
+        const val = ($inp.val() || '').trim();
+        if (val && val.includes('@')) {
+            alert('¡Suscripción exitosa con el correo: ' + val + '!');
+            $inp.val('');
+        } else {
+            alert('Acción requerida: Por favor, introduce un correo electrónico válido.');
+        }
+    });
+
+    if ($('#index-search-input').length) {
+        $('#index-search-input').on('keyup', function () {
+            const val = $(this).val().toLowerCase().trim();
+            $('#contenido .row.g-4').each(function () {
+                const txt = $(this).text().toLowerCase();
+                $(this).toggle(!val || txt.indexOf(val) > -1);
+            });
+        });
     }
 });

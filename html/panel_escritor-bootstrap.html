@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SAKURABLOG | Panel del Escritor</title>
+    <meta name="theme-color" content="#0a0614"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<header class="navbar navbar-expand-md navbar-dark sakura-topnav fixed-top">
+    <div class="container-xxl px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index-bootstrap.html">
+            <img src="../img/logo_sakurablog.png" alt="Logo" style="height: 28px; width: auto;">
+            <span class="sakura-brand fs-4 m-0 text-white">SAKURABLOG</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sakuraNavbar" aria-controls="sakuraNavbar" aria-expanded="false" aria-label="Abrir menú">
+            <span class="material-symbols-outlined text-white">menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="sakuraNavbar">
+            <ul class="navbar-nav me-auto ms-md-4 align-items-md-center gap-3 gap-lg-4" style="font-size: 0.9rem;">
+                <li class="nav-item"><a class="nav-link sakura-link" href="index-bootstrap.html">MAGAZINE</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="tendencias-bootstrap.html">EN EMISIÓN</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="article-bootstrap.html">RESEÑAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="rankings-bootstrap.html">RANKINGS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="ultimo-bootstrap.html">ÚLTIMO</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="cultura-bootstrap.html">CULTURA</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="temporadas-bootstrap.html">TEMPORADAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="nosotros-bootstrap.html">NOSOTROS</a></li>
+                <li class="nav-item me-md-4 me-lg-5 mb-3 mb-md-0"><a class="nav-link sakura-link sakura-underline" href="panel_escritor-bootstrap.html">ESCRIBIR</a></li>
+            </ul>
+            <div id="auth-section" class="d-flex align-items-center ms-md-4 mt-3 mt-md-0 gap-3">
+                <a href="login-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Iniciar Sesión">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">login</span>
+                </a>
+                <a href="register-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Registro">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">person_add</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="ab-main flex-grow-1 d-flex flex-column">
+    <div class="container-xxl px-3 py-4 py-md-5 flex-grow-1">
+        <header class="text-center mb-4 mb-md-5">
+            <span class="d-inline-block px-3 py-2 rounded-3 ab-label-micro border" style="background:rgba(45,212,191,.08);border-color:rgba(45,212,191,.25)!important;color:var(--accent);">Nuevo registro</span>
+            <h1 class="font-headline text-uppercase text-white mt-3 mb-2" style="font-weight:900;letter-spacing:-.02em;font-size:clamp(2rem,5vw,3.2rem);">Panel del escritor</h1>
+            <p class="text-uppercase m-0 sakura-muted" style="font-size:11px;letter-spacing:.18em;">Publica en el muro central del magazine</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <div class="ab-panel-card rounded-3 p-4 p-md-5 position-relative overflow-hidden ab-form-dark">
+                    <div class="position-absolute top-0 end-0" style="width:160px;height:160px;background:radial-gradient(circle,rgba(167,139,250,.2),transparent 65%);pointer-events:none;"></div>
+
+                    <form id="writeArticleForm" class="position-relative">
+                        <div class="mb-4">
+                            <label for="title" class="ab-label-micro mb-2 d-block">Título del anime / post</label>
+                            <input id="title" type="text" class="form-control py-3" required placeholder="Ej. Neon Genesis Evangelion: el dilema del erizo"/>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="category" class="ab-label-micro mb-2 d-block" style="color:var(--accent);">Categoría</label>
+                            <select id="category" class="form-select py-3" required>
+                                <option value="" disabled selected>Selecciona una categoría</option>
+                                <option value="Shonen">⚔️ Shonen</option>
+                                <option value="Seinen">🌑 Seinen</option>
+                                <option value="Isekai">🌌 Isekai</option>
+                                <option value="Shojo">🌸 Shojo</option>
+                                <option value="Mecha">🤖 Mecha / Sci-Fi</option>
+                                <option value="Slice of Life">🍵 Slice of Life</option>
+                                <option value="Horror">🩸 Horror / Psicológico</option>
+                                <option value="Cyberpunk">💾 Cyberpunk</option>
+                                <option value="Deportes">⚽ Spokon (Deportes)</option>
+                                <option value="Reseñas">📜 Reseñas</option>
+                                <option value="Recomendaciones">⭐ Recomendaciones</option>
+                                <option value="Cultura">⛩️ Cultura japonesa</option>
+                                <option value="Noticias">📡 Noticias</option>
+                                <option value="Rankings">🏆 Rankings / Top 10</option>
+                                <option value="Bandas Sonoras">🎶 OST / Música</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="content" class="ab-label-micro mb-2 d-block">Contenido de la reseña</label>
+                            <textarea id="content" class="form-control" rows="10" required placeholder="Escribe tu análisis (evita spoilers fuertes)..." style="line-height:1.6;"></textarea>
+                        </div>
+
+                        <div class="pt-3 mt-4 border-top d-flex flex-column flex-md-row justify-content-end align-items-center gap-3" style="border-color:var(--outline)!important;">
+                            <button type="button" class="btn btn-link text-decoration-none text-uppercase sakura-muted" onclick="window.history.back()" style="letter-spacing:.18em;font-family:'Space Grotesk',Inter,sans-serif;font-size:12px;">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btn ab-btn-publish px-4 py-3 d-inline-flex align-items-center gap-2">
+                                <span class="material-symbols-outlined" style="font-size:18px;">publish</span>
+                                Publicar reseña
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="sakura-footer py-4 mt-auto">
+        <div class="container-xxl px-3 text-center">
+            <span class="sakura-muted text-uppercase fw-bold" style="letter-spacing:0.22em; font-size: 11px;">©2024 SAKURABLOG // SISTEMA DE ESCRITORES</span>
+        </div>
+    </footer>
+</main>
+
+<nav class="sakura-mobile-bottom d-lg-none d-flex justify-content-around align-items-center">
+    <a href="index-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">home</span>
+        <span>INICIO</span>
+    </a>
+    <a href="panel_escritor-bootstrap.html" class="d-flex flex-column align-items-center sakura-mnav-active">
+        <span class="material-symbols-outlined" translate="no">edit_square</span>
+        <span>ESCRIBIR</span>
+    </a>
+    <a href="article-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">article</span>
+        <span>RESEÑAS</span>
+    </a>
+    <a href="login-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">person</span>
+        <span>PERFIL</span>
+    </a>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>

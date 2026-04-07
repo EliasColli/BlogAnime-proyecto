@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SAKURABLOG | Iniciar Sesión</title>
+    <meta name="theme-color" content="#0a0614"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body class="ab-body-auth">
+
+<header class="navbar navbar-expand-md navbar-dark sakura-topnav fixed-top">
+    <div class="container-xxl px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index-bootstrap.html">
+            <img src="../img/logo_sakurablog.png" alt="Logo" style="height: 28px; width: auto;">
+            <span class="sakura-brand fs-4 m-0 text-white">SAKURABLOG</span>
+        </a>
+        <a href="index-bootstrap.html" class="btn btn-link text-decoration-none d-flex align-items-center gap-1 sakura-muted small text-uppercase" style="letter-spacing:0.14em; font-size:10px;">
+            <span class="material-symbols-outlined text-white" style="font-size:20px;">arrow_back</span>
+            Portada
+        </a>
+    </div>
+</header>
+
+<main class="ab-auth-main">
+    <div class="container-fluid px-0 min-vh-100">
+        <div class="row g-0 min-vh-100">
+            <section class="col-lg-7 d-none d-lg-flex position-relative align-items-center justify-content-center p-5 overflow-hidden">
+                <div class="position-absolute top-0 start-0 w-100 h-100">
+                    <img src="../img/portada.jpg" alt="Anime cover" class="w-100 h-100 object-fit-cover"/>
+                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background:linear-gradient(100deg, rgba(10,6,20,.96) 0%, rgba(18,10,35,.55) 50%, rgba(10,6,20,.2) 100%);"></div>
+                </div>
+                <div class="position-relative ab-glass-blurb p-5" style="max-width:760px;">
+                    <span class="ab-tag mb-2 d-inline-block">Acceso · terminal</span>
+                    <h1 class="font-headline fw-black text-white display-6 mb-2" style="font-weight:900;">SAKURABLOG</h1>
+                    <div class="ab-editorial-bar mb-4"></div>
+                    <p class="font-headline sakura-muted fs-4 lh-sm mb-4" style="letter-spacing:-.02em;">«Tu archivo digital de reseñas, temporadas y cultura anime.»</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div style="height:1px;width:32px;background:var(--accent)"></div>
+                        <span class="ab-label-micro" style="color:var(--accent);">Issue #84 · The Renaissance</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="col-12 col-lg-5 d-flex align-items-center justify-content-center ab-form-side px-4 py-5">
+                <div class="w-100" style="max-width:420px;">
+                    <div class="d-lg-none mb-4">
+                        <h1 class="font-headline text-white m-0" style="font-weight:900;letter-spacing:-.02em;">SAKURABLOG</h1>
+                        <div class="ab-editorial-bar mt-2" style="width:72px;"></div>
+                    </div>
+                    <div class="mb-4">
+                        <h2 class="font-headline text-white mb-2" style="font-weight:900;letter-spacing:-.02em;">Inicio de sesión</h2>
+                        <p class="mb-0 sakura-muted">Accede a tu colección y a las reseñas guardadas.</p>
+                    </div>
+
+                    <form id="loginForm">
+                        <div class="mb-4">
+                            <label for="email" class="ab-label-micro d-block mb-2" style="color:var(--muted);">Correo electrónico</label>
+                            <input id="email" type="email" class="form-control ab-line-input" placeholder="usuario@gmail.com"/>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-end mb-2">
+                                <label for="password" class="ab-label-micro d-block m-0" style="color:var(--muted);">Contraseña</label>
+                                <a href="forgot-password-bootstrap.html" class="text-decoration-none ab-label-micro" style="font-size:9px;color:var(--muted);">¿Olvidaste?</a>
+                            </div>
+                            <input id="password" type="password" class="form-control ab-line-input" placeholder="••••••••"/>
+                        </div>
+                        <button type="submit" class="w-100 btn sakura-hero-cta text-uppercase py-3"><span>Iniciar sesión</span></button>
+                    </form>
+
+                    <div class="pt-4 text-center">
+                        <p class="ab-label-micro m-0" style="opacity:.85;color:var(--muted);">¿Nuevo lector? <a class="text-decoration-none ms-1" href="register-bootstrap.html" style="color:var(--accent);">Registrarse</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>
