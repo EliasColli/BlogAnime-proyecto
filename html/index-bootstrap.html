@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SAKURABLOG | The Digital Anime Magazine</title>
+
+    <meta name="description" content="SAKURABLOG: reseñas, temporadas y cultura anime con estética editorial."/>
+    <meta name="theme-color" content="#0a0614"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="navbar navbar-expand-md navbar-dark sakura-topnav fixed-top">
+    <div class="container-xxl px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index-bootstrap.html">
+            <img src="../img/logo_sakurablog.png" alt="Logo" style="height: 28px; width: auto;">
+            <span class="sakura-brand fs-4 m-0 text-white">SAKURABLOG</span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sakuraNavbar" aria-controls="sakuraNavbar" aria-expanded="false" aria-label="Abrir menú">
+            <span class="material-symbols-outlined text-white">menu</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="sakuraNavbar">
+            <ul class="navbar-nav me-auto ms-md-4 align-items-md-center gap-3 gap-lg-4" style="font-size: 0.9rem;">
+                <li class="nav-item"><a class="nav-link sakura-link sakura-underline" href="index-bootstrap.html">INICIO</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="tendencias-bootstrap.html">EMISIÓN</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="article-bootstrap.html">RESEÑAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="rankings-bootstrap.html">RANKINGS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="ultimo-bootstrap.html">ULTIMAS NOTICIAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="cultura-bootstrap.html">CULTURA</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="temporadas-bootstrap.html">TEMPORADAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="nosotros-bootstrap.html">NOSOTROS</a></li>
+                <li class="nav-item me-md-4 me-lg-5 mb-3 mb-md-0"><a class="nav-link sakura-link" href="panel_escritor-bootstrap.html">ESCRIBIR</a></li>
+            </ul>
+
+
+            <div id="auth-section" class="d-flex align-items-center ms-md-4 mt-3 mt-md-0 gap-3">
+                <a href="login-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Iniciar Sesión">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">login</span>
+                </a>
+                <a href="register-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Registro">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">person_add</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="contenido" class="ab-main">
+    <section class="sakura-hero">
+        <img class="sakura-hero-img" alt="Jujutsu Kaisen" src="../img/jujutsu kaisen 3.jpg"/>
+        <div class="sakura-hero-overlay"></div>
+        <div class="sakura-hero-glow" aria-hidden="true"></div>
+        <div class="container-xxl px-3 sakura-hero-content">
+            <div class="row align-items-end">
+                <div class="col-12 col-lg-7 col-xl-6">
+                    <span class="sakura-badge">CRÍTICA_DESTACADA</span>
+                    <div class="sakura-hero-accent" aria-hidden="true"></div>
+                    <h1 class="sakura-h1 mt-3" style="font-size: clamp(2.15rem, 4.2vw, 3.35rem);">
+                        Jujutsu Kaisen<br/>
+                        <span class="sakura-h1-gradient">Tercera temporada</span>
+                    </h1>
+                    <p class="sakura-muted mt-4 mb-0" style="max-width: 34rem; font-size: 1.02rem; line-height: 1.65;">
+                        Aunque nació con un poder inmenso, Itadori Yuji lleva una vida completamente normal. Un día, para salvar a un compañero de clase, come un dedo maldito, y ahora Ryomen Sukuna habita en su alma.
+                    </p>
+
+                    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 gap-sm-4 mt-4">
+                            <a href="https://www.crunchyroll.com/es/news/guides/2026/1/6/jujutsu-kaisen-temporada-3-wiki-estreno-detalles" class="btn sakura-hero-cta text-uppercase" target="_blank" rel="noopener noreferrer">Leer transcripción</a>                  
+                            <div class="d-flex align-items-center gap-3 ps-sm-2">                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sakura-section">
+        <div class="container-xxl px-3">
+            <header class="sakura-section-header mb-0">
+                <div>
+                    <p class="sakura-section-kicker mb-2">Portada</p>
+                    <h2 class="sakura-section-title m-0 text-white" style="font-size: clamp(1.35rem, 2.5vw, 1.85rem);">Noticias y estrenos</h2>
+                </div>
+                <div class="sakura-muted small text-uppercase text-md-end" style="letter-spacing:0.2em; font-size:10px; max-width:16rem;">Selección editorial · blog anime</div>
+            </header>
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-7 col-xl-8">
+                    <a href="https://www.crunchyroll.com/es/news/latest/2026/3/23/assassination-classroom-the-movie-our-time-anime-primeros-cuatro-minutos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-decoration-none d-block">
+
+                        <div class="sakura-card overflow-hidden h-100">
+                            
+                            <div class="ratio ratio-16x9">
+                                <img src="../img/Assassination Classroom.jpg" alt="Assassination Classroom" style="object-fit:cover;">
+                            </div>
+
+                            <div class="p-4">
+                                
+                                <div class="text-uppercase fw-bold" 
+                                    style="color: var(--primary); letter-spacing:0.18em; font-family:'Space Grotesk', Inter, sans-serif;">
+                                    HISTORIA DESTACADA
+                                </div>
+
+                                <div class="mt-3 text-uppercase small sakura-muted" 
+                                    style="letter-spacing:0.2em; font-family:'Space Grotesk', Inter, sans-serif;">
+                                    CINE ENTRETENIMIENTO
+                                </div>
+
+                                <!-- TEXTO NORMAL (sin <a>) -->
+                                <h3 class="mt-2 text-white text-uppercase fw-bold"
+                                    style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:-0.01em; font-size:30px;">
+                                    Vean los primeros cuatro minutos de Assassination Classroom The Movie: Our Time
+                                </h3>
+
+                                <p class="sakura-muted mt-3 mb-0">
+                                    En conmemoración del estreno nacional de Assassination Classroom The Movie: Our Time, el sitio web oficial publicó hoy los primeros cuatro minutos de la película.
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+                <div class="col-12 col-lg-5 col-xl-4 d-flex flex-column gap-4">
+                    <a href="https://www.crunchyroll.com/es/news/search?s=Dr.+Stone%3A+Science+Future"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-decoration-none">
+
+                        <div class="sakura-card overflow-hidden">
+                            <div class="row g-0 align-items-stretch">
+                                
+                                <div class="col-5 col-sm-4">
+                                    <div class="ratio ratio-1x1" style="min-height:120px;">
+                                        <img src="../img/Dr Stone.jpg" alt="Dr. Stone" style="object-fit:cover;">
+                                    </div>
+                                </div>
+
+                                <div class="col-7 col-sm-8 p-3 d-flex flex-column justify-content-center">
+                                    <span class="ab-tag">Novedad</span>
+
+                                    <h4 class="mt-2 mb-0 text-uppercase fw-bold text-white"
+                                        style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:-0.01em; font-size:0.9rem; line-height:1.3;">
+                                        Dr. Stone Science Future — avance del arco final
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://lacartelera.mx/pelicula/el-castillo-ambulante"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-decoration-none">
+
+                        <div class="sakura-card overflow-hidden">
+                            <div class="row g-0 align-items-stretch">
+                                
+                                <div class="col-5 col-sm-4">
+                                    <div class="ratio ratio-1x1" style="min-height:120px;">
+                                        <img src="../img/el castillo ambulante.jpg" alt="El Castillo Ambulante" style="object-fit:cover;">
+                                    </div>
+                                </div>
+
+                                <div class="col-7 col-sm-8 p-3 d-flex flex-column justify-content-center">
+                                    <span class="ab-tag">Studio Ghibli</span>
+
+                                    <h4 class="mt-2 mb-0 text-uppercase fw-bold text-white"
+                                        style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:-0.01em; font-size:0.9rem; line-height:1.3;">
+                                        Reestreno de El castillo ambulante en México
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sakura-section sakura-strip">
+        <div class="container-xxl px-3 position-relative">
+            <header class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+                <div>
+                    <p class="sakura-section-kicker mb-2">Cartelera</p>
+                    <h2 class="sakura-section-title m-0 text-white" style="font-size: clamp(1.35rem, 2.5vw, 1.75rem);">Animes del momento</h2>
+                </div>
+                <a href="tendencias-bootstrap.html" class="sakura-muted text-decoration-none small text-uppercase" style="letter-spacing:0.18em; font-size:10px;">Ver tendencias →</a>
+            </header>
+            <div class="sakura-scroll-row">
+                <div class="sakura-card sakura-card-static flex-shrink-0" style="min-width: 220px; scroll-snap-align: start;">
+                    <a href="https://www4.animeflv.net/anime/niwatori-fighter" class="text-decoration-none text-reset d-block h-100">
+                        <div class="position-relative overflow-hidden" style="height:260px;">
+                            <img src="../img/oshi no ko.jpg" alt="Oshi no Ko" class="w-100 h-100" style="object-fit:cover; transition: transform 0.5s ease;">
+                        </div>
+                        <div class="p-3 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                            <div class="text-uppercase fw-bold text-white" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.1em; font-size:12px;">Rooster Fighter</div>
+                            <span class="sakura-muted" style="font-size:10px; letter-spacing:0.14em;">EN EMISIÓN</span>
+                            <div class="mt-2 text-uppercase fw-bold d-inline-flex align-items-center gap-1" style="font-size:10px; letter-spacing:0.14em; color: var(--accent);">
+                                <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span>
+                                Ver anime
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="sakura-card sakura-card-static flex-shrink-0" style="min-width: 220px; scroll-snap-align: start;">
+                    <a href="https://www4.animeflv.net/anime/tamonkun-ima-docchi" class="text-decoration-none text-reset d-block h-100">
+                        <div class="position-relative overflow-hidden" style="height:260px;">
+                            <img src="../img/Tamon-kun Ima Docchi.jpg" alt="Tamon-kun" class="w-100 h-100" style="object-fit:cover; transition: transform 0.5s ease;">
+                        </div>
+                        <div class="p-3 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                            <div class="text-uppercase fw-bold text-white" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.1em; font-size:12px;">Tamon-kun Ima Docchi</div>
+                            <span class="sakura-muted" style="font-size:10px; letter-spacing:0.14em;">NUEVO</span>
+                            <div class="mt-2 text-uppercase fw-bold d-inline-flex align-items-center gap-1" style="font-size:10px; letter-spacing:0.14em; color: var(--accent);">
+                                <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span>
+                                Ver anime
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="sakura-card sakura-card-static flex-shrink-0" style="min-width: 220px; scroll-snap-align: start;">
+                    <a href="https://www4.animeflv.net/anime/uruwashi-no-yoi-no-tsuki" class="text-decoration-none text-reset d-block h-100">
+                        <div class="position-relative overflow-hidden" style="height:260px;">
+                            <img src="../img/Uruwashi no Yoi no Tsuki.jpg" alt="Uruwashi no Yoi no Tsuki" class="w-100 h-100" style="object-fit:cover; transition: transform 0.5s ease;">
+                        </div>
+                        <div class="p-3 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                            <div class="text-uppercase fw-bold text-white" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.1em; font-size:12px;">Uruwashi no Yoi no Tsuki</div>
+                            <span class="sakura-muted" style="font-size:10px; letter-spacing:0.14em;">DESTACADO</span>
+                            <div class="mt-2 text-uppercase fw-bold d-inline-flex align-items-center gap-1" style="font-size:10px; letter-spacing:0.14em; color: var(--accent);">
+                                <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span>
+                                Ver anime
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sakura-section pb-5">
+        <div class="container-xxl px-3">
+            <div class="row g-4 g-xl-5">
+                <div class="col-12 col-xl-8">
+                    <header class="mb-4">
+                        <p class="sakura-section-kicker mb-2">Foco temporada</p>
+                        <h2 class="sakura-section-title text-white m-0" style="font-size: clamp(1.35rem, 2.8vw, 1.95rem);">La serie que domina la conversación</h2>
+                    </header>
+                    <div class="sakura-spotlight overflow-hidden">
+                        <div class="row g-0 align-items-stretch flex-column-reverse flex-md-row">
+                            <div class="col-md-6 p-4 p-lg-5 d-flex gap-3 order-md-1">
+                                <div class="sakura-spotlight-bar d-none d-sm-block mt-1" aria-hidden="true"></div>
+                                <div class="d-flex flex-column flex-grow-1 min-w-0">
+                                <span class="sakura-muted small text-uppercase" style="letter-spacing:0.18em; color: var(--accent)!important; font-family:'Space Grotesk', Inter, sans-serif; font-weight:800; font-size:10px;">
+                                    Invierno / primavera 2026
+                                </span>
+                                <h3 class="text-white text-uppercase fw-bold mt-3 mb-0" style="font-family:'Space Grotesk', Inter, sans-serif; font-size: clamp(1rem, 2vw, 1.22rem); line-height:1.35;">
+                                    Frieren: Más allá del final del viaje — temporada 2: dónde ver, avances, reparto y más
+                                </h3>
+                                <p class="sakura-muted mt-3 mb-4" style="font-size:0.95rem; line-height:1.65; display: -webkit-box; -webkit-box-orient: vertical; line-clamp: 5; -webkit-line-clamp: 5; overflow: hidden;">
+                                    No es del todo cierto que todo lo bueno tenga un final. <em>Frieren: Más allá del final del viaje</em> demostró que, aunque la poderosa maga elfa Frieren derrotó al Rey Demonio con su grupo y llevó una historia a su épico final, otra aguardaba entre bastidores.
+                                </p>
+                                <div class="mt-auto">
+                                    <a href="https://www.crunchyroll.com/es/news/guides/2026/4/12/frieren-beyond-journeys-end-final-temporada-2-explicado" class="btn sakura-primary-btn w-100 w-sm-auto px-4" target="_blank" rel="noopener noreferrer">Leer más</a>                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 order-md-2">
+                                <img src="../img/FRIEREN BEYOND JOURNEY'S END.jpg" alt="Frieren" class="w-100" style="height:100%; min-height:320px; object-fit:cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-4 d-flex flex-column gap-4">  
+                    <div class="sakura-card p-4 p-lg-4">
+                        <h3 class="text-uppercase fw-bold m-0" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.2em; color: var(--accent); font-size: 11px;">
+                            Tendencias destacadas
+                        </h3>
+                        <div class="list-group list-group-flush mt-4">
+                            <div class="list-group-item sakura-trend-item bg-transparent px-2 py-3 border-0" style="border-bottom:1px solid rgba(255,255,255,0.08)!important;">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="text-white fw-bold fs-3" style="line-height:1;">01</div>
+                                    <div>
+                                        <div class="text-uppercase fw-bold" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.18em; color: var(--primary-bright); font-size: 12px;">WEPTOON</div>
+                                        <a href="https://www.webtoons.com/es/fantasy/the-remarried-empress/list?title_no=2246" target="_blank" rel="noopener noreferrer" class="text-uppercase fw-bold text-white mt-2 text-decoration-none" style="font-size: 13px;">La emperatriz divorciada</a>                                        <div class="sakura-muted text-uppercase mt-2" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.22em; font-size: 10px;">12K LECTURAS</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item sakura-trend-item bg-transparent px-2 py-3 border-0" style="border-bottom:1px solid rgba(255,255,255,0.08)!important;">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="text-white fw-bold fs-3" style="line-height:1;">02</div>
+                                    <div>
+                                        <div class="text-uppercase fw-bold" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.18em; color: var(--primary-bright); font-size: 12px;">MANHWA</div>
+                                        <a href="https://www.webtoons.com/es/romance/childhood-friend-complex/list?title_no=7173" target="_blank" rel="noopener noreferrer" class="text-uppercase fw-bold text-white mt-2 text-decoration-none" style="font-size: 13px;">Complejo de Amigos de la Infancia</a>                                        <div class="sakura-muted text-uppercase mt-2" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.22em; font-size: 10px;">9.5K LECTURAS</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item sakura-trend-item bg-transparent px-2 py-3 border-0">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="text-white fw-bold fs-3" style="line-height:1;">03</div>
+                                    <div>
+                                        <div class="text-uppercase fw-bold" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.18em; color: var(--primary-bright); font-size: 12px;">MÚSICA</div>
+                                        <a href="https://youtu.be/PEBs9b9xPt0?si=GhD2I5xTSfLNLsUZ" target="_blank" rel="noopener noreferrer" class="text-uppercase fw-bold text-white mt-2 text-decoration-none" style="font-size: 13px;">A principios de 2026, la canción más escuchada y premiada es "Golden", interpretada por HUNTR/X</a>                                        <div class="sakura-muted text-uppercase mt-2" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.22em; font-size: 10px;">8.2K LECTURAS</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item sakura-trend-item bg-transparent px-2 py-3 border-0">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="text-white fw-bold fs-3" style="line-height:1;">04</div>
+                                    <div>
+                                        <div class="text-uppercase fw-bold" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.18em; color: var(--primary-bright); font-size: 12px;">ANIME</div>
+                                        <a href="https://www4.animeflv.net/anime/sousou-no-frieren" target="_blank" rel="noopener noreferrer" class="text-uppercase fw-bold text-white mt-2 text-decoration-none" style="font-size: 13px;">Frieren: Más allá del final del viaje</a>                                        <div class="sakura-muted text-uppercase mt-2" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.22em; font-size: 10px;">7.8K LECTURAS</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item sakura-trend-item bg-transparent px-2 py-3 border-0">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="text-white fw-bold fs-3" style="line-height:1;">05</div>
+                                    <div>
+                                        <div class="text-uppercase fw-bold" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.18em; color: var(--primary-bright); font-size: 12px;">SERIES</div>
+                                        <a href="https://spanish.korea.net/NewsFocus/Culture/view?articleId=269928" target="_blank" rel="noopener noreferrer" class="text-uppercase fw-bold text-white mt-2 text-decoration-none" style="font-size: 13px;">El auge del contenido coreano en streaming</a>                                        <div class="sakura-muted text-uppercase mt-2" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.22em; font-size: 10px;">6.4K LECTURAS</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item sakura-trend-item bg-transparent px-2 py-3 border-0">
+                            <div class="d-flex gap-3 align-items-center">
+                                <div class="text-white fw-bold fs-3" style="line-height:1;">06</div>
+                                <div>
+                                    <div class="text-uppercase fw-bold" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.18em; color: var(--primary-bright); font-size: 12px;">VIDEOJUEGOS</div>
+                                    <a href="https://www.businessresearchinsights.com/es/market-reports/online-role-playing-rpg-games-market-125450" target="_blank" rel="noopener noreferrer" class="text-uppercase fw-bold text-white mt-2 text-decoration-none" style="font-size: 13px;">El crecimiento de los RPG en mundo abierto en 2026</a>                                    <div class="sakura-muted text-uppercase mt-2" style="font-family:'Space Grotesk', Inter, sans-serif; letter-spacing:0.22em; font-size: 10px;">5.9K LECTURAS</div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="sakura-footer py-5 mt-2">
+        <div class="container-xxl px-3">
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="sakura-brand fs-5 ab-brand-text text-uppercase fw-bold">SAKURABLOG</div>
+                    <p class="sakura-muted text-uppercase mt-3" style="font-size: 12px; line-height: 1.6;">
+                        Un colectivo impulsado por estudiantes que explora la intersección de la animación tradicional, la estética futura y la cultura digital.
+                    </p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="sakura-muted text-uppercase fw-bold mb-3" style="letter-spacing:0.22em; font-size: 12px;">RED</div>
+                    <a href="https://x.com/Sakurablog63143" target="_blank" rel="noopener noreferrer" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">TWITTER</a>
+                    <a class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">sakurablog4@gmail.com</a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="sakura-muted text-uppercase fw-bold mb-3" style="letter-spacing:0.22em; font-size: 12px;">COMUNIDAD</div>
+                    <a href="nosotros-bootstrap.html" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">ACERCA_DE_NOSOTROS</a>
+                    <a href="terminos_condiciones-bootstrap.html" class="d-block sakura-muted text-decoration-none mb-2 text-uppercase" style="letter-spacing:0.22em; font-size: 11px;">TERMINOS_Y_CONDICIONES</a>
+                </div>
+                <div class="col-12 col-md-3 d-flex align-items-md-end justify-content-md-end">
+                    <div class="sakura-muted text-uppercase fw-bold" style="letter-spacing:0.22em; font-size: 11px;">©2026 SAKURABLOG PROTOCOLO_V.01</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<nav class="sakura-mobile-bottom d-lg-none d-flex justify-content-around align-items-center">
+    <a href="index-bootstrap.html" class="d-flex flex-column align-items-center sakura-mnav-active">
+        <span class="material-symbols-outlined" translate="no">home</span>
+        <span>INICIO</span>
+    </a>
+    <a href="tendencias-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">trending_up</span>
+        <span>TENDENCIAS</span>
+    </a>
+    <a href="ultimo-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">schedule</span>
+        <span>ÚLTIMO</span>
+    </a>
+    <a href="login-bootstrap.html" class="d-flex flex-column align-items-center">
+        <span class="material-symbols-outlined" translate="no">person</span>
+        <span>PERFIL</span>
+    </a>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>
+

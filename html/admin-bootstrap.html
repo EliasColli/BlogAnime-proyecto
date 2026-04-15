@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>const currentUserStr = localStorage.getItem("currentUser"); if (!currentUserStr) { window.location.replace("login-bootstrap.html"); } else { const u = JSON.parse(currentUserStr); if (u.role !== "ADMIN") { window.location.replace("index-bootstrap.html"); } }</script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="google" content="notranslate" />
+    <title>SAKURABLOG | Master Admin Terminal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+
+</head>
+<body class="custom-scrollbar" translate="no">
+    <aside class="admin-sidebar position-fixed top-0 start-0 vh-100 d-flex flex-column py-4">
+        <div class="px-4 mb-5">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <img src="../img/logo_sakurablog.png" alt="Logo" width="32" height="32" class="object-fit-contain" />
+                <h1 class="h5 mb-0 sakura-brand text-white text-uppercase">SakuraAdmin</h1>
+            </div>
+            <div class="rounded-pill" style="height: 4px; width: 48px; background: linear-gradient(90deg, var(--accent-hot), var(--accent));"></div>
+        </div>
+
+        <nav class="flex-grow-1 overflow-auto custom-scrollbar">
+            <a id="dashboard-link" class="admin-link active-tab"><span class="material-symbols-outlined me-3">dashboard</span><span>Dashboard</span></a>
+            <a id="articles-link" class="admin-link"><span class="material-symbols-outlined me-3">article</span><span>Artículos</span></a>
+            <a id="comments-link" class="admin-link"><span class="material-symbols-outlined me-3">forum</span><span>Moderación</span></a>
+            <a id="reports-link" class="admin-link"><span class="material-symbols-outlined me-3">assignment_late</span><span>Reportes</span></a>
+            <a id="gallery-link" class="admin-link"><span class="material-symbols-outlined me-3">collections</span><span>Galería</span></a>
+            <a id="users-link" class="admin-link"><span class="material-symbols-outlined me-3">group</span><span>Usuarios</span></a>
+            <a id="security-link" class="admin-link"><span class="material-symbols-outlined me-3">security</span><span>Seguridad</span></a>
+            <a id="database-link" class="admin-link"><span class="material-symbols-outlined me-3">database</span><span>B. Datos</span></a>
+            <a id="analytics-link" class="admin-link"><span class="material-symbols-outlined me-3">monitoring</span><span>Analítica</span></a>
+            <a id="settings-link" class="admin-link"><span class="material-symbols-outlined me-3">settings</span><span>Ajustes</span></a>
+        </nav>
+
+        <div class="px-4 mt-auto pt-4 border-top border-light border-opacity-10">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="text-end">
+                    <p class="mb-0 text-white text-uppercase fw-bold font-headline" style="font-size: 9px;" id="admin-name">ADMIN_USER</p>
+                    <p class="mb-0 text-uppercase font-headline" style="font-size: 8px; color: var(--accent); letter-spacing: 0.14em;">System Master</p>
+                </div>
+                <button id="admin-logout" class="btn btn-link p-0 text-muted-admin"><span class="material-symbols-outlined">logout</span></button>
+            </div>
+        </div>
+    </aside>
+
+    <header class="admin-header position-fixed top-0 end-0 start-0 d-flex align-items-center justify-content-between px-4 px-lg-5">
+        <div class="d-none d-md-flex align-items-center gap-2">
+            <span class="admin-chip"><span class="material-symbols-outlined" style="font-size: 14px;">edit_note</span> Cola editorial: 7</span>
+            <span class="admin-chip"><span class="material-symbols-outlined" style="font-size: 14px;">campaign</span> Campaña Primavera Anime</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm text-white border border-light border-opacity-10"><span class="material-symbols-outlined" style="font-size: 16px;">notifications</span></button>
+            <a href="index-bootstrap.html" class="text-decoration-none d-inline-flex align-items-center gap-2 text-uppercase font-headline text-muted-admin" style="font-size: 10px; letter-spacing: 0.16em;">
+                Live Site
+                <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="admin-content pt-5 pt-lg-5 px-4 px-lg-5 pb-5" style="padding-top: 7.5rem !important;">
+        <div id="view-dashboard" class="animate-view">
+            <header class="mb-5 d-flex flex-wrap justify-content-between align-items-end gap-3">
+                <div>
+                    <p class="mb-1 text-uppercase text-muted-admin font-headline" style="font-size: 10px; letter-spacing: 0.16em;">Control de rendimiento</p>
+                    <h2 class="section-title display-6 mb-0">Estadísticas Principales</h2>
+                </div>
+                <span class="admin-chip"><span class="material-symbols-outlined" style="font-size: 14px;">update</span> Actualizado hace 2 min</span>
+            </header>
+            <div class="section-divider mb-4"></div>
+            <section class="row g-4">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="kpi-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <p class="mb-0 text-uppercase fw-bold font-headline kpi-label" style="font-size: 11px; letter-spacing: 0.14em;">Sistemas / Usuarios</p>
+                            <span class="badge text-bg-success">+8.2%</span>
+                        </div>
+                        <h3 class="display-6 mb-2 text-white font-headline fw-bold" id="kpi-users-count">0</h3>
+                        <p class="mb-0 text-muted-admin" style="font-size: 11px;">Usuarios activos en las ultimas 24h</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="kpi-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <p class="mb-0 text-uppercase fw-bold font-headline kpi-label" style="font-size: 11px; letter-spacing: 0.14em;">Archivo / Articulos</p>
+                            <span class="badge text-bg-primary">+3</span>
+                        </div>
+                        <h3 class="display-6 mb-2 text-white font-headline fw-bold" id="kpi-articles-count">0</h3>
+                        <p class="mb-0 text-muted-admin" style="font-size: 11px;">Publicaciones registradas en el sistema</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="kpi-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <p class="mb-0 text-uppercase fw-bold font-headline kpi-label" style="font-size: 11px; letter-spacing: 0.14em;">Nexo / Comments</p>
+                            <span class="badge text-bg-warning">Pendientes</span>
+                        </div>
+                        <h3 class="display-6 mb-2 text-white font-headline fw-bold" id="kpi-comments-count">0</h3>
+                        <p class="mb-0 text-muted-admin" style="font-size: 11px;">Comentarios recibidos para moderacion</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="row g-4 mt-1">
+                <div class="col-12 col-xl-8">
+                    <div class="admin-panel p-4 p-lg-5 h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div>
+                                <p class="mb-1 text-uppercase text-muted-admin font-headline" style="font-size: 10px; letter-spacing: 0.14em;">Editor-in-Chief Console</p>
+                                <h3 class="h4 text-white font-headline fw-bold mb-0">Pipeline de Publicaciones Anime</h3>
+                            </div>
+                            <span class="admin-chip">Hoy: 4 publicaciones</span>
+                        </div>
+                        <div class="admin-list-item p-3 d-flex align-items-center justify-content-between">
+                            <div>
+                                <p class="mb-1 text-white fw-semibold">“Top 10 Openings de Primavera 2026”</p>
+                                <p class="mb-0 text-muted-admin small">Estado: En revisión · Editor: Genny</p>
+                            </div>
+                            <span class="badge text-bg-warning">Review</span>
+                        </div>
+                        <div class="admin-list-item p-3 d-flex align-items-center justify-content-between">
+                            <div>
+                                <p class="mb-1 text-white fw-semibold">“Crítica de episodio: One Piece 1123”</p>
+                                <p class="mb-0 text-muted-admin small">Estado: Programado · 20:00</p>
+                            </div>
+                            <span class="badge text-bg-info">Programado</span>
+                        </div>
+                        <div class="admin-list-item p-3 d-flex align-items-center justify-content-between">
+                            <div>
+                                <p class="mb-1 text-white fw-semibold">“Guía de temporada: estrenos de verano”</p>
+                                <p class="mb-0 text-muted-admin small">Estado: Borrador · SEO pendiente</p>
+                            </div>
+                            <span class="badge text-bg-secondary">Draft</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="admin-panel p-4 h-100">
+                        <p class="mb-1 text-uppercase text-muted-admin font-headline" style="font-size: 10px; letter-spacing: 0.14em;">Radar de Tendencias</p>
+                        <h3 class="h5 text-white font-headline fw-bold mb-4">Temas calientes en la comunidad</h3>
+                        <div class="d-flex align-items-center gap-2 mb-3"><span class="admin-dot" style="background: var(--accent-hot);"></span><p class="mb-0 text-white small">Solo Leveling S2</p></div>
+                        <div class="d-flex align-items-center gap-2 mb-3"><span class="admin-dot" style="background: var(--accent);"></span><p class="mb-0 text-white small">Frieren análisis de arco final</p></div>
+                        <div class="d-flex align-items-center gap-2 mb-3"><span class="admin-dot" style="background: var(--primary-bright);"></span><p class="mb-0 text-white small">Nuevos anuncios de MAPPA</p></div>
+                        <div class="d-flex align-items-center gap-2"><span class="admin-dot" style="background: #facc15;"></span><p class="mb-0 text-white small">Rumores de adaptación de Kagurabachi</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-articles" class="animate-view" style="display: none;">
+            <header class="mb-4 d-flex justify-content-between align-items-center">
+                <h2 class="section-title display-6 mb-0">Gestión de Contenido</h2>
+                <button class="sakura-primary-btn" onclick="openNewArticleModal()">Nuevo Artículo</button>
+            </header>
+            <div class="sakura-card overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-borderless mb-0 table-admin" id="articles-table">
+                        <thead>
+                            <tr>
+                                <th>Documento</th>
+                                <th class="text-end">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-comments" class="animate-view" style="display: none;">
+            <header class="mb-4">
+                <h2 class="section-title display-6 mb-0">Moderación de Comunidad</h2>
+            </header>
+            <div class="sakura-card overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-borderless mb-0 table-admin" id="comments-table">
+                        <thead>
+                            <tr>
+                                <th>Mensaje</th>
+                                <th>Estado</th>
+                                <th class="text-end">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-users" class="animate-view" style="display: none;">
+            <header class="mb-4">
+                <h2 class="section-title display-6 mb-0">Privilegios y Roles</h2>
+            </header>
+            <div class="sakura-card overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-borderless mb-0 table-admin" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Operario</th>
+                                <th>Rango</th>
+                                <th class="text-end">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-gallery" class="animate-view" style="display: none;">
+            <header class="mb-4">
+                <h2 class="section-title display-6 mb-0">Curación de Galería</h2>
+            </header>
+            <div class="row g-3 row-cols-2 row-cols-md-4 row-cols-xl-6" id="gallery-grid"></div>
+        </div>
+
+        <div id="view-analytics" class="animate-view" style="display: none;">
+            <header class="mb-4">
+                <h2 class="section-title display-6 mb-0">Estrategia de Crecimiento</h2>
+            </header>
+            <section class="row g-4">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="sakura-card p-4 h-100">
+                        <p class="mb-3 text-uppercase fw-bold" style="font-size: 9px; letter-spacing: 0.18em; color: var(--accent);">Alcance Mensual</p>
+                        <h3 class="h2 text-white fw-bold font-headline">42.8K <span class="fs-6" style="color: var(--accent);">+12%</span></h3>
+                        <div class="d-flex align-items-end gap-1 mt-4" style="height: 80px;">
+                            <div class="flex-fill rounded-1" style="height: 42%; background: rgba(45, 212, 191, 0.2);"></div>
+                            <div class="flex-fill rounded-1" style="height: 58%; background: rgba(45, 212, 191, 0.2);"></div>
+                            <div class="flex-fill rounded-1" style="height: 100%; background: rgba(45, 212, 191, 0.4);"></div>
+                            <div class="flex-fill rounded-1" style="height: 72%; background: var(--accent);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="sakura-card p-4 h-100">
+                        <p class="mb-3 text-uppercase fw-bold" style="font-size: 9px; letter-spacing: 0.18em; color: var(--accent-hot);">Tasa de Retención</p>
+                        <h3 class="h2 text-white fw-bold font-headline">68%</h3>
+                        <p class="mb-0 text-muted-admin" style="font-size: 11px;">Los usuarios pasan un promedio de 4:12 min en el nexo.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="sakura-card p-4 h-100">
+                        <p class="mb-3 text-uppercase fw-bold" style="font-size: 9px; letter-spacing: 0.18em; color: var(--primary-bright);">Interacción (CTR)</p>
+                        <h3 class="h2 text-white fw-bold font-headline">4.2%</h3>
+                        <p class="mb-0 text-muted-admin" style="font-size: 11px;">Click-through rate en las reseñas de temporada.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-settings" class="animate-view" style="display: none;">
+            <header class="mb-4">
+                <h2 class="section-title display-6 mb-0">Configuración de Archivo</h2>
+            </header>
+            <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                    <div class="sakura-card p-4 h-100">
+                        <h3 class="h6 text-uppercase fw-bold mb-4 font-headline" style="color: var(--accent); letter-spacing: 0.16em;">Preferencias Globales</h3>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <p class="mb-0 small text-white">Modo Mantenimiento (Servidor Offline)</p>
+                            <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" /></div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <p class="mb-0 small text-white">Filtro de Lenguaje IA Activo</p>
+                            <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked /></div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="mb-0 small text-white">Notificaciones Live Pusher</p>
+                            <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="sakura-card p-4 h-100">
+                        <h3 class="h6 text-uppercase fw-bold mb-4 font-headline" style="color: var(--accent-hot); letter-spacing: 0.16em;">Acceso y Enlaces</h3>
+                        <div class="mb-4">
+                            <p class="mb-2 text-uppercase text-muted-admin" style="font-size: 10px;">Backup Location</p>
+                            <input type="text" value="Cloud-Server: AWS-Tokyo-Node" class="form-control form-control-admin" disabled />
+                        </div>
+                        <button class="btn w-100 text-uppercase fw-bold font-headline" style="letter-spacing: 0.12em; color: var(--accent-hot); border: 1px solid rgba(244, 114, 182, 0.3);">Sincronizar Hash de Seguridad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-database" style="display: none;"></div>
+        <div id="view-security" style="display: none;"></div>
+        <div id="view-reports" style="display: none;"></div>
+    </main>
+
+    <div id="modal-article" class="position-fixed top-0 start-0 w-100 h-100 hidden sakura-modal-bg align-items-center justify-content-center" style="z-index: 1100;">
+        <div class="sakura-card p-4 p-lg-5 w-100 mx-3" style="max-width: 720px; background: var(--bg-elevated); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <form id="form-article">
+                <h3 class="h4 text-uppercase text-white fw-bold font-headline mb-4">Nuevo Artículo</h3>
+                <input type="text" id="art-title" placeholder="Título" class="form-control form-control-admin mb-3" />
+                <select id="art-category" class="form-select form-select-admin mb-3">
+                    <option>Shonen</option>
+                    <option>Seinen</option>
+                </select>
+                <textarea id="art-body" placeholder="Cuerpo" rows="5" class="form-control form-control-admin mb-4"></textarea>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <button type="submit" class="btn w-100 text-uppercase fw-bold font-headline" style="letter-spacing: 0.12em; background: var(--accent); color: var(--bg);">Publicar</button>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <button type="button" onclick="closeArticleModal()" class="btn w-100 text-uppercase fw-bold font-headline text-white border border-light border-opacity-10" style="letter-spacing: 0.12em;">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

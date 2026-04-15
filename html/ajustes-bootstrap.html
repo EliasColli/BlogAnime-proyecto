@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SAKURABLOG | Ajustes</title>
+    <meta name="theme-color" content="#0a0614"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+    <style>
+        .password-toggle-icon {
+            width: 42px;
+            min-width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+        .password-toggle-icon:hover {
+            background: rgba(255,255,255,0.16);
+            border-color: rgba(255,255,255,0.32);
+            transform: translateY(-1px);
+        }
+        .password-toggle-icon span {
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+        .password-toggle-icon.active {
+            background: rgba(167,139,250,0.18);
+            border-color: rgba(167,139,250,0.55);
+            color: #d7c5ff;
+        }
+        .password-toggle-icon:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(167,139,250,0.25);
+        }
+        .input-group .form-control {
+            border-top-right-radius: 0.8rem;
+            border-bottom-right-radius: 0.8rem;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<header class="navbar navbar-expand-md navbar-dark sakura-topnav fixed-top">
+    <div class="container-xxl px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index-bootstrap.html">
+            <img src="../img/logo_sakurablog.png" alt="Logo" style="height: 28px; width: auto;">
+            <span class="sakura-brand fs-4 m-0 text-white">SAKURABLOG</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sakuraNavbar" aria-controls="sakuraNavbar" aria-expanded="false" aria-label="Abrir menú">
+            <span class="material-symbols-outlined text-white">menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="sakuraNavbar">
+            <ul class="navbar-nav me-auto ms-md-4 align-items-md-center gap-3 gap-lg-4" style="font-size: 0.9rem;">
+                <li class="nav-item"><a class="nav-link sakura-link" href="index-bootstrap.html">INICIO</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="tendencias-bootstrap.html">EMISIÓN</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="article-bootstrap.html">RESEÑAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="rankings-bootstrap.html">RANKINGS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="ultimo-bootstrap.html">ULTIMAS NOTICIAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="cultura-bootstrap.html">CULTURA</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="temporadas-bootstrap.html">TEMPORADAS</a></li>
+                <li class="nav-item"><a class="nav-link sakura-link" href="nosotros-bootstrap.html">NOSOTROS</a></li>
+                <li class="nav-item me-md-4 me-lg-5 mb-3 mb-md-0"><a class="nav-link sakura-link" href="panel_escritor-bootstrap.html">ESCRIBIR</a></li>
+            </ul>
+            <div id="auth-section" class="d-flex align-items-center ms-md-4 mt-3 mt-md-0 gap-3">
+                <a href="login-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Iniciar Sesión">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">login</span>
+                </a>
+                <a href="register-bootstrap.html" class="text-white opacity-75 text-decoration-none d-flex align-items-center" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'" title="Registro">
+                    <span class="material-symbols-outlined" translate="no" style="font-size: 24px;">person_add</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="settings-shell ab-main-single flex-grow-1">
+    <div class="container-xxl px-3">
+        <div class="row g-4">
+            <aside class="col-12 col-lg-3 settings-tabs">
+                <p class="settings-label mb-3">Configuración</p>
+                <button type="button" id="btn-perfil" class="tab-btn active">Perfil</button>
+                <button type="button" id="btn-interfaz" class="tab-btn">Interfaz y lectura</button>
+                <button type="button" id="btn-notificaciones" class="tab-btn">Notificaciones</button>
+                <button type="button" id="btn-mis-resenas" class="tab-btn">Mis reseñas</button>
+                <button type="button" id="btn-seguridad" class="tab-btn">Seguridad y datos</button>
+            </aside>
+
+            <section class="col-12 col-lg-9">
+                <div class="settings-card p-4 p-md-5 position-relative">
+                    <header class="mb-4 mb-md-5 pb-3 border-bottom d-flex flex-wrap justify-content-between align-items-start gap-3" style="border-color:var(--outline)!important;">
+                        <div>
+                            <h1 class="sakura-brand text-white mb-2" style="font-size:2rem;">Tu perfil</h1>
+                            <p class="text-uppercase sakura-muted mb-0" style="font-size:10px; letter-spacing:0.2em;">
+                                Datos de cuenta, apariencia, avisos y privacidad
+                            </p>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="panel_escritor-bootstrap.html" class="btn btn-sm btn-outline-light text-uppercase fw-bold" style="font-size:10px; letter-spacing:0.14em;">Escribir reseña</a>
+                            <a href="article-bootstrap.html" class="btn btn-sm sakura-primary-btn text-uppercase fw-bold" style="font-size:10px; letter-spacing:0.14em;">Mis lecturas</a>
+                        </div>
+                    </header>
+
+                    <form id="settingsForm" class="position-relative">
+                        <!-- Perfil -->
+                        <div id="view-perfil" class="view-section active mb-4">
+                            <h2 class="settings-label mb-3 text-white">Identidad pública</h2>
+                            <div class="d-flex flex-column flex-md-row align-items-start gap-4 mb-4">
+                                <img id="userAvatar"
+                                     src="../img/logo_sakurablog.png"
+                                     class="rounded-circle border object-fit-cover bg-dark"
+                                     style="width:96px; height:96px; border-color:var(--outline)!important;"
+                                     alt="Avatar">
+                                <div class="flex-grow-1 w-100" style="max-width:480px;">
+                                    <label for="avatarUrl" class="settings-label mb-1 d-block">URL del avatar</label>
+                                    <input id="avatarUrl" type="url" class="form-control settings-input mb-2" placeholder="https://… (imagen cuadrada recomendada)">
+                                    <button type="button" id="previewAvatarBtn"
+                                        class="btn btn-sm px-3 py-2 mb-1 text-uppercase fw-bold sakura-muted border"
+                                        style="font-size:10px; letter-spacing:0.16em; border-color:var(--outline)!important;"
+                                        onclick="window.open('https://gravatar.com/profile/avatars', '_blank')">
+                                        Vista previa
+                                    </button>
+                                    <p class="mb-0 sakura-muted" style="font-size:10px;">JPG, PNG o WebP. Si la URL falla, se usará el logo del sitio.</p>
+                                    <div id="gravatarPrompt" class="d-none mt-2 p-2 rounded-2" style="background:rgba(255,100,150,0.1); border:1px solid rgba(255,100,150,0.3);">
+                                        <p class="mb-2 text-white" style="font-size:11px;">Al parecer no tienes una foto en Gravatar y se ha generado una por defecto. ¡Puedes crear tu perfil oficial en Gravatar usando el mismo correo de Sakurablog para personalizarla!</p>
+                                        <a href="https://gravatar.com/" target="_blank" class="btn btn-sm text-uppercase fw-bold text-white px-2 py-1" style="font-size:9px; letter-spacing:0.14em; background:rgba(255,100,150,0.5);">Ir a Gravatar</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="username" class="settings-label mb-1 d-block">Nombre visible</label>
+                                    <input id="username" type="text" class="form-control settings-input" placeholder="Tu nombre o alias" autocomplete="nickname">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="settings-label mb-1 d-block">Correo electrónico</label>
+                                    <input id="email" type="email" class="form-control settings-input" placeholder="correo@ejemplo.com" autocomplete="email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="userLocation" class="settings-label mb-1 d-block">Ubicación (opcional)</label>
+                                    <input id="userLocation" type="text" class="form-control settings-input" placeholder="Ciudad / país" autocomplete="address-level1">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="userWebsite" class="settings-label mb-1 d-block">Sitio o portafolio (opcional)</label>
+                                    <input id="userWebsite" type="url" class="form-control settings-input" placeholder="https://tu-sitio.com" autocomplete="url">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="userBio" class="settings-label mb-1 d-block">Biografía corta</label>
+                                <textarea id="userBio" class="form-control settings-input" rows="4" maxlength="500" placeholder="Quién eres, qué te gusta leer o escribir en SakuraBlog…"></textarea>
+                                <p class="mt-1 mb-0 sakura-muted" style="font-size:10px;"><span id="bioCharCount">0</span> / 500</p>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="socialDiscord" class="settings-label mb-1 d-block">Discord / usuario social (opcional)</label>
+                                    <input id="socialDiscord" type="text" class="form-control settings-input" placeholder="@usuario">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="socialTwitter" class="settings-label mb-1 d-block">X (Twitter) u otra red (opcional)</label>
+                                    <input id="socialTwitter" type="text" class="form-control settings-input" placeholder="@cuenta o URL">
+                                </div>
+                            </div>
+
+                            <div class="mt-4 p-3 rounded-3 d-flex flex-wrap align-items-center gap-3" style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <div>
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Rol en la redacción</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Visible en el panel y al publicar.</p>
+                                </div>
+                                <span id="userRoleBadge" class="badge rounded-pill px-3 py-2 text-uppercase fw-bold" style="background:rgba(167,139,250,.2); color:var(--primary); border:1px solid rgba(196,181,253,.35); font-size:10px; letter-spacing:0.12em;">—</span>
+                                <span class="sakura-muted small ms-md-auto" id="memberSinceText" style="font-size:10px; letter-spacing:0.12em;">Miembro desde —</span>
+                            </div>
+                        </div>
+
+                        <!-- Interfaz -->
+                        <div id="view-interfaz" class="view-section mb-4">
+                            <h2 class="settings-label mb-3 text-white">Interfaz y lectura</h2>
+                            <p class="sakura-muted small mb-4">Estas opciones se guardan en este navegador y se aplican al cargar el sitio.</p>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3"
+                                 style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <div class="me-3">
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Vista compacta en listas</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Menos espacio entre bloques en reseñas y feeds.</p>
+                                </div>
+                                <div class="form-check form-switch m-0">
+                                    <input class="form-check-input" type="checkbox" id="toggleCompact">
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3"
+                                 style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <div class="me-3">
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Reducir animaciones</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Menos transiciones y desplazamientos (mejor accesibilidad).</p>
+                                </div>
+                                <div class="form-check form-switch m-0">
+                                    <input class="form-check-input" type="checkbox" id="toggleReduceMotion">
+                                </div>
+                            </div>
+
+                            <div class="mb-2" style="max-width:320px;">
+                                <label for="languagePref" class="settings-label mb-1 d-block">Idioma de la interfaz</label>
+                                <select id="languagePref" class="form-select settings-input">
+                                    <option value="es">Español</option>
+                                    <option value="en">English (parcial)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Notificaciones -->
+                        <div id="view-notificaciones" class="view-section mb-4">
+                            <h2 class="settings-label mb-3 text-white">Notificaciones por correo</h2>
+                            <p class="sakura-muted small mb-4">Preferencias guardadas en tu cuenta (local en modo demo). En producción enlazarían al servicio de correo.</p>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3"
+                                 style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <div class="me-3">
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Reseñas y destacados</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Aviso cuando haya piezas editoriales destacadas.</p>
+                                </div>
+                                <div class="form-check form-switch m-0">
+                                    <input class="form-check-input" type="checkbox" id="toggleNotifFeatured">
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3"
+                                 style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <div class="me-3">
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Actividad del equipo</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Resumen semanal de nuevas entradas y tendencias.</p>
+                                </div>
+                                <div class="form-check form-switch m-0">
+                                    <input class="form-check-input" type="checkbox" id="toggleNotifDigest">
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3"
+                                 style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <div class="me-3">
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Comunicación promocional</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Eventos, encuestas y novedades del blog (pocas veces al mes).</p>
+                                </div>
+                                <div class="form-check form-switch m-0">
+                                    <input class="form-check-input" type="checkbox" id="toggleNotifMarketing">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mis reseñas -->
+                        <div id="view-mis-resenas" class="view-section mb-4">
+                            <h2 class="settings-label mb-2 text-white">Mis reseñas</h2>
+                            <p class="sakura-muted small mb-4">Reseñas publicadas con tu nombre. Puedes abrirlas en el magazine, editarlas o eliminarlas.</p>
+                            <div id="my-reviews-loading" class="sakura-muted small mb-3 d-none">Cargando…</div>
+                            <div id="my-reviews-empty" class="p-4 rounded-3 d-none" style="background:rgba(0,0,0,.35); border:1px solid var(--outline);">
+                                <p class="mb-2 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Aún no hay reseñas</p>
+                                <p class="mb-3 sakura-muted small">Cuando publiques desde el panel de escritor, aparecerán aquí.</p>
+                                <a href="panel_escritor-bootstrap.html" class="btn btn-sm sakura-primary-btn text-uppercase fw-bold" style="font-size:10px; letter-spacing:0.14em;">Escribir reseña</a>
+                            </div>
+                            <div id="my-reviews-list" class="d-flex flex-column gap-3"></div>
+                        </div>
+
+                        <!-- Seguridad -->
+                        <div id="view-seguridad" class="view-section mb-4">
+                            <h2 class="settings-label mb-3 text-white">Seguridad y datos personales</h2>
+
+                            <div class="row g-3 mb-4" style="max-width:520px;">
+                                <div class="col-12">
+                                    <label for="current-password" class="settings-label mb-1 d-block">Contraseña actual</label>
+                                    <div class="input-group">
+                                        <input id="current-password" type="password" class="form-control settings-input" placeholder="Solo si vas a cambiar la contraseña" autocomplete="current-password">
+                                        <span class="password-toggle-icon" data-password-toggle="current-password" aria-label="Mostrar contraseña" role="button" tabindex="0">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="new-password" class="settings-label mb-1 d-block">Nueva contraseña</label>
+                                    <div class="input-group">
+                                        <input id="new-password" type="password" class="form-control settings-input" placeholder="Mín. 8 caracteres" autocomplete="new-password">
+                                        <span class="password-toggle-icon" data-password-toggle="new-password" aria-label="Mostrar contraseña" role="button" tabindex="0">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="confirm-password" class="settings-label mb-1 d-block">Confirmar nueva</label>
+                                    <div class="input-group">
+                                        <input id="confirm-password" type="password" class="form-control settings-input" placeholder="Repite la nueva" autocomplete="new-password">
+                                        <span class="password-toggle-icon" data-password-toggle="confirm-password" aria-label="Mostrar contraseña" role="button" tabindex="0">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="sakura-muted small mb-4" style="max-width:560px;">Deja en blanco los tres campos si no quieres cambiar la contraseña. Tras un cambio correcto en modo local, te pediremos iniciar sesión de nuevo.</p>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-4" style="background:rgba(0,0,0,.35); border:1px solid var(--outline); max-width:560px;">
+                                <div class="me-3">
+                                    <p class="mb-1 text-uppercase fw-bold text-white" style="font-size:11px; letter-spacing:0.16em;">Perfil visible para la comunidad</p>
+                                    <p class="mb-0 sakura-muted" style="font-size:11px;">Si lo desactivas, ocultamos tu bio y redes en vistas públicas (cuando la app lo soporte).</p>
+                                </div>
+                                <div class="form-check form-switch m-0">
+                                    <input class="form-check-input" type="checkbox" id="toggleProfilePublic" checked>
+                                </div>
+                            </div>
+
+                            <div class="p-3 rounded-3 mb-4" style="background:rgba(0,0,0,.35); border:1px solid var(--outline); max-width:560px;">
+                                <p class="text-uppercase fw-bold text-white mb-2" style="font-size:11px; letter-spacing:0.16em;">Tus datos</p>
+                                <p class="sakura-muted small mb-3">Puedes exportar una copia básica de lo guardado en este navegador (modo demo).</p>
+                                <button type="button" id="exportDataBtn" class="btn btn-sm btn-outline-light text-uppercase fw-bold" style="font-size:10px; letter-spacing:0.14em;">
+                                    <span class="material-symbols-outlined align-middle me-1" style="font-size:16px;">download</span>
+                                    Descargar JSON de perfil
+                                </button>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-3 mb-3 align-items-center">
+                                <a href="terminos_condiciones-bootstrap.html" class="sakura-muted small text-decoration-none text-uppercase" style="font-size:10px; letter-spacing:0.14em;">Términos</a>
+                                <span class="sakura-muted" style="font-size:10px;">·</span>
+                                <a href="nosotros-bootstrap.html" class="sakura-muted small text-decoration-none text-uppercase" style="font-size:10px; letter-spacing:0.14em;">Nosotros</a>
+                            </div>
+
+                            <div class="ab-warning-box" style="max-width:560px;">
+                                <div class="d-flex align-items-start gap-2">
+                                    <span class="material-symbols-outlined">shield</span>
+                                    <div>
+                                        <p class="ab-warning-title mb-1">Contraseña segura</p>
+                                        <p class="mb-0">Usa al menos 8 caracteres, mezcla letras, números y símbolos. No reutilices la contraseña de otros sitios.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 mt-4 border-top d-flex flex-column flex-lg-row justify-content-between align-items-stretch align-items-lg-center gap-3" style="border-color:var(--outline)!important;">
+                            <div class="d-flex flex-column flex-sm-row flex-wrap gap-2">
+                                <button type="button" id="logoutSettingsBtn" class="btn btn-outline-light btn-sm text-uppercase fw-bold" style="font-size:10px; letter-spacing:0.14em;">
+                                    <span class="material-symbols-outlined align-middle me-1" style="font-size:16px;">logout</span>
+                                    Cerrar sesión
+                                </button>
+                                <button type="button" id="deleteAccountBtn"
+                                        class="btn btn-link text-decoration-none d-inline-flex align-items-center gap-1 p-0 align-self-start"
+                                        style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#f87171;">
+                                    <span class="material-symbols-outlined" style="font-size:16px;">delete_forever</span>
+                                    Eliminar cuenta
+                                </button>
+                            </div>
+
+                            <button type="button" id="saveSettingsBtn"
+                                    class="btn sakura-primary-btn px-4 py-2 text-uppercase align-self-lg-end" data-settings-save>
+                                <span class="material-symbols-outlined me-1 align-middle" style="font-size:16px;">save</span>
+                                Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="editReviewModal" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content text-white border-0 rounded-3" style="background:linear-gradient(145deg,#130e24,#0a0614); border:1px solid var(--outline)!important;">
+            <div class="modal-header border-0 pb-0">
+                <h2 class="modal-title text-uppercase fw-bold text-white mb-0" id="editReviewModalLabel" style="font-size:11px; letter-spacing:0.18em;">Editar reseña</h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body pt-2">
+                <input type="hidden" id="editReviewId" value="">
+                <div class="mb-3">
+                    <label for="editReviewTitle" class="settings-label mb-1 d-block">Título</label>
+                    <input id="editReviewTitle" type="text" class="form-control settings-input" maxlength="255">
+                </div>
+                <div class="mb-3">
+                    <label for="editReviewCategory" class="settings-label mb-1 d-block">Categoría</label>
+                    <select id="editReviewCategory" class="form-select settings-input">
+                        <option value="Shonen">Shonen</option>
+                        <option value="Seinen">Seinen</option>
+                        <option value="Isekai">Isekai</option>
+                        <option value="Shojo">Shojo</option>
+                        <option value="Mecha">Mecha / Sci-Fi</option>
+                        <option value="Slice of Life">Slice of Life</option>
+                        <option value="Horror">Horror / Psicológico</option>
+                        <option value="Cyberpunk">Cyberpunk</option>
+                        <option value="Deportes">Deportes</option>
+                        <option value="Reseñas">Reseñas</option>
+                        <option value="Recomendaciones">Recomendaciones</option>
+                        <option value="Cultura">Cultura</option>
+                        <option value="Noticias">Noticias</option>
+                        <option value="Rankings">Rankings</option>
+                        <option value="Bandas Sonoras">OST / Música</option>
+                        <option value="Sin Categoría">Sin categoría</option>
+                    </select>
+                </div>
+                <div class="mb-0">
+                    <label for="editReviewContent" class="settings-label mb-1 d-block">Contenido</label>
+                    <textarea id="editReviewContent" class="form-control settings-input" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0 flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-light btn-sm text-uppercase fw-bold" data-bs-dismiss="modal" style="font-size:10px; letter-spacing:0.14em;">Cancelar</button>
+                <button type="button" id="editReviewSaveBtn" class="btn sakura-primary-btn btn-sm text-uppercase fw-bold" style="font-size:10px; letter-spacing:0.14em;">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4 mt-auto sakura-muted text-uppercase" style="font-size:10px; letter-spacing:0.22em; border-top:1px solid var(--outline);">
+    <span>©2024 SAKURABLOG · Ajustes de cuenta</span>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="../js/script.js"></script>
+<script>
+(function () {
+    const API_URL = typeof window.API_URL !== 'undefined' ? window.API_URL : 'http://localhost:3000/api';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const raw = localStorage.getItem('currentUser');
+        const currentUser = raw ? JSON.parse(raw) : null;
+        if (!currentUser) {
+            window.location.href = 'login-bootstrap.html';
+            return;
+        }
+
+        const $ = (id) => document.getElementById(id);
+
+        const tabs = [
+            { btn: $('btn-perfil'), view: $('view-perfil'), id: 'perfil' },
+            { btn: $('btn-interfaz'), view: $('view-interfaz'), id: 'interfaz' },
+            { btn: $('btn-notificaciones'), view: $('view-notificaciones'), id: 'notificaciones' },
+            { btn: $('btn-mis-resenas'), view: $('view-mis-resenas'), id: 'mis-resenas' },
+            { btn: $('btn-seguridad'), view: $('view-seguridad'), id: 'seguridad' }
+        ];
+
+        const saveSettingsBtn = document.querySelector('[data-settings-save]');
+        function setSettingsSaveVisible(visible) {
+            if (saveSettingsBtn) saveSettingsBtn.classList.toggle('d-none', !visible);
+        }
+
+        const myReviewsCtl =
+            typeof window.initSakuraAjustesMyReviews === 'function'
+                ? window.initSakuraAjustesMyReviews(currentUser)
+                : null;
+
+        tabs.forEach((tab) => {
+            if (!tab.btn || !tab.view) return;
+            tab.btn.addEventListener('click', () => {
+                tabs.forEach((t) => {
+                    if (t.btn) t.btn.classList.remove('active');
+                    if (t.view) t.view.classList.remove('active');
+                });
+                tab.btn.classList.add('active');
+                tab.view.classList.add('active');
+                const isMis = tab.id === 'mis-resenas';
+                setSettingsSaveVisible(!isMis);
+                if (isMis && myReviewsCtl) myReviewsCtl.loadMyReviews();
+            });
+        });
+
+        const s = currentUser.settings || {};
+        const defaultSettings = {
+            theme: 'dark',
+            compact: false,
+            reduceMotion: false,
+            language: 'es',
+            notifFeatured: true,
+            notifDigest: false,
+            notifMarketing: false,
+            profilePublic: true
+        };
+        Object.keys(defaultSettings).forEach((k) => {
+            if (s[k] === undefined) s[k] = defaultSettings[k];
+        });
+
+        $('username').value = currentUser.name || '';
+        $('email').value = currentUser.email || '';
+        $('userBio').value = currentUser.bio || '';
+        $('userLocation').value = currentUser.location || '';
+        $('userWebsite').value = currentUser.website || '';
+        $('socialDiscord').value = (currentUser.social && currentUser.social.discord) || '';
+        $('socialTwitter').value = (currentUser.social && currentUser.social.twitter) || '';
+        $('avatarUrl').value = currentUser.avatarUrl || '';
+
+        document.querySelectorAll('[data-password-toggle]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.passwordToggle);
+                if (!target) return;
+                const isPassword = target.type === 'password';
+                target.type = isPassword ? 'text' : 'password';
+                const icon = btn.querySelector('span');
+                if (icon) icon.textContent = isPassword ? 'visibility_off' : 'visibility';
+                btn.setAttribute('aria-label', isPassword ? 'Ocultar contraseña' : 'Mostrar contraseña');
+                btn.classList.toggle('active', isPassword);
+            });
+            btn.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    btn.click();
+                }
+            });
+        });
+
+        $('toggleCompact').checked = !!s.compact;
+        $('toggleReduceMotion').checked = !!s.reduceMotion;
+        $('toggleNotifFeatured').checked = s.notifFeatured !== false;
+        $('toggleNotifDigest').checked = !!s.notifDigest;
+        $('toggleNotifMarketing').checked = !!s.notifMarketing;
+        $('toggleProfilePublic').checked = s.profilePublic !== false;
+
+        const themeRadios = document.querySelectorAll('input[name="themePref"]');
+        const themeVal = s.theme === 'light' ? 'light' : 'dark';
+        themeRadios.forEach((r) => {
+            r.checked = r.value === themeVal;
+            r.addEventListener('change', () => {
+                document.documentElement.classList.toggle('dark', r.value === 'dark');
+            });
+        });
+
+        $('languagePref').value = s.language === 'en' ? 'en' : 'es';
+
+        const roleBadge = $('userRoleBadge');
+        if (roleBadge) {
+            roleBadge.textContent = (currentUser.role || 'USER').replace(/_/g, ' ');
+        }
+        const memberEl = $('memberSinceText');
+        if (memberEl) {
+            const since = currentUser.createdAt || currentUser.memberSince;
+            if (since) {
+                try {
+                    memberEl.textContent =
+                        'Miembro desde ' +
+                        new Date(since).toLocaleDateString('es', { year: 'numeric', month: 'short', day: 'numeric' });
+                } catch (e) {
+                    memberEl.textContent = 'Miembro desde —';
+                }
+            } else {
+                memberEl.textContent = 'Miembro desde —';
+            }
+        }
+
+        const bio = $('userBio');
+        const bioCount = $('bioCharCount');
+        function refreshBioCount() {
+            if (bio && bioCount) bioCount.textContent = String((bio.value || '').length);
+        }
+        bio.addEventListener('input', refreshBioCount);
+        refreshBioCount();
+
+        function applyAvatarPreview(url) {
+            const img = $('userAvatar');
+            if (!img) return;
+            const u = (url || '').trim();
+            if (!u) {
+                img.src = '../img/logo_sakurablog.png';
+                return;
+            }
+            img.onerror = () => {
+                img.onerror = null;
+                img.src = '../img/logo_sakurablog.png';
+            };
+            img.src = u;
+        }
+        $('previewAvatarBtn').addEventListener('click', () => applyAvatarPreview($('avatarUrl').value));
+
+        let currentAvatar = currentUser.avatarUrl || '';
+        if (currentUser.email && typeof CryptoJS !== 'undefined') {
+            const hash = CryptoJS.MD5(currentUser.email.trim().toLowerCase()).toString();
+            const gravatarUrl = `https://www.gravatar.com/avatar/${hash}?d=identicon&s=400`;
+            const checkUrl = `https://www.gravatar.com/avatar/${hash}?d=404&s=400`;
+            
+            if (!currentAvatar || currentAvatar.includes('gravatar.com')) {
+                currentAvatar = gravatarUrl;
+                $('avatarUrl').value = currentAvatar;
+                
+                const imgCheck = new Image();
+                imgCheck.onload = function() {
+                    const el = $('gravatarPrompt');
+                    if (el) el.classList.add('d-none');
+                };
+                imgCheck.onerror = function() {
+                    const el = $('gravatarPrompt');
+                    if (el) el.classList.remove('d-none');
+                };
+                imgCheck.src = checkUrl;
+            }
+        }
+        applyAvatarPreview(currentAvatar);
+
+        $('saveSettingsBtn').addEventListener('click', () => {
+            const newName = $('username').value.trim();
+            const newEmail = $('email').value.trim();
+            const bioVal = $('userBio').value.trim();
+            const loc = $('userLocation').value.trim();
+            const web = $('userWebsite').value.trim();
+            const disc = $('socialDiscord').value.trim();
+            const tw = $('socialTwitter').value.trim();
+            const avatar = $('avatarUrl').value.trim();
+
+            const curPw = $('current-password').value;
+            const newPw = $('new-password').value;
+            const confPw = $('confirm-password').value;
+
+            if (!newName || !newEmail) {
+                alert('El nombre visible y el correo no pueden estar vacíos.');
+                return;
+            }
+
+            if (newPw || confPw || curPw) {
+                if (newPw.length < 8) {
+                    alert('La nueva contraseña debe tener al menos 8 caracteres.');
+                    return;
+                }
+                if (newPw !== confPw) {
+                    alert('La confirmación de la nueva contraseña no coincide.');
+                    return;
+                }
+            }
+
+            const themeEl = document.querySelector('input[name="themePref"]:checked');
+            const theme = themeEl && themeEl.value === 'light' ? 'light' : 'dark';
+
+            currentUser.name = newName;
+            currentUser.email = newEmail;
+            currentUser.bio = bioVal;
+            currentUser.location = loc;
+            currentUser.website = web;
+            currentUser.avatarUrl = avatar || undefined;
+            currentUser.social = { discord: disc || undefined, twitter: tw || undefined };
+
+            currentUser.settings = {
+                theme,
+                compact: $('toggleCompact').checked,
+                reduceMotion: $('toggleReduceMotion').checked,
+                language: $('languagePref').value,
+                notifFeatured: $('toggleNotifFeatured').checked,
+                notifDigest: $('toggleNotifDigest').checked,
+                notifMarketing: $('toggleNotifMarketing').checked,
+                profilePublic: $('toggleProfilePublic').checked
+            };
+
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+            document.documentElement.classList.toggle('reduce-motion', !!currentUser.settings.reduceMotion);
+            try {
+                localStorage.setItem('sakura_theme', theme);
+                localStorage.setItem('sakura_reduce_motion', currentUser.settings.reduceMotion ? '1' : '0');
+            } catch (e) {}
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const userIndex = users.findIndex((u) => u.id === currentUser.id);
+            let requiresRelogin = false;
+
+            if (userIndex !== -1) {
+                users[userIndex].name = newName;
+                users[userIndex].email = newEmail;
+                if (newPw) {
+                    if (users[userIndex].password && users[userIndex].password !== curPw) {
+                        alert('La contraseña actual no coincide con la guardada en este dispositivo (modo demo).');
+                        return;
+                    }
+                    users[userIndex].password = newPw;
+                    currentUser.password = newPw;
+                    requiresRelogin = true;
+                }
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
+            applyAvatarPreview(avatar);
+
+            if (requiresRelogin) {
+                localStorage.removeItem('currentUser');
+                $('current-password').value = '';
+                $('new-password').value = '';
+                $('confirm-password').value = '';
+                alert('Contraseña actualizada. Inicia sesión nuevamente.');
+                window.location.href = 'login-bootstrap.html';
+                return;
+            }
+
+            if (!currentUser.memberSince) currentUser.memberSince = new Date().toISOString();
+
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            alert('Ajustes guardados correctamente.');
+        });
+
+        $('exportDataBtn').addEventListener('click', () => {
+            const exportObj = {
+                name: currentUser.name,
+                email: currentUser.email,
+                role: currentUser.role,
+                bio: currentUser.bio,
+                location: currentUser.location,
+                website: currentUser.website,
+                social: currentUser.social,
+                settings: currentUser.settings,
+                exportedAt: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'sakurablog-perfil.json';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+        $('logoutSettingsBtn').addEventListener('click', async () => {
+            try {
+                await fetch(API_URL + '/auth/logout', { method: 'POST', credentials: 'include' });
+            } catch (e) {}
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login-bootstrap.html';
+        });
+
+        $('deleteAccountBtn').addEventListener('click', () => {
+            if (!confirm('¿Seguro que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')) return;
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users = users.filter((u) => u.id !== currentUser.id);
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.removeItem('currentUser');
+            try {
+                fetch(API_URL + '/auth/logout', { method: 'POST', credentials: 'include' });
+            } catch (e) {}
+            alert('Cuenta eliminada.');
+            window.location.href = 'index-bootstrap.html';
+        });
+    });
+})();
+</script>
+</body>
+</html>
